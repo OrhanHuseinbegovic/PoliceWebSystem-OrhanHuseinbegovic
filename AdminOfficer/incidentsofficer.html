@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/Police.png" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../css/manual.css" rel="stylesheet" />
+        <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!--Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">Police System</div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="casesofficer.html">Cases</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="activitylogofficer.html">Activity Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="incidentlogofficer.html">Incident Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="equipmentusageofficer.html">Equipment usage</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="officersofficer.html">Officers </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="suspectsofficer.html">Suspects</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="incidentsofficer.html">Incidents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="profileofficer.html">Profile</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="indexofficer.html">Home</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">My profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#!">Log out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid">
+                <div class="container-fluid, text-center">
+                    <h1 class="mt-4">Incidents table</h1>
+                    <div class="container mt-5">
+                    
+                        <!-- Buttons -->
+                        <div class="mb-3">
+                          <button class="btn btn-primary" id="addRowBtn">Add</button>
+                          <button class="btn btn-warning" id="editRowBtn">Edit</button>
+                          <button class="btn btn-danger" id="deleteRowBtn">Remove</button>
+                        </div>
+                      
+                        <!-- Datatable -->
+                        <table id="dataTable" class="table-responsive ">
+                          <thead>
+                            <tr>
+                              <th>Incident ID</th>
+                              <th>Officer ID</th>
+                              <th>Type</th>
+                              <th>Location</th>
+                              <th>Date</th>
+                              <th>Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <td>123</td>
+                                <td>Something</td>
+                                <td>01_123</td>
+                                <td>41213</td>
+                                <td>12454</td>
+                                <td>Today at that time something happened at that street and people gathered. This is just example of how would this look in a table</td>
+                            </tr>
+                            <tr>
+                                <td>123</td>
+                                <td>Something</td>
+                                <td>01_123</td>
+                                <td>41213</td>
+                                <td>12454</td>
+                                <td>Morning</td>
+                            </tr>
+                            <tr>
+                                <td>123</td>
+                                <td>Something</td>
+                                <td>01_123</td>
+                                <td>41213</td>
+                                <td>12454</td>
+                                <td>Morning</td>
+                            </tr>
+                            <tr>
+                                <td>123</td>
+                                <td>Something</td>
+                                <td>01_123</td>
+                                <td>41213</td>
+                                <td>12454</td>
+                                <td>Morning</td>
+                            </tr>
+                            <tr>
+                                <td>123</td>
+                                <td>Something</td>
+                                <td>01_123</td>
+                                <td>41213</td>
+                                <td>12454</td>
+                                <td>Morning</td>
+                            </tr>
+                            <tr>
+                                <td>123</td>
+                                <td>Something</td>
+                                <td>01_123</td>
+                                <td>41213</td>
+                                <td>12454</td>
+                                <td>Morning</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      
+                      <!-- Bootstrap JS -->
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+                      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                      <!-- DataTables JS -->
+                      <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+                      
+                      <script>
+                        $(document).ready(function() {
+                          // Initialize the datatable
+                          var table = $('#dataTable').DataTable();
+                      
+                          // Add Row button functionality
+                          $('#addRowBtn').on('click', function() {
+                            table.row.add(['New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data']).draw();
+                          });
+                      
+                          // Edit Row button functionality
+                          $('#editRowBtn').on('click', function() {
+                            var selectedRowData = table.row({ selected: true }).data();
+                            if (selectedRowData) {
+                              // Replace data with edited values
+                              selectedRowData[0] = 'Edited Data';
+                              selectedRowData[1] = 'Edited Data';
+                              selectedRowData[2] = 'Edited Data';
+                              selectedRowData[3] = 'Edited Data';
+                              selectedRowData[4] = 'Edited Data';
+                              selectedRowData[5] = 'Edited Data';
+                              
+                              table.row({ selected: true }).data(selectedRowData).draw();
+                            }
+                          });
+                      
+                          // Remove Row button functionality
+                          $('#deleteRowBtn').on('click', function() {
+                            table.row({ selected: true }).remove().draw();
+                          });
+                      
+                          // Initialize datatable search functionality
+                          $('#dataTable').DataTable();
+                        });
+                      </script>
+                   </div>
+                 </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
