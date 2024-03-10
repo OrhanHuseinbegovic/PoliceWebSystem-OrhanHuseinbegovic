@@ -5,30 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <title>Police Web System</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../assets/Police.png" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css/styles.css" rel="stylesheet" />
-        <link href="../css/manual.css" rel="stylesheet" />
         <link href="../css/cases.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/manual.css">
     </head>
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Police System<span><img src="../assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
+                <div class="sidebar-heading border-bottom bg-light">Police System <span><img src="../assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="casesofficer.html">Cases</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="activitylogofficer.html">Activity Log</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="incidentlogofficer.html">Incident Log</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="equipmentusageofficer.html">Equipment usage</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="officersofficer.html">Officers </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="suspectsofficer.html">Suspects</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="incidentsofficer.html">Incidents</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="profileofficer.html">Profile</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cases.html">Cases</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="activitylog.html">Activity Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="incidentlog.html">Incident Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="suspects.html">Suspects</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="profile.html">Profile</a>
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -40,13 +35,13 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="indexofficer.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="indexuser.html">Home</a></li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="profileofficer.html">My profile</a>
+                                        <a class="dropdown-item" href="profile.html">My profile</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#!">Log out</a>
+                                        <a class="dropdown-item" href="../login.html">Log out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -54,56 +49,8 @@
                     </div>
                 </nav>
                 <!-- Page content-->
-                <div class="container-fluid"></div>
-                <div class="container-fluid, text-center">
-                    <div class="container mt-5">
-                        <h1>Create a new case: </h1>
-                        <form action="/submit" method="post">
-                          <!-- Case Name Input -->
-                          <div class="form-group">
-                            <label for="caseName">Case Name:</label>
-                            <input type="text" class="form-control" id="caseName" placeholder="Enter case name" required>
-                          </div>
-                      
-                          <!-- Case Description Input -->
-                          <div class="form-group">
-                            <label for="caseDescription">Case Description:</label>
-                            <textarea class="form-control" id="caseDescription" rows="5" placeholder="Enter case description" required></textarea>
-                          </div>
-
-                          <fieldset disabled>   
-                            <div class="form-group">
-                              <label for="disabledSelect">Case ID: </label>
-                              <select id="disabledSelect" class="form-control">
-                                <option>01_123</option>
-                              </select>
-                            </div>
-                          </fieldset>
-
-                          <div class="form-group">
-                            <label for="selectWithSearch">Assigned officer: </label>
-                            <select class="selectpicker form-control" id="selectWithSearch" data-live-search="true">
-                              <option></option>
-                              <option>Nellie Washington
-                            </option>
-                              <option>Megan Friedman</option>
-                              <option>Elisabeth Rogers</option>
-                              <option>Aileen Arias</option>
-                              <option>Jillian Hunter</option>
-                              <option>Mariah Moore</option>
-                              <option>Averie Blevins</option>
-                            </select>
-                          </div>
-
-                          <!-- Select Date -->
-                          <div class="form-group">
-                            <label for="caseDate">Select Date:</label>
-                            <input type="date" class="form-control" id="caseDate" required>
-                          </div>
-                      
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                      </div>
+                <div class="container-fluid text-center">
+                    <img src="../assets/police-badge.png" alt="" width="256px" height="256px" id="indexUserPoliceBadge">
                     <h1 class="mt-4">Ongoing cases</h1>
                     <div class="container">
                         <div class="col-md-12 col-lg-12">
@@ -176,6 +123,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -183,12 +131,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="../js/scripts.js"></script>
-
-        <!--OVAJ DIO JE BITAN ZA SEARCH-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Bootstrap-Select JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     </body>
 </html>
