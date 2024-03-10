@@ -14,3 +14,19 @@
 #indexUserPoliceBadge{
     margin-top: 10px
 }
+
+.bg-blue{
+    background-color: #000080;
+    color: white;
+}
+
+.bg-blueb{
+    background-color: #3A5FCD;
+    color: white;
+}
+
+.nav-link{
+    color: white;
+}
+
+

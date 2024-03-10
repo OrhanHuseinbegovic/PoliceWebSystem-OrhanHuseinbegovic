@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <title>Suspects</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../assets/Police.png" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link href="../css/manual.css" rel="stylesheet" />
         <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
   
@@ -150,36 +150,6 @@
                         $(document).ready(function() {
                           // Initialize the datatable
                           var table = $('#dataTable').DataTable();
-                      
-                          // Add Row button functionality
-                          $('#addRowBtn').on('click', function() {
-                            table.row.add(['New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data']).draw();
-                          });
-                      
-                          // Edit Row button functionality
-                          $('#editRowBtn').on('click', function() {
-                            var selectedRowData = table.row({ selected: true }).data();
-                            if (selectedRowData) {
-                              // Replace data with edited values
-                              selectedRowData[0] = 'Edited Data';
-                              selectedRowData[1] = 'Edited Data';
-                              selectedRowData[2] = 'Edited Data';
-                            
-                              selectedRowData[3] = 'Edited Data';
-                              selectedRowData[4] = 'Edited Data';
-                              selectedRowData[5] = 'Edited Data';
-                              selectedRowData[6] = 'Edited Data';
-                              selectedRowData[7] = 'Edited Data';
-                              
-                              table.row({ selected: true }).data(selectedRowData).draw();
-                            }
-                          });
-                      
-                          // Remove Row button functionality
-                          $('#deleteRowBtn').on('click', function() {
-                            table.row({ selected: true }).remove().draw();
-                          });
-                      
                           // Initialize datatable search functionality
                           $('#dataTable').DataTable();
                         });
