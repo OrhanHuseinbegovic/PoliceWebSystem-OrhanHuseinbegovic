@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <title>Cases</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../assets/Police.png" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -18,31 +18,31 @@
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
-            <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Police System<span><img src="../assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
+            <div class="border-end bg-blueb" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-blue">Police System<span><img src="../assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="casesofficer.html">Cases</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="activitylogofficer.html">Activity Log</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="incidentlogofficer.html">Incident Log</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="equipmentusageofficer.html">Equipment usage</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="officersofficer.html">Officers </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="suspectsofficer.html">Suspects</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="incidentsofficer.html">Incidents</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="profileofficer.html">Profile</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="casesofficer.html">Cases</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="activitylogofficer.html">Activity Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="incidentlogofficer.html">Incident Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="equipmentusageofficer.html">Equipment usage</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="officersofficer.html">Officers </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="suspectsofficer.html">Suspects</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="incidentsofficer.html">Incidents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="profileofficer.html">Profile</a>
                 </div>
             </div>
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <nav class="navbar navbar-expand-lg navbar-light bg-blue border-bottom">
                     <div class="container-fluid">
                         <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="indexofficer.html">Home</a></li>
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0" >
+                                <li class="nav-item active"><a class="nav-link" href="indexofficer.html" style="color: white;">Home</a></li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">Options</a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="profileofficer.html">My profile</a>
                                         <div class="dropdown-divider"></div>
@@ -57,6 +57,7 @@
                 <div class="container-fluid"></div>
                 <div class="container-fluid, text-center">
                     <div class="container mt-5">
+                        <img id="logoPicture" src="../assets/police-badge.png" alt="Police Web System Logo" width="200" height="200">
                         <h1>Create a new case: </h1>
                         <form action="/submit" method="post">
                           <!-- Case Name Input -->
@@ -100,8 +101,15 @@
                             <label for="caseDate">Select Date:</label>
                             <input type="date" class="form-control" id="caseDate" required>
                           </div>
-                      
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <br>
+                          <div class="form-group">
+                            <label for="exampleFormControlFile1">Add case picture:</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                          </div>
+                          <br>
+                          <button type="submit" class="btn btn-primary">Add case</button>
+
+                          
                         </form>
                       </div>
                     <h1 class="mt-4">Ongoing cases</h1>
@@ -111,7 +119,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
                                         <div class="post-type post-img">
-                                            <a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive" alt="image post"></a>
+                                            <a href="#"><img src="../assets/pexels-kat-wilcox-923681.jpg" class="img-responsive" alt="image post"></a>
                                         </div>
                                         <div class="author-info author-info-2">
                                             <ul class="list-inline">
@@ -126,7 +134,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
                                         <div class="caption">
-                                            <h3 class="md-heading"><a href="#">The Heading Text Size Should Match</a></h3>
+                                            <h3 class="md-heading"><a href="#">Fraud</a></h3>
                                             <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. </p>
                                     </div>
                                 </div>
@@ -138,7 +146,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
                                         <div class="post-type post-img">
-                                            <a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-responsive" alt="image post"></a>
+                                            <a href="#"><img src="../assets/pexels-pixabay-532001.jpg" class="img-responsive" alt="image post"></a>
                                         </div>
                                         <div class="author-info author-info-2">
                                             <ul class="list-inline">
@@ -153,7 +161,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
                                         <div class="caption">
-                                            <h3 class="md-heading"><a href="#">The Heading Text Size Should Match</a></h3>
+                                            <h3 class="md-heading"><a href="#">Case 2</a></h3>
                                             <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
                                     </div>
                                 </div>
