@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Activity Log</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/Police.png" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../css/manual.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-blueb" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-blue">Police System <span><img src="../assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" href="cases.html">Cases</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" href="activitylog.html">Activity Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" href="incidentlog.html">Incident Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" href="suspects.html">Suspects</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" href="profile.html">Profile</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-blue border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item"><a class="nav-link" href="indexuser.html">Home</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="profile.html">My profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="../login.html">Log out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid text-center">
+                    <img src="../assets/police-badge.png" alt="" width="256px" height="256px" id="indexUserPoliceBadge">
+                    <h1 class="mt-4">Activity Log</h1>
+                    <p>Please input all required field below for the activity log</p>
+                    <div class="container mt-5">
+                        <h2>Gear and shift selection:</h2>
+                        <form action="/submit" method="post">
+                          <!-- Shift Selection -->
+                          <div class="form-group">
+                            <label for="shift">Select Shift:</label>
+                            <select class="form-control" id="shift" required>
+                              <option value="">Select Shift</option>
+                              <option value="morning">Morning Shift</option>
+                              <option value="afternoon">Afternoon Shift</option>
+                              <option value="night">Night Shift</option>
+                            </select>
+                          </div>
+                          <br>
+                          <!-- Gear Selection -->
+                          <div class="form-group">
+                            <label for="gear">Select Gear:</label>
+                            <select class="form-control" id="gear" required>
+                              <option value="">Select Gear</option>
+                              <option value="rifle">Rifle</option>
+                              <option value="pistol">Pistol</option>
+                              <option value="knife">Knife</option>
+                            </select>
+                          </div>
+                          <br>
+                          <!-- Weapons Selection -->
+                          <div class="form-group">
+                            <label for="weapons">Select Weapon:</label>
+                            <select class="form-control" id="weapons" required>
+                              <option value="">Select Weapon</option>
+                              <option value="assault rifle">Assault Rifle</option>
+                              <option value="shotgun">Shotgun</option>
+                              <option value="sniper rifle">Sniper Rifle</option>
+                            </select>
+                          </div>
+                          <br>
+                          <!-- Vehicle Selection -->
+                          <div class="form-group">
+                            <label for="vehicle">Select Vehicle:</label>
+                            <select class="form-control" id="vehicle" required>
+                              <option value="">Select Vehicle</option>
+                              <option value="jeep">Jeep</option>
+                              <option value="tank">Tank</option>
+                              <option value="helicopter">Helicopter</option>
+                            </select>
+                          </div>
+                          <br>
+                          <fieldset disabled>
+                        
+                            <div class="form-group">
+                              <label for="disabledSelect">User</label>
+                              <select id="disabledSelect" class="form-control">
+                                <option>Sergeant Optimus Prime</option>
+                              </select>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="disabledSelect">Date</label>
+                                <select id="disabledSelect" class="form-control">
+                                  <option>12.3.2024.</option>
+                                </select>
+                              </div>
+                          </fieldset>
+                      
+                          <button id="subButton" type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                      </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
