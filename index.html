@@ -1,12 +1,126 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Police Web System</title>
-</head>
-<body>
-    <h1>This is the heading for the second milestone</h1>
-    <h2>ovo je novi test</h2>
-    <h3>jos noviiji test</h3>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Police Web System</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/Police.png" />
+        <!-- Core theme CSS (includes Bootstrap)
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/manual.css" rel="stylesheet" />
+        <link href="css/cases.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="css/forprofile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+        <link href="css/spapp.css" rel="stylesheet">
+        -->
+        <!-- External CSS Libraries -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+        <!-- Custom CSS -->
+        <link href="css/styles.css" rel="stylesheet">
+        <link href="css/manual.css" rel="stylesheet">
+        <link href="css/cases.css" rel="stylesheet">
+        <link href="css/forprofile.css" rel="stylesheet">
+        <link href="css/spapp.css" rel="stylesheet">
+        <!-- Core theme JS  
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/jquery.spapp.min.js"></script>  
+        <script src="js/jquery.spapp.js"></script>
+        <script src="js/custom.js"></script> 
+        -->
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- ADMIN Sidebar-->
+            <div class="border-end bg-blueb" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-blue">Police System<span><img src="assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#casesofficer">Cases</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#activitylogofficer">Activity Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#incidentlogofficer">Incident Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#equipmentusageofficer">Equipment usage</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#officersofficer">Officers </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#suspectsofficer">Suspects</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#incidentsofficer">Incidents</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#profileofficer">Profile</a>
+                </div>
+            </div>
+            <!--USER Sidebar
+            <div class="border-end bg-blueb" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-blue">Police System<span><img src="assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#cases">Cases</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#activitylog">Activity Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#incidentlog">Incident Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#indexuser">Officers </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#suspects">Suspects</a>
+                </div>
+            </div>
+            -->
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-blue border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="#indexofficer" style=" color: white;">Home</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="#indexofficer" style=" color: white;">Log out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid"></div>
+                <div class="container-fluid, text-center">
+                    <main id="spapp" role="main">
+                        <!--ADMIN-->
+                        <section id="activitylogofficer"></section>
+                        <section id="casesofficer"></section>
+                        <section id="equipmentusageofficer"></section>
+                        <section id="incidentlogofficer"></section>
+                        <section id="incidentsofficer"></section>
+                        <section id="suspectsofficer"></section>
+                        <section id="officersofficer"></section>
+                        <section id="profileofficer"></section>
+                        <section id="indexofficer"></section>
+
+                        <!--USER-->
+                        <section id="cases"></section>
+                        <section id="incidentlog"></section>
+                        <section id="activitylog"></section>
+                        <section id="suspects"></section>
+                        <section id="profile"></section>
+                        <section id="indexuser"></section>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        <!-- Custom JavaScript -->
+        <script src="js/scripts.js"></script>
+        <script src="js/jquery.spapp.min.js"></script>  
+        <script src="js/jquery.spapp.js"></script>
+        <script src="js/custom.js"></script>
+    </body>
 </html>
