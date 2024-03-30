@@ -6,8 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <link rel="icon" type="image/x-icon" href="assets/Police.png" />
         <title>Register</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet">
+        <link href="css/spinkit.css" rel="stylesheet">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
@@ -20,51 +22,50 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5 text-center">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3><img src="assets/police-badge.png" width="128px"  alt=""></div>
                                     <div class="card-body">
-                                        <form action="/submit" method="post">
+                                        <form id="registerForm" method="post">
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="Name" />
                                                         <label for="inputFirstName">First name</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="Surname" />
                                                         <label for="inputLastName">Last name</label>
                                                     </div>
                                                 </div>
                                                 
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPersonalD" type="text" placeholder="12345" required/>
+                                                <input class="form-control" id="inputPersonalID" type="text" placeholder="PID123"  name="Personal ID" required/>
                                                 <label for="inputPersonalD">Personal ID</label>
                                             </div>
+                                            
                                             <div class="form-group">
                                                 <label for="caseDate">Date of birth:</label>
-                                                <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" required>
+                                                <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="DateofBirth" required>
                                                 <br>
-                                              </div>
+                                            </div>
+
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" name="Password" />
                                                         <label for="inputPassword">Password</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" name="ConfirmedPassword" />
                                                         <label for="inputPasswordConfirm">Confirm Password</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+                                                <!--<div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>-->
+                                                <button type="submit" class="btn btn-primary">Create account</button>
                                             </div>
                                         </form>
                                     </div>
@@ -79,6 +80,11 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/block-ui@2.70.0/dist/block-ui.min.js"></script>
+        <script src="js/block-ui.js"></script>
         <script src="js/scripts.js"></script>
+        <script src="js/register.js"></script>
     </body>
 </html>

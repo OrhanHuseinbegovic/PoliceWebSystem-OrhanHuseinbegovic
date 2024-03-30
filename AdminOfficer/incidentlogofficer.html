@@ -1,35 +1,36 @@
 <!-- Page content-->
 <div class="container-fluid text-center">
-  <img id="logoPicture" src="../assets/police-badge.png" alt="Police Web System Logo" width="200" height="200">
   <h1 class="mt-4">Incident Log</h1>
-  <form action="/submit" method="post">
-
+  <form id="incidentForm" method="post">
       <div class="form-group">
           <label for="exampleFormControlSelect1">Select crime type: </label>
-          <select class="form-control" id="exampleFormControlSelect1">
-              <option>Theft</option>
+          <select class="form-control" id="Type" name="Type">
               <option>Assault</option>
               <option>Burglary</option>
               <option>Fraud</option>
+              <option>Theft</option>
+              <option>Vandalism</option>
               <option>Traffic ticket</option>
+              <option>Traffic Incident</option>
           </select>
       </div>
       <br>
       <div class="form-group">
           <label for="caseDescription">Description:</label>
-          <textarea class="form-control" id="caseDescription" rows="5" placeholder="Enter case description" required></textarea>
+          <textarea class="form-control" id="Description" rows="3" name="Description" placeholder="Enter case description" required></textarea>
       </div>
       <br>
       <div class="form-group">
           <label for="caseDate">Select Date:</label>
-          <input type="date" class="form-control" id="caseDate" required>
+          <input type="date" class="form-control" id="caseDate" name="Date" required>
       </div>
       <br>
       <div class="form-group">
           <label for="caseName">Incident Location:</label>
-          <input type="text" class="form-control" id="caseName" placeholder="Enter case name" required>
+          <input type="text" class="form-control" id="caseName" placeholder="Enter location " required>
       </div>
       <br>
+      <!---
       <fieldset disabled>   
           <div class="form-group">
               <label for="disabledSelect">Incident ID: </label>
@@ -45,7 +46,9 @@
               </select>
           </div>
       </fieldset>
-
+      -->
       <button id="incidentSubButton" type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+<script src="../../PoliceWebSystem-OrhanHuseinbegovic/js/incidentlogofficer.js"></script>

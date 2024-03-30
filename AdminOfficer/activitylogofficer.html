@@ -1,38 +1,27 @@
 <!-- Page content-->
 <div class="container-fluid text-center container mt5">
-  <img id="logoPicture" src="../../PoliceWebSystem-OrhanHuseinbegovic/assets/police-badge.png" alt="Police Web System Logo" width="200" height="200">
   <h1 class="mt-4">Activity log</h1>
   <p>Please input all required field below for the activity log</p>
-  <div class="container mt-5">
-      <h2>Gear and shift selection:</h2>
-      <form action="/submit" method="post">
+  <div class="container mt-5" id="blockme">
+      <form id="activityForm" method="POST">
+          <!--START OF FORM FALI NAME NA SVAKOOOOOOOOOOOOOOM-->  
           <!-- Shift Selection -->
           <div class="form-group">
               <label for="shift">Select Shift:</label>
-              <select class="form-control" id="shift" required>
+              <select class="form-control" id="shift" name="shift" form="activityForm">
                   <option value="">Select Shift</option>
-                  <option value="morning">Morning Shift</option>
-                  <option value="afternoon">Afternoon Shift</option>
-                  <option value="night">Night Shift</option>
-              </select>
-          </div>
-          <br>
-          <!-- Gear Selection -->
-          <div class="form-group">
-              <label for="gear">Select Gear:</label>
-              <select class="form-control" id="gear" required>
-                  <option value="">Select Gear</option>
-                  <option value="rifle">Rifle</option>
-                  <option value="pistol">Pistol</option>
-                  <option value="knife">Knife</option>
+                  <option value="morning">morning</option>
+                  <option value="afternoon">afternoon</option>
+                  <option value="night">night</option>
               </select>
           </div>
           <br>
           <!-- Weapons Selection -->
           <div class="form-group">
               <label for="weapons">Select Weapon:</label>
-              <select class="form-control" id="weapons" required>
-                  <option value="">Select Weapon</option>
+              <select class="form-control" id="weapon" name="weapon" form="activityForm">
+                  <option value="">Select Weapon ID</option>
+                  <!--Ovdje treba fetchati sve ID od veapons da user moze izabrati-->
                   <option value="assault rifle">Assault Rifle</option>
                   <option value="shotgun">Shotgun</option>
                   <option value="sniper rifle">Sniper Rifle</option>
@@ -42,18 +31,20 @@
           <!-- Vehicle Selection -->
           <div class="form-group">
               <label for="vehicle">Select Vehicle:</label>
-              <select class="form-control" id="vehicle" required>
+              <select class="form-control" id="vehicle" name="vehicle" form="activityForm">
                   <option value="">Select Vehicle</option>
+                  <!--Ovdje treba fetchati sve ID od vehicles da user moze izabrati-->
                   <option value="jeep">Jeep</option>
                   <option value="tank">Tank</option>
                   <option value="helicopter">Helicopter</option>
               </select>
           </div>
-          <br>
+           <!-- 
           <fieldset disabled>
               <div class="form-group">
                   <label for="disabledSelect">User</label>
                   <select id="disabledSelect" class="form-control">
+                    
                       <option>Sergeant Optimus Prime</option>
                   </select>
               </div>  
@@ -61,11 +52,16 @@
               <div class="form-group">
                   <label for="disabledSelect">Date</label>
                   <select id="disabledSelect" class="form-control">
+                    
                       <option>12.3.2024.</option>
                   </select>
               </div>
           </fieldset>
-          <button id="subButton" type="submit" class="btn btn-primary">Submit</button>
+            -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <!--END OF FORM-->
       </form>
   </div>
 </div>
+
+<script src="../../PoliceWebSystem-OrhanHuseinbegovic/js/activitylogofficer.js"></script>

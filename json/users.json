@@ -322,6 +322,12 @@
         "Email": "dalilajasarevic@police.com",
         "Password": "dalilajasarevic0o54",
         "isAdmin": "true"
+    },
+    {
+        "Officer ID": "O055",
+        "Email": "admin@police.com",
+        "Password": "admin",
+        "isAdmin": "true"
     }
 ]
 
