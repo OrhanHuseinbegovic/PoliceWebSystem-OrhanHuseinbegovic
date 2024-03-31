@@ -1,38 +1,3 @@
-getCases = () => {
-    $.get("../PoliceWebSystem-OrhanHuseinbegovic/json/cases.json", (cases) => {
-        console.log(cases);    
-        let output = "";
-        cases.forEach((caseItem) => {
-            output += `
-            <article class="post vt-post">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
-                        <div class="author-info author-info-2">
-                            <ul class="list-inline">
-                                <li>
-                                    <div class="info">
-                                        <p>Posted on:</p>
-                                        <strong>${caseItem["Date made"]}</strong>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
-                        <div class="caption">
-                            <h3 class="md-heading"><a href="#">${caseItem["Case Name"]}</a></h3>
-                            <p>${caseItem["Case description"]}</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            `;
-        });
-        $("#output").html(output);
-    });
-}
-getCases();
-
 $("#caseForm").validate({
     rules: {
         CaseName: {
@@ -63,7 +28,6 @@ $("#caseForm").validate({
         console.log(JSON.stringify(data));
         $("#caseForm")[0].reset();
         unblockUi("#caseForm");
-        console.log(nesto);
     }
 });
 
@@ -92,6 +56,44 @@ serializeForm = (form) => {
     });
     return jsonResul;
 }
+
+getCases = () => {
+    $.get("../PoliceWebSystem-OrhanHuseinbegovic/json/cases.json", (cases) => {
+        console.log(cases);    
+        let output = "";
+        blockUi("#output");
+        cases.forEach((caseItem) => {
+            output += `
+            <article class="post vt-post">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
+                        <div class="author-info author-info-2">
+                            <ul class="list-inline">
+                                <li>
+                                    <div class="info">
+                                        <p>Posted on:</p>
+                                        <strong>${caseItem["Date made"]}</strong>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+                        <div class="caption">
+                            <h3 class="md-heading"><a href="#">${caseItem["Case Name"]}</a></h3>
+                            <p>${caseItem["Case description"]}</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            `;
+        });
+        $("#output").html(output);
+        unblockUi("#output");
+    });
+}
+getCases();
+
 
 
 

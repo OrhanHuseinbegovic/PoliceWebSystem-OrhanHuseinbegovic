@@ -26,6 +26,7 @@ $("#activityForm").validate({
         blockUi("#activityForm"); 
         let data = serializeForm(form);
         console.log(JSON.stringify(data));
+        $("#activityForm")[0].reset();
         unblockUi("#activityForm");
         let nesto = getUsers();
         console.log(nesto);

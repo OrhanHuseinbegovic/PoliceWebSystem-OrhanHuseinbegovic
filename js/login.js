@@ -21,13 +21,14 @@ $("#loginForm").validate({
             minlength: "Minimum 8 characters"
         }
     },
-    submitHandler: function(form) {
+    submitHandler: function(form, event) {
         event.preventDefault();
         blockUi("#loginForm"); 
         let data = serializeForm(form);
         console.log("THIS IS DATA: "+JSON.stringify(data));
         $("#loginForm")[0].reset();
         unblockUi("#loginForm");
+        console.log("Form submitted");
     }
 });
 
