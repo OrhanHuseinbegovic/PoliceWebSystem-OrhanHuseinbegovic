@@ -1,35 +1,37 @@
-$("#loginForm").validate({
-    rules: {
-        inputEmail:{
-            required: true,
-            email: true,
-            minlength: 8
+$(document).ready(function() {
+    $("#loginForm").validate({
+        rules: {
+            Email:{
+                required: true,
+                email: true,
+                minlength: 8
+            },
+            Password:{
+                required: true,
+                minlength: 8
+            }
         },
-        inputPassword:{
-            required: true,
-            minlength: 8
-        }
-    },
-    messages: {
-        inputEmail:{
-            required: "Please enter your email",
-            email: "Please enter a valid email",
-            minlength: "Email must be at least 8 characters long"
+        messages: {
+            Email:{
+                required: "Please enter your email",
+                email: "Please enter a valid email",
+                minlength: "Email must be at least 8 characters long"
+            },
+            Password:{
+                required: "Please enter your password",
+                minlength: "Minimum 8 characters"
+            }
         },
-        inputPassword:{
-            required: "Please enter your password",
-            minlength: "Minimum 8 characters"
+        submitHandler: function(form, event) {
+            event.preventDefault();
+            blockUi("#loginForm"); 
+            let data = serializeForm(form);
+            console.log("THIS IS DATA: "+JSON.stringify(data));
+            $("#loginForm")[0].reset();
+            unblockUi("#loginForm");
+            console.log("Form submitted");
         }
-    },
-    submitHandler: function(form, event) {
-        event.preventDefault();
-        blockUi("#loginForm"); 
-        let data = serializeForm(form);
-        console.log("THIS IS DATA: "+JSON.stringify(data));
-        $("#loginForm")[0].reset();
-        unblockUi("#loginForm");
-        console.log("Form submitted");
-    }
+    });
 });
 
 blockUi = (element) => {

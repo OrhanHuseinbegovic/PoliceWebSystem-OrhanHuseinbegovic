@@ -1,16 +1,109 @@
 <div class="container-fluid">
   <div class="container-fluid text-center">
-      <img id="logoPicture" src="../assets/police-badge.png" alt="Police Web System Logo" width="200" height="200">
       <h1 class="mt-4">Officers table</h1>
       <div class="container mt-5">
           <!-- Buttons -->
           <div class="mb-3">
-              <button class="btn btn-primary" id="addRowBtn">Add</button>
-              <button class="btn btn-warning" id="editRowBtn">Edit</button>
-              <button class="btn btn-danger" id="deleteRowBtn">Remove</button>
+              <button class="btn btn-primary addBtn" id="addOfficer" data-toggle="modal">Add</button>
           </div>
+        
+          <!--MODAL FOR ADD-->
+        <div class="modal fade" id="addOfficerModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Add Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+                    <span aria-hidden="true" id="closeModal">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <!-- Form for adding data -->
+                <form id="addForm">
+                    <div class="form-group">
+                    <label for="inputData">Log ID:</label>
+                    <select class="form-control" id="logID" name="logID" form="addForm">
+                        <!--POPUNI OVO-->
+                        <option value="">Select log ID</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="inputData">Officer ID:</label>
+                    <select class="form-control" id="officerID" name="officerID" form="addForm">
+                        <!--POPUNI OVO-->
+                        <option value="">Select officer ID</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="inputData">Weapon ID:</label>
+                    <select class="form-control" id="weaponID" name="weaponID" form="addForm">
+                        <!--POPUNI OVO-->
+                        <option value="">Select weapon ID</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="inputData">Vehicle ID:</label>
+                    <select class="form-control" id="vehicleID" name="vehicleID" form="addForm">
+                        <!--POPUNI OVO-->
+                        <option value="">Select vehicle ID</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="shift">Select Shift:</label>
+                    <select class="form-control" id="shift" name="shift" form="addForm">
+                        <!--POPUNI OVO-->  
+                        <option value="">Select shift</option>
+                        <option value="morning">morning</option>
+                        <option value="afternoon">afternoon</option>
+                        <option value="night">night</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="caseDate">Date:</label>
+                    <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date" required>
+                    <br>
+                </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!--Test modal-->
+        <div class="modal fade" id="addOfficerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Recipient:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Message:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <!-- Datatable -->
-          <table id="dataTable" class="table-responsive">
+          <div class="table-responsive">
+          <table id="officersTable" class="table table-responsive table-striped table-bordered">
               <thead>
                   <tr>
                       <th>Officer ID</th>
@@ -22,116 +115,16 @@
                       <th>Phone</th>
                       <th>Department</th>
                       <th>Station</th>
+                      <th>Actions</th>
                   </tr>
               </thead>
-              <tbody>
-                  <tr>
-                      <td>123</td>
-                      <td>Something</td>
-                      <td>01_123</td>
-                      <td>41213</td>
-                      <td>12454</td>
-                      <td>Morning</td>
-                      <td>12.03.2024.</td>
-                      <td>Something</td>
-                      <td>Something</td>
-                  </tr>
-                  <tr>
-                      <td>4635</td>
-                      <td>Something</td>
-                      <td>01_123</td>
-                      <td>41213</td>
-                      <td>12454</td>
-                      <td>Morning</td>
-                      <td>12.03.2024.</td>
-                      <td>Something</td>
-                      <td>Something</td>
-                  </tr>
-                  <tr>
-                      <td>21354</td>
-                      <td>Something</td>
-                      <td>01_123</td>
-                      <td>41213</td>
-                      <td>12454</td>
-                      <td>Morning</td>
-                      <td>12.03.2024.</td>
-                      <td>Something</td>
-                      <td>Something</td>
-                  </tr>
-                  <tr>
-                      <td>6574</td>
-                      <td>Something</td>
-                      <td>01_123</td>
-                      <td>41213</td>
-                      <td>12454</td>
-                      <td>Morning</td>
-                      <td>12.03.2024.</td>
-                      <td>Something</td>
-                      <td>Something</td>
-                  </tr>
-                  <tr>
-                      <td>435465</td>
-                      <td>Something</td>
-                      <td>01_123</td>
-                      <td>41213</td>
-                      <td>12454</td>
-                      <td>Morning</td>
-                      <td>12.03.2024.</td>
-                      <td>Something</td>
-                      <td>Something</td>
-                  </tr>
-                  <tr>
-                      <td>32546</td>
-                      <td>Something</td>
-                      <td>01_123</td>
-                      <td>41213</td>
-                      <td>12454</td>
-                      <td>Morning</td>
-                      <td>12.03.2024.</td>
-                      <td>Something</td>
-                      <td>Something</td>
-                  </tr>
+              <tbody id="tableOutput">
+                
               </tbody>
           </table>
-      </div>
+          </div>
+        </div>
   </div>
 </div>
 
-<script>
-  $(document).ready(function() {
-      // Initialize the datatable
-      var table = $('#dataTable').DataTable();
-
-      // Add Row button functionality
-      $('#addRowBtn').on('click', function() {
-          table.row.add(['New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data']).draw();
-      });
-
-      // Edit Row button functionality
-      $('#editRowBtn').on('click', function() {
-          var selectedRowData = table.row({ selected: true }).data();
-          if (selectedRowData) {
-              // Replace data with edited values
-              selectedRowData[0] = 'Edited Data';
-              selectedRowData[1] = 'Edited Data';
-              selectedRowData[2] = 'Edited Data';
-              selectedRowData[3] = 'Edited Data';
-              selectedRowData[4] = 'Edited Data';
-              selectedRowData[5] = 'Edited Data';
-              selectedRowData[6] = 'Edited Data';
-              selectedRowData[7] = 'Edited Data';
-              selectedRowData[8] = 'Edited Data';
-
-              table.row({ selected: true }).data(selectedRowData).draw();
-          }
-      });
-
-      // Remove Row button functionality
-      $('#deleteRowBtn').on('click', function() {
-          table.row({ selected: true }).remove().draw();
-      });
-
-      // Initialize datatable search functionality
-      $('#dataTable').DataTable();
-  });
-</script>
+<script src="../../PoliceWebSystem-OrhanHuseinbegovic/js/officers.js"></script>

@@ -1,25 +1,6 @@
-function blockUi(element) {
-    $(element).block({
-        message: '<div class="spinner-border text-primary" role="status"></div>',
-        css: {
-            backgroundColor: "transparent",
-            border: "0",
-        },
-        overlayCSS: {
-            backgroundColor: "#000",
-            opacity: 0.25,
-        },
-    });
-}
-
-function unblockUi(element) {
-    $(element).unblock({});
-}
-
-
 $(document).ready( function () {
-    blockUi("#dataTable");
-    $('#dataTable').DataTable({
+    blockUi("#equipmentTable");
+    $('#equipmentTable').DataTable({
         ajax: {
             url: "../PoliceWebSystem-OrhanHuseinbegovic/json/equipment.json",
             dataSrc: ""
@@ -40,27 +21,8 @@ $(document).ready( function () {
             }
         ]
     });
-    unblockUi("#dataTable");
+    unblockUi("#equipmentTable");
 });
-
-
-
-$(document).ready(function() {
-    $('#addRowBtn').click(function() {
-      $('#addModal').modal('show');
-    });
-    $('#closeModal').click(function() {
-        $('#addModal').modal('hide');
-    });
-
-    $('#editRowBtn').click(function() {
-        $('#editModal').modal('show');
-    });
-    $('#closeModal').click(function() {
-        $('#editModal').modal('hide');
-    });
-});
-
 
 $(document).ready(function() {
     // Function to fetch JSON data and populate select elements
@@ -167,35 +129,13 @@ serializeForm = (form) => {
     return jsonResul;
 }
 
-$(document).on('click', '#deleteRowBtn', function() {
-    $(this).parents('tr').remove();
+$(document).ready(function(){
+    $('#addRowBtn').click(function() {
+        $('#addModal').modal('show');
+    });
 });
 
-/*
-$(document).on('click', '#editRowBtn', function() {
-        var logID=$(this).parents('tr').find("input[name='logID']").val();
-        var officerID=$(this).parents('tr').find("input[name='officerID']").val();
-        var weaponID=$(this).parents('tr').find("input[name='weaponID']").val();
-        var vehicleID=$(this).parents('tr').find("input[name='vehicleID']").val();
-        var shift=$(this).parents('tr').find("input[name='shift']").val();
-        var date=$(this).parents('tr').find("input[name='date']").val();
-        
 
-        $(this).parents('tr').find('td:eq(0)').text(logID);
-        $(this).parents('tr').find('td:eq(1)').text(officerID);
-        $(this).parents('tr').find('td:eq(2)').text(weaponID);
-        $(this).parents('tr').find('td:eq(3)').text(vehicleID);
-        $(this).parents('tr').find('td:eq(4)').text(shift);
-        $(this).parents('tr').find('td:eq(5)').text(date);
-
-        $(this).parents('tr').attr('data-logid',logID);
-        $(this).parents('tr').attr('data-officerid',officerID);
-        $(this).parents('tr').attr('data-weaponid',weaponID);
-        $(this).parents('tr').attr('data-vehicleid',vehicleID);
-        $(this).parents('tr').attr('data-shift',shift);
-        $(this).parents('tr').attr('data-date',date);
-});
-*/
 
 $(document).on('click', '#editRowBtn', function() {
     // Get the values from the current row
@@ -226,19 +166,6 @@ $('#saveChangesBtn').click(function() {
     var shift = $('#shift').val();
     var date = $('#caseDate').val();
 
-    // Update the current row with the new values
-    //var currentRow = $('#dataTable').DataTable().closest('tr');
-    /*
-    currentRow.data({
-        "Log ID": logID,
-        "Officer ID": officerID,
-        "Weapon ID": weaponID,
-        "Vehicle ID": vehicleID,
-        "Shift": shift,
-        "Date": date
-    }).draw();
-    */
-
     $('#logID').val(logID);
     $('#officerID').val(officerID);
     $('#weaponID').val(weaponID);
@@ -250,5 +177,20 @@ $('#saveChangesBtn').click(function() {
     $('#editModal').modal('hide');
 });
 
+$(document).ready(function() {
+    $('#addRowBtn').click(function() {
+      $('#addModal').modal('show');
+    });
+    $('#closeModal').click(function() {
+        $('#addModal').modal('hide');
+    });
+
+    $('#editRowBtn').click(function() {
+        $('#editModal').modal('show');
+    });
+    $('#closeModal').click(function() {
+        $('#editModal').modal('hide');
+    });
+});
 
 console.log("Equipment.js loaded");

@@ -4,115 +4,32 @@
       <!-- Page content-->
       <div class="container-fluid">
           <div class="container-fluid text-center">
-              <img id="logoPicture" src="../assets/police-badge.png" alt="Police Web System Logo" width="200" height="200">
               <h1 class="mt-4">Incidents table</h1>
               <div class="container mt-5">
                   <!-- Buttons -->
                   <div class="mb-3">
                       <button class="btn btn-primary" id="addRowBtn">Add</button>
-                      <button class="btn btn-warning" id="editRowBtn">Edit</button>
-                      <button class="btn btn-danger" id="deleteRowBtn">Remove</button>
                   </div>
                   <!-- Datatable -->
-                  <table id="dataTable" class="table-responsive ">
+                  <div class="table-responsive">
+                    <table id="incidentsTable" class="table-responsive table-striped table-bordered">
                       <thead>
-                          <tr>
-                              <th>Incident ID</th>
-                              <th>Officer ID</th>
-                              <th>Type</th>
-                              <th>Location</th>
-                              <th>Date</th>
-                              <th>Description</th>
-                          </tr>
+                        <th>Incident ID</th>
+                        <th>Officer ID</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Actions</th>
                       </thead>
-                      <tbody>
-                          <tr>
-                              <td>2145</td>
-                              <td>Something</td>
-                              <td>01_123</td>
-                              <td>41213</td>
-                              <td>12454</td>
-                              <td>Today at that time something happened at that street and people gathered. This is just example of how would this look in a table</td>
-                          </tr>
-                          <tr>
-                              <td>352</td>
-                              <td>Something</td>
-                              <td>01_123</td>
-                              <td>41213</td>
-                              <td>12454</td>
-                              <td>Morning</td>
-                          </tr>
-                          <tr>
-                              <td>214532</td>
-                              <td>Something</td>
-                              <td>01_123</td>
-                              <td>41213</td>
-                              <td>12454</td>
-                              <td>Morning</td>
-                          </tr>
-                          <tr>
-                              <td>123</td>
-                              <td>Something</td>
-                              <td>01_123</td>
-                              <td>41213</td>
-                              <td>12454</td>
-                              <td>Morning</td>
-                          </tr>
-                          <tr>
-                              <td>64325</td>
-                              <td>Something</td>
-                              <td>01_123</td>
-                              <td>41213</td>
-                              <td>12454</td>
-                              <td>Morning</td>
-                          </tr>
-                          <tr>
-                              <td>3546</td>
-                              <td>Something</td>
-                              <td>01_123</td>
-                              <td>41213</td>
-                              <td>12454</td>
-                              <td>Morning</td>
-                          </tr>
+                      <tbody id="officerOutput">
+                  
                       </tbody>
-                  </table>
+                    </table>
+                  </div>
               </div>
-              <script>
-                  $(document).ready(function() {
-                      // Initialize the datatable
-                      var table = $('#dataTable').DataTable();
-
-                      // Add Row button functionality
-                      $('#addRowBtn').on('click', function() {
-                          table.row.add(['New Data', 'New Data', 'New Data', 'New Data', 'New Data', 'New Data']).draw();
-                      });
-
-                      // Edit Row button functionality
-                      $('#editRowBtn').on('click', function() {
-                          var selectedRowData = table.row({ selected: true }).data();
-                          if (selectedRowData) {
-                              // Replace data with edited values
-                              selectedRowData[0] = 'Edited Data';
-                              selectedRowData[1] = 'Edited Data';
-                              selectedRowData[2] = 'Edited Data';
-                              selectedRowData[3] = 'Edited Data';
-                              selectedRowData[4] = 'Edited Data';
-                              selectedRowData[5] = 'Edited Data';
-
-                              table.row({ selected: true }).data(selectedRowData).draw();
-                          }
-                      });
-
-                      // Remove Row button functionality
-                      $('#deleteRowBtn').on('click', function() {
-                          table.row({ selected: true }).remove().draw();
-                      });
-
-                      // Initialize datatable search functionality
-                      $('#dataTable').DataTable();
-                  });
-              </script>
           </div>
       </div>
   </div>
 </div>
+<script src="../../PoliceWebSystem-OrhanHuseinbegovic/js/incidents.js"></script>
