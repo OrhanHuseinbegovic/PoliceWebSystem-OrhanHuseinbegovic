@@ -1,0 +1,290 @@
+[
+    {
+        "Case ID": "C123",
+        "Date made": "2023-05-15",
+        "Case Name": "Employee Dispute",
+        "Case description": "A disagreement between two employees over project responsibilities."
+    },
+    {
+        "Case ID": "C124",
+        "Date made": "2024-01-23",
+        "Case Name": "Product Defect",
+        "Case description": "Complaint received regarding a defect in the latest product release."
+    },
+    {
+        "Case ID": "C125",
+        "Date made": "2023-09-08",
+        "Case Name": "Customer Complaint",
+        "Case description": "Customer reported dissatisfaction with service quality."
+    },
+    {
+        "Case ID": "C126",
+        "Date made": "2024-02-17",
+        "Case Name": "Billing Discrepancy",
+        "Case description": "Client claims discrepancies in their billing statements."
+    },
+    {
+        "Case ID": "C127",
+        "Date made": "2023-11-30",
+        "Case Name": "Contract Dispute",
+        "Case description": "Disagreement between parties regarding the terms of a contract."
+    },
+    {
+        "Case ID": "C128",
+        "Date made": "2023-07-12",
+        "Case Name": "Trademark Infringement",
+        "Case description": "Allegations of infringement on a registered trademark."
+    },
+    {
+        "Case ID": "C129",
+        "Date made": "2023-04-05",
+        "Case Name": "Property Damage",
+        "Case description": "Reported damage to company property in the warehouse."
+    },
+    {
+        "Case ID": "C130",
+        "Date made": "2023-10-29",
+        "Case Name": "Security Breach",
+        "Case description": "Potential security breach detected in the network system."
+    },
+    {
+        "Case ID": "C131",
+        "Date made": "2023-12-18",
+        "Case Name": "Data Loss",
+        "Case description": "Critical data loss incident reported by the IT department."
+    },
+    {
+        "Case ID": "C132",
+        "Date made": "2023-06-20",
+        "Case Name": "Harassment Complaint",
+        "Case description": "Allegations of workplace harassment filed by an employee."
+    },
+    {
+        "Case ID": "C133",
+        "Date made": "2024-03-05",
+        "Case Name": "Product Recall",
+        "Case description": "Decision to recall a defective product from the market."
+    },
+    {
+        "Case ID": "C134",
+        "Date made": "2023-08-14",
+        "Case Name": "Fraud Investigation",
+        "Case description": "Suspected fraudulent activities reported by the finance department."
+    },
+    {
+        "Case ID": "C135",
+        "Date made": "2024-04-12",
+        "Case Name": "Employee Termination",
+        "Case description": "Case related to the termination of an employee for misconduct."
+    },
+    {
+        "Case ID": "C136",
+        "Date made": "2023-03-25",
+        "Case Name": "Supply Chain Disruption",
+        "Case description": "Disruption in the supply chain affecting production schedules."
+    },
+    {
+        "Case ID": "C137",
+        "Date made": "2023-01-10",
+        "Case Name": "Environmental Violation",
+        "Case description": "Reported violation of environmental regulations by the company."
+    },
+    {
+        "Case ID": "C138",
+        "Date made": "2024-05-20",
+        "Case Name": "Workplace Accident",
+        "Case description": "Accident at the workplace resulting in injuries to an employee."
+    },
+    {
+        "Case ID": "C139",
+        "Date made": "2023-02-28",
+        "Case Name": "Customer Dispute",
+        "Case description": "Disagreement with a customer over service delivery and payment."
+    },
+    {
+        "Case ID": "C140",
+        "Date made": "2023-07-05",
+        "Case Name": "Intellectual Property Theft",
+        "Case description": "Allegations of theft of intellectual property by a competitor."
+    },
+    {
+        "Case ID": "C141",
+        "Date made": "2024-06-15",
+        "Case Name": "Regulatory Compliance",
+        "Case description": "Investigation into compliance with industry regulations and standards."
+    },
+    {
+        "Case ID": "C142",
+        "Date made": "2023-05-30",
+        "Case Name": "Product Liability",
+        "Case description": "Legal case involving liability for defective products."
+    },
+    {
+        "Case ID": "C143",
+        "Date made": "2023-09-18",
+        "Case Name": "Employee Injury",
+        "Case description": "Work-related injury suffered by an employee on the job."
+    },
+    {
+        "Case ID": "C144",
+        "Date made": "2024-07-25",
+        "Case Name": "Contract Termination",
+        "Case description": "Dispute over the termination of a contract between parties."
+    },
+    {
+        "Case ID": "C145",
+        "Date made": "2023-11-10",
+        "Case Name": "Product Quality",
+        "Case description": "Investigation into complaints regarding product quality issues."
+    },
+    {
+        "Case ID": "C146",
+        "Date made": "2023-07-22",
+        "Case Name": "Labor Dispute",
+        "Case description": "Disagreement between management and labor union over working conditions."
+    },
+    {
+        "Case ID": "C147",
+        "Date made": "2024-08-30",
+        "Case Name": "Data Breach",
+        "Case description": "Security breach resulting in unauthorized access to sensitive data."
+    },
+    {
+        "Case ID": "C148",
+        "Date made": "2023-12-05",
+        "Case Name": "Discrimination Complaint",
+        "Case description": "Allegations of discrimination filed by an employee."
+    },
+    {
+        "Case ID": "C149",
+        "Date made": "2023-04-20",
+        "Case Name": "Product Development Delay",
+        "Case description": "Delays in product development impacting project timelines."
+    },
+    {
+        "Case ID": "C150",
+        "Date made": "2023-10-15",
+        "Case Name": "Customer Data Breach",
+        "Case description": "Breach of customer data leading to privacy concerns."
+    },
+    {
+        "Case ID": "C151",
+        "Date made": "2023-06-10",
+        "Case Name": "Employee Misconduct",
+        "Case description": "Investigation into allegations of employee misconduct."
+    },
+    {
+        "Case ID": "C152",
+        "Date made": "2024-09-10",
+        "Case Name": "Intellectual Property Dispute",
+        "Case description": "Dispute over ownership of intellectual property rights."
+    },
+    {
+        "Case ID": "C153",
+        "Date made": "2023-08-25",
+        "Case Name": "Product Safety",
+        "Case description": "Concerns raised about product safety and compliance with standards."
+    },
+    {
+        "Case ID": "C154",
+        "Date made": "2024-10-20",
+        "Case Name": "Employee Harassment",
+        "Case description": "Allegations of harassment and bullying in the workplace."
+    },
+    {
+        "Case ID": "C155",
+        "Date made": "2023-03-15",
+        "Case Name": "Supply Chain Risk",
+        "Case description": "Identification and mitigation of risks in the supply chain."
+    },
+    {
+        "Case ID": "C156",
+        "Date made": "2023-01-30",
+        "Case Name": "Environmental Compliance",
+        "Case description": "Compliance with environmental regulations and sustainability practices."
+    },
+    {
+        "Case ID": "C157",
+        "Date made": "2024-11-25",
+        "Case Name": "Workplace Discrimination",
+        "Case description": "Allegations of discrimination and bias in the workplace."
+    },
+    {
+        "Case ID": "C158",
+        "Date made": "2023-02-15",
+        "Case Name": "Customer Service Complaint",
+        "Case description": "Complaints received regarding customer service quality and response."
+    },
+    {
+        "Case ID": "C159",
+        "Date made": "2023-07-30",
+        "Case Name": "Intellectual Property Infringement",
+        "Case description": "Allegations of infringement on intellectual property rights."
+    },
+    {
+        "Case ID": "C160",
+        "Date made": "2023-12-15",
+        "Case Name": "Product Recall",
+        "Case description": "Recall of a product due to safety concerns and defects."
+    },
+    {
+        "Case ID": "C161",
+        "Date made": "2023-05-05",
+        "Case Name": "Employee Termination",
+        "Case description": "Termination of an employee for policy violations and misconduct."
+    },
+    {
+        "Case ID": "C162",
+        "Date made": "2024-12-30",
+        "Case Name": "Contract Dispute",
+        "Case description": "Disagreement between parties over contract terms and obligations."
+    },
+    {
+        "Case ID": "C163",
+        "Date made": "2023-09-25",
+        "Case Name": "Product Liability",
+        "Case description": "Legal liability for product defects and consumer harm."
+    },
+    {
+        "Case ID": "C164",
+        "Date made": "2023-04-10",
+        "Case Name": "Employee Injury",
+        "Case description": "Work-related injury leading to compensation claims and legal issues."
+    },
+    {
+        "Case ID": "C165",
+        "Date made": "2024-01-15",
+        "Case Name": "Data Breach",
+        "Case description": "Breach of data security resulting in data loss and privacy risks."
+    },
+    {
+        "Case ID": "C166",
+        "Date made": "2023-11-05",
+        "Case Name": "Fraud Investigation",
+        "Case description": "Investigation into suspected fraud and financial misconduct."
+    },
+    {
+        "Case ID": "C167",
+        "Date made": "2023-07-20",
+        "Case Name": "Product Quality",
+        "Case description": "Quality control issues and complaints related to product defects."
+    },
+    {
+        "Case ID": "C168",
+        "Date made": "2024-02-25",
+        "Case Name": "Labor Dispute",
+        "Case description": "Disagreement between labor union and management over labor rights."
+    },
+    {
+        "Case ID": "C169",
+        "Date made": "2023-03-20",
+        "Case Name": "Customer Dispute",
+        "Case description": "Disagreement with a customer over service delivery and payment issues."
+    },
+    {
+        "Case ID": "C170",
+        "Date made": "2023-10-10",
+        "Case Name": "Intellectual Property Theft",
+        "Case description": "Theft of intellectual property and trade secrets by competitors."
+    }
+]

@@ -1,0 +1,339 @@
+[
+    {
+        "Officer ID": "O001",
+        "Email": "johndoe@police.com",
+        "Password": "12345678",
+        "isAdmin": "true"
+    },
+    {
+        "Officer ID": "O002",
+        "Email": "janesmith@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O003",
+        "Email": "michaeljohnson@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O004",
+        "Email": "emilybrown@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O005",
+        "Email": "davidmartinez@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O006",
+        "Email": "oliviagarcia@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O007",
+        "Email": "williamlopez@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O008",
+        "Email": "sophiawilson@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O009",
+        "Email": "jamestaylor@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O010",
+        "Email": "isabellaanderson@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O011",
+        "Email": "alexanderthomas@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O012",
+        "Email": "charlottewhite@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O013",
+        "Email": "danielharris@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O014",
+        "Email": "ameliaclark@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O015",
+        "Email": "liamlewis@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O016",
+        "Email": "miawalker@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O017",
+        "Email": "noahyoung@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O018",
+        "Email": "avaking@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O019",
+        "Email": "ethanscott@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O020",
+        "Email": "ariagreen@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O021",
+        "Email": "loganbaker@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O022",
+        "Email": "harpergonzalez@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O023",
+        "Email": "masonnelson@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O024",
+        "Email": "evelyncarter@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O025",
+        "Email": "elijahperez@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O026",
+        "Email": "graceroberts@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O027",
+        "Email": "benjaminfoster@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O028",
+        "Email": "averygomez@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O029",
+        "Email": "owenmurray@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O030",
+        "Email": "lunakim@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O031",
+        "Email": "lucassimmons@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O032",
+        "Email": "laylaford@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O033",
+        "Email": "henrywells@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O034",
+        "Email": "zoeybarnes@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O035",
+        "Email": "lukefisher@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O036",
+        "Email": "noracoleman@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O037",
+        "Email": "jackmarshall@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O038",
+        "Email": "hazelgordon@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O039",
+        "Email": "wyattwagner@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O040",
+        "Email": "violetbishop@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O041",
+        "Email": "gabrielknight@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O042",
+        "Email": "madelinedunn@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O043",
+        "Email": "arthurperry@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O044",
+        "Email": "evapowell@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O045",
+        "Email": "caleblong@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O046",
+        "Email": "scarlettreed@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O047",
+        "Email": "leviboyd@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O048",
+        "Email": "auroramason@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O049",
+        "Email": "isaacknight@police.com",
+        "Password": "12345678",
+        "isAdmin": "false"
+    },
+    {
+        "Officer ID": "O050",
+        "Email": "becirisakovic@police.com",
+        "Password": "becirisakovic0o50",
+        "isAdmin": "true"
+    },
+    {
+        "Officer ID": "O051",
+        "Email": "amelavatres@police.com",
+        "Password": "amelavatres0o51",
+        "isAdmin": "true"
+    },
+    {
+        "Officer ID": "O052",
+        "Email": "dzelilamehanovic@police.com",
+        "Password": "dzelilamehanovic0o52",
+        "isAdmin": "true"
+    },
+    {
+        "Officer ID": "O053",
+        "Email": "orhanhuseinbegovic@police.com",
+        "Password": "orhanhuseinbegovic0o53",
+        "isAdmin": "true"
+    },
+    {
+        "Officer ID": "O054",
+        "Email": "dalilajasarevic@police.com",
+        "Password": "dalilajasarevic0o54",
+        "isAdmin": "true"
+    },
+    {
+        "Officer ID": "O055",
+        "Email": "admin@police.com",
+        "Password": "admin",
+        "isAdmin": "true"
+    }
+]
+
+
+
+
+
+
+

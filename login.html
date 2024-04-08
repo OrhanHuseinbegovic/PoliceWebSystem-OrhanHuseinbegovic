@@ -7,9 +7,11 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="assets/Police.png" />
+        <link href="css/styles.css" rel="stylesheet">
+        <link  href="css/manual.css" rel="stylesheet">
+        <link  href="css/spinkit.css" rel="stylesheet">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/manual.css">
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -19,21 +21,23 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5 text-center" >
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3><img src="assets/police-badge.png" width="128px"  alt="Police Logo"></div>
+                                    <div class="card-header btn-sm"><h3 class="text-center font-weight-light my-4">Login</h3><img src="assets/police-badge.png" width="128px"  alt="Police Logo"></div>
                                     <div class="card-body">
-                                        <form>
+                                        <!--FORM-->
+                                        <form id="loginForm" method="post">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                                <span><p>Email:</p></span>
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="namesurname@police.com" name="Email"/>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                <label for="inputPassword">Password</label>
+                                                <span><p>Password:</p></span>
+                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="Password"/>
+                                            </div>
+                                            <div class="mt-2 mb-4">
+                                                <button type="submit" class="btn btn-primary">Log in</button>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="mt-4 mb-0">
-                                        <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Log In</a></div>
+                                        <!--END OF FORM-->
                                     </div>
                                     <div class="card-footer text-center py-3">
                                         <div class="small"><a href="register.html">Sign up</a></div>
@@ -46,6 +50,10 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+        <script src="js/block-ui.js"></script>
         <script src="js/scripts.js"></script>
+        <script src="js/login.js"></script>
     </body>
 </html>

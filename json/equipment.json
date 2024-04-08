@@ -1,0 +1,386 @@
+[
+    {
+        "Log ID": "L001",
+        "Officer ID": "O123",
+        "Weapon ID": "W001",
+        "Vehicle ID": "V001",
+        "Shift": "night",
+        "Date": "2023-05-15"
+    },
+    {
+        "Log ID": "L002",
+        "Officer ID": "O124",
+        "Weapon ID": "W002",
+        "Vehicle ID": "V002",
+        "Shift": "morning",
+        "Date": "2024-01-23"
+    },
+    {
+        "Log ID": "L003",
+        "Officer ID": "O125",
+        "Weapon ID": "W003",
+        "Vehicle ID": "V003",
+        "Shift": "afternoon",
+        "Date": "2023-09-08"
+    },
+    {
+        "Log ID": "L004",
+        "Officer ID": "O126",
+        "Weapon ID": "W004",
+        "Vehicle ID": "V004",
+        "Shift": "night",
+        "Date": "2024-02-17"
+    },
+    {
+        "Log ID": "L005",
+        "Officer ID": "O127",
+        "Weapon ID": "W005",
+        "Vehicle ID": "V005",
+        "Shift": "morning",
+        "Date": "2023-11-30"
+    },
+    {
+        "Log ID": "L006",
+        "Officer ID": "O128",
+        "Weapon ID": "W006",
+        "Vehicle ID": "V006",
+        "Shift": "afternoon",
+        "Date": "2023-07-12"
+    },
+    {
+        "Log ID": "L007",
+        "Officer ID": "O129",
+        "Weapon ID": "W007",
+        "Vehicle ID": "V007",
+        "Shift": "night",
+        "Date": "2023-04-05"
+    },
+    {
+        "Log ID": "L008",
+        "Officer ID": "O130",
+        "Weapon ID": "W008",
+        "Vehicle ID": "V008",
+        "Shift": "morning",
+        "Date": "2023-10-29"
+    },
+    {
+        "Log ID": "L009",
+        "Officer ID": "O131",
+        "Weapon ID": "W009",
+        "Vehicle ID": "V009",
+        "Shift": "afternoon",
+        "Date": "2023-12-25"
+    },
+    {
+        "Log ID": "L010",
+        "Officer ID": "O132",
+        "Weapon ID": "W010",
+        "Vehicle ID": "V010",
+        "Shift": "night",
+        "Date": "2023-08-19"
+    },
+    {
+        "Log ID": "L011",
+        "Officer ID": "O133",
+        "Weapon ID": "W011",
+        "Vehicle ID": "V011",
+        "Shift": "morning",
+        "Date": "2023-06-02"
+    },
+    {
+        "Log ID": "L012",
+        "Officer ID": "O134",
+        "Weapon ID": "W012",
+        "Vehicle ID": "V012",
+        "Shift": "afternoon",
+        "Date": "2023-02-14"
+    },
+    {
+        "Log ID": "L013",
+        "Officer ID": "O135",
+        "Weapon ID": "W013",
+        "Vehicle ID": "V013",
+        "Shift": "night",
+        "Date": "2023-01-01"
+    },
+    {
+        "Log ID": "L014",
+        "Officer ID": "O136",
+        "Weapon ID": "W014",
+        "Vehicle ID": "V014",
+        "Shift": "morning",
+        "Date": "2023-03-29"
+    },
+    {
+        "Log ID": "L015",
+        "Officer ID": "O137",
+        "Weapon ID": "W015",
+        "Vehicle ID": "V015",
+        "Shift": "afternoon",
+        "Date": "2023-07-04"
+    },
+    {
+        "Log ID": "L016",
+        "Officer ID": "O138",
+        "Weapon ID": "W016",
+        "Vehicle ID": "V016",
+        "Shift": "night",
+        "Date": "2023-11-11"
+    },
+    {
+        "Log ID": "L017",
+        "Officer ID": "O139",
+        "Weapon ID": "W017",
+        "Vehicle ID": "V017",
+        "Shift": "morning",
+        "Date": "2023-09-21"
+    },
+    {
+        "Log ID": "L018",
+        "Officer ID": "O140",
+        "Weapon ID": "W018",
+        "Vehicle ID": "V018",
+        "Shift": "afternoon",
+        "Date": "2023-05-25"
+    },
+    {
+        "Log ID": "L019",
+        "Officer ID": "O141",
+        "Weapon ID": "W019",
+        "Vehicle ID": "V019",
+        "Shift": "night",
+        "Date": "2023-12-31"
+    },
+    {
+        "Log ID": "L020",
+        "Officer ID": "O142",
+        "Weapon ID": "W020",
+        "Vehicle ID": "V020",
+        "Shift": "morning",
+        "Date": "2023-08-09"
+    },
+    {
+        "Log ID": "L021",
+        "Officer ID": "O143",
+        "Weapon ID": "W021",
+        "Vehicle ID": "V021",
+        "Shift": "afternoon",
+        "Date": "2023-04-16"
+    },
+    {
+        "Log ID": "L022",
+        "Officer ID": "O144",
+        "Weapon ID": "W022",
+        "Vehicle ID": "V022",
+        "Shift": "night",
+        "Date": "2023-02-28"
+    },
+    {
+        "Log ID": "L023",
+        "Officer ID": "O145",
+        "Weapon ID": "W023",
+        "Vehicle ID": "V023",
+        "Shift": "morning",
+        "Date": "2023-10-05"
+    },
+    {
+        "Log ID": "L024",
+        "Officer ID": "O146",
+        "Weapon ID": "W024",
+        "Vehicle ID": "V024",
+        "Shift": "afternoon",
+        "Date": "2023-06-18"
+    },
+    {
+        "Log ID": "L025",
+        "Officer ID": "O147",
+        "Weapon ID": "W025",
+        "Vehicle ID": "V025",
+        "Shift": "night",
+        "Date": "2023-01-12"
+    },
+    {
+        "Log ID": "L026",
+        "Officer ID": "O148",
+        "Weapon ID": "W026",
+        "Vehicle ID": "V026",
+        "Shift": "morning",
+        "Date": "2023-03-02"
+    },
+    {
+        "Log ID": "L027",
+        "Officer ID": "O149",
+        "Weapon ID": "W027",
+        "Vehicle ID": "V027",
+        "Shift": "afternoon",
+        "Date": "2023-07-21"
+    },
+    {
+        "Log ID": "L028",
+        "Officer ID": "O150",
+        "Weapon ID": "W028",
+        "Vehicle ID": "V028",
+        "Shift": "night",
+        "Date": "2023-11-16"
+    },
+    {
+        "Log ID": "L029",
+        "Officer ID": "O151",
+        "Weapon ID": "W029",
+        "Vehicle ID": "V029",
+        "Shift": "morning",
+        "Date": "2023-09-02"
+    },
+    {
+        "Log ID": "L030",
+        "Officer ID": "O152",
+        "Weapon ID": "W030",
+        "Vehicle ID": "V030",
+        "Shift": "afternoon",
+        "Date": "2023-05-08"
+    },
+    {
+        "Log ID": "L031",
+        "Officer ID": "O153",
+        "Weapon ID": "W031",
+        "Vehicle ID": "V031",
+        "Shift": "night",
+        "Date": "2023-12-15"
+    },
+    {
+        "Log ID": "L032",
+        "Officer ID": "O154",
+        "Weapon ID": "W032",
+        "Vehicle ID": "V032",
+        "Shift": "morning",
+        "Date": "2023-08-26"
+    },
+    {
+        "Log ID": "L033",
+        "Officer ID": "O155",
+        "Weapon ID": "W033",
+        "Vehicle ID": "V033",
+        "Shift": "afternoon",
+        "Date": "2023-04-09"
+    },
+    {
+        "Log ID": "L034",
+        "Officer ID": "O156",
+        "Weapon ID": "W034",
+        "Vehicle ID": "V034",
+        "Shift": "night",
+        "Date": "2023-02-01"
+    },
+    {
+        "Log ID": "L035",
+        "Officer ID": "O157",
+        "Weapon ID": "W035",
+        "Vehicle ID": "V035",
+        "Shift": "morning",
+        "Date": "2023-10-12"
+    },
+    {
+        "Log ID": "L036",
+        "Officer ID": "O158",
+        "Weapon ID": "W036",
+        "Vehicle ID": "V036",
+        "Shift": "afternoon",
+        "Date": "2023-06-25"
+    },
+    {
+        "Log ID": "L037",
+        "Officer ID": "O159",
+        "Weapon ID": "W037",
+        "Vehicle ID": "V037",
+        "Shift": "night",
+        "Date": "2023-01-19"
+    },
+    {
+        "Log ID": "L038",
+        "Officer ID": "O160",
+        "Weapon ID": "W038",
+        "Vehicle ID": "V038",
+        "Shift": "morning",
+        "Date": "2023-03-09"
+    },
+    {
+        "Log ID": "L039",
+        "Officer ID": "O161",
+        "Weapon ID": "W039",
+        "Vehicle ID": "V039",
+        "Shift": "afternoon",
+        "Date": "2023-07-28"
+    },
+    {
+        "Log ID": "L040",
+        "Officer ID": "O162",
+        "Weapon ID": "W040",
+        "Vehicle ID": "V040",
+        "Shift": "night",
+        "Date": "2023-11-26"
+    },
+    {
+        "Log ID": "L041",
+        "Officer ID": "O163",
+        "Weapon ID": "W041",
+        "Vehicle ID": "V041",
+        "Shift": "morning",
+        "Date": "2023-09-11"
+    },
+    {
+        "Log ID": "L042",
+        "Officer ID": "O164",
+        "Weapon ID": "W042",
+        "Vehicle ID": "V042",
+        "Shift": "afternoon",
+        "Date": "2023-05-15"
+    },
+    {
+        "Log ID": "L043",
+        "Officer ID": "O165",
+        "Weapon ID": "W043",
+        "Vehicle ID": "V043",
+        "Shift": "night",
+        "Date": "2023-02-06"
+    },
+    {
+        "Log ID": "L044",
+        "Officer ID": "O166",
+        "Weapon ID": "W044",
+        "Vehicle ID": "V044",
+        "Shift": "morning",
+        "Date": "2023-10-02"
+    },
+    {
+        "Log ID": "L045",
+        "Officer ID": "O167",
+        "Weapon ID": "W045",
+        "Vehicle ID": "V045",
+        "Shift": "afternoon",
+        "Date": "2023-06-15"
+    },
+    {
+        "Log ID": "L046",
+        "Officer ID": "O168",
+        "Weapon ID": "W046",
+        "Vehicle ID": "V046",
+        "Shift": "night",
+        "Date": "2023-01-07"
+    },
+    {
+        "Log ID": "L047",
+        "Officer ID": "O169",
+        "Weapon ID": "W047",
+        "Vehicle ID": "V047",
+        "Shift": "morning",
+        "Date": "2023-03-05"
+    },
+    {
+        "Log ID": "L048",
+        "Officer ID": "O170",
+        "Weapon ID": "W048",
+        "Vehicle ID": "V048",
+        "Shift": "afternoon",
+        "Date": "2023-07-24"
+    }
+]
