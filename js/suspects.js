@@ -1,3 +1,4 @@
+/*
 $(document).ready( function () {
     blockUi("#suspectsTable");
     $('#suspectsTable').DataTable({
@@ -22,6 +23,177 @@ $(document).ready( function () {
     });
     unblockUi("#suspectsTable");
 });
+*/
+
+//If user is admin, include the column for edit and delete buttons, else dont
+$(document).ready( function () {
+    const isAdmin = localStorage.getItem("isAdmin");
+    if(isAdmin === "true"){
+        console.log("User is admin");
+        $(document).ready( function () {
+            blockUi("#suspectsTable");
+            $('#suspectsTable').DataTable({
+                ajax: {
+                    url: "../PoliceWebSystem-OrhanHuseinbegovic/json/suspects.json",
+                    dataSrc: ""
+                },
+                columns: [
+                    {data: "Suspect ID"},
+                    {data: "Personal ID"},
+                    {data: "Name"},
+                    {data: "Surname"},
+                    {data: "Date of Birth"},
+                    {
+                        data: null,
+                        render: function(data, type, row) {
+                            return '<button class="btn btn-info btn-sm btn-edit" id="editRowBtn" data-toggle="modal" data-target="#editModal" data-row="' + row.suspectID + '">Edit</button>' +
+                                   '<button class="btn btn-danger btn-sm btn-delete" id="deleteRowBtn" data-row="' + row.suspectID + '">Delete</button>';
+                        }
+                    }
+                ]
+            });
+            unblockUi("#suspectsTable");
+        });
+    }
+    else{
+        console.log("User is not admin");
+        $(document).ready( function () {
+            blockUi("#suspectsTable");
+            //$('#suspectsTable').find('thead th#actions').remove();
+            $('#suspectsTable').find('tbody td:last-child').remove();
+            $('#suspectsTable').DataTable({
+                ajax: {
+                    url: "../PoliceWebSystem-OrhanHuseinbegovic/json/suspects.json",
+                    dataSrc: ""
+                },
+                columns: [
+                    {data: "Suspect ID"},
+                    {data: "Personal ID"},
+                    {data: "Name"},
+                    {data: "Surname"},
+                    {data: "Date of Birth"}
+                ]
+            });
+            unblockUi("#suspectsTable");
+        });
+    }
+});
+
+
+/*
+$(document).ready(function () {
+    blockUi("#suspectsTable");
+
+    const isAdmin = localStorage.getItem("isAdmin");
+
+    // Define the columns array based on user type
+    const columns = [
+        { data: "Suspect ID" },
+        { data: "Personal ID" },
+        { data: "Name" },
+        { data: "Surname" },
+        { data: "Date of Birth" }
+    ];
+
+    // If user is admin, include the column for edit and delete buttons
+    if (isAdmin === "true") {
+        columns.push({
+            data: null,
+            render: function (data, type, row) {
+                return '<button class="btn btn-info btn-sm btn-edit" id="editRowBtn" data-toggle="modal" data-target="#editModal" data-row="' + row.suspectID + '">Edit</button>' +
+                    '<button class="btn btn-danger btn-sm btn-delete" id="deleteRowBtn" data-row="' + row.suspectID + '">Delete</button>';
+            }
+        });
+    }
+
+    // If user is not admin, remove the last column from the columns array
+    if (isAdmin === "false") {
+        columns.pop();
+    }
+
+    $('#suspectsTable').DataTable({
+        ajax: {
+            url: "../PoliceWebSystem-OrhanHuseinbegovic/json/suspects.json",
+            dataSrc: ""
+        },
+        columns: columns
+    });
+
+    unblockUi("#suspectsTable");
+});
+*/
+
+
+/*
+$(document).ready(function() {
+    blockUi("#suspectsTable");
+    $('#suspectsTable').DataTable({
+        ajax: {
+            url: "../PoliceWebSystem-OrhanHuseinbegovic/json/suspects.json",
+            dataSrc: ""
+        },
+        columns: [
+            {data: "Suspect ID"},
+            {data: "Personal ID"},
+            {data: "Name"},
+            {data: "Surname"},
+            {data: "Date of Birth"}
+        ]
+    });
+    unblockUi("#suspectsTable");
+});
+*/
+
+$(document).ready(function() {
+    // Check the isAdmin status when the page loads
+    checkAdmin();
+});
+/*
+function checkAdmin() {
+    let isAdmin = localStorage.getItem("isAdmin");
+    if (isAdmin === "true") {
+        blockUi("#suspectsTable");
+        $('#suspectsTable').DataTable({
+            ajax: {
+                url: "../PoliceWebSystem-OrhanHuseinbegovic/json/suspects.json",
+                dataSrc: ""
+            },
+            columns: [
+                {data: "Suspect ID"},
+                {data: "Personal ID"},
+                {data: "Name"},
+                {data: "Surname"},
+                {data: "Date of Birth"},
+                {
+                    data: null,
+                    render: function(data, type, row) {
+                        return '<button class="btn btn-info btn-sm btn-edit" id="editRowBtn" data-toggle="modal" data-target="#editModal" data-row="' + row.suspectID + '">Edit</button>' +
+                            '<button class="btn btn-danger btn-sm btn-delete" id="deleteRowBtn" data-row="' + row.suspectID + '">Delete</button>';
+                    }
+                }
+            ]
+        });
+        unblockUi("#suspectsTable");
+    } else {
+        $("#actions").hide();
+        blockUi("#suspectsTable");
+        $('#suspectsTable').DataTable({
+            ajax: {
+                url: "../PoliceWebSystem-OrhanHuseinbegovic/json/suspects.json",
+                dataSrc: ""
+            },
+            columns: [
+                {data: "Suspect ID"},
+                {data: "Personal ID"},
+                {data: "Name"},
+                {data: "Surname"},
+                {data: "Date of Birth"}
+            ]
+        });
+        unblockUi("#suspectsTable");
+        }
+}
+*/
 
 $(document).ready(function() {
     $("#addForm").validate({

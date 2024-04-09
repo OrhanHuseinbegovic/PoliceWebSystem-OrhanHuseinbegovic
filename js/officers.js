@@ -14,7 +14,6 @@ $(document).ready( function () {
             {data: "Email"},
             {data: "Phone"},
             {data: "Department"},
-            {data: "Station"},
             {
                 data: null,
                 render: function(data, type, row) {

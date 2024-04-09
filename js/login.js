@@ -27,6 +27,38 @@ $(document).ready(function() {
             blockUi("#loginForm"); 
             let data = serializeForm(form);
             console.log("THIS IS DATA: "+JSON.stringify(data));
+
+            //Fetching data from json file and checking if the user exists
+            $.get("../PoliceWebSystem-OrhanHuseinbegovic/json/users.json", function(users) {
+                let userExists = false;
+                for(let i = 0; i < users.length; i++){
+                    if(users[i].Email === data.Email && users[i].Password === data.Password){
+                        userExists = true;
+                        let user = {
+                            OfficerID: users[i].OfficerID,
+                            Email: users[i].Email,
+                            Password: users[i].Password,
+                            isAdmin: users[i].isAdmin
+                        };
+                        let isAdmin = user.isAdmin;
+                        localStorage.setItem("user", JSON.stringify(user));
+                        localStorage.setItem("isAdmin", isAdmin);
+                        console.log(localStorage);
+                        break;
+                    }
+                }
+                if(userExists){
+                    console.log("User exists");
+                    window.location.href = "index.html";
+                }else{
+                    console.log("User does not exist");
+                    unblockUi("#loginForm");
+                    alert("User does not exist");
+                }
+            });
+            
+
+
             $("#loginForm")[0].reset();
             unblockUi("#loginForm");
             console.log("Form submitted");
@@ -65,6 +97,7 @@ getUsers = () => {
     $.get("../PoliceWebSystem-OrhanHuseinbegovic/json/users.json", function(users) {
         console.log(users);
     });
+    localStorage.clear();
 };
 
 getUsers();

@@ -1,3 +1,19 @@
+function checkAdmin() {
+    let isAdmin = localStorage.getItem("isAdmin");
+    if (isAdmin === "true") {
+        $("#caseForm").show();
+    } else {
+        $("#caseForm").hide();
+    }
+}
+
+$(document).ready(function() {
+    checkAdmin();
+});
+
+
+
+
 $("#caseForm").validate({
     rules: {
         CaseName: {
@@ -80,7 +96,7 @@ getCases = () => {
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
                         <div class="caption">
-                            <h3 class="md-heading"><a href="#">${caseItem["Case Name"]}</a></h3>
+                            <h3 class="md-heading">${caseItem["Case Name"]}</h3>
                             <p>${caseItem["Case description"]}</p>
                         </div>
                     </div>

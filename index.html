@@ -50,7 +50,8 @@
     <body>
         <div class="d-flex" id="wrapper">
             <!-- ADMIN Sidebar-->
-            <div class="border-end bg-blueb" id="sidebar-wrapper">
+            <div id="adminSidebar">
+            <div class="border-end bg-blueb position-fixed adminSidebar" style="top: 0; bottom: 0; left: 0; z-index: 1030;" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-blue">Police System<span><img src="assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#casesofficer">Cases</a>
@@ -63,36 +64,40 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#profileofficer">Profile</a>
                 </div>
             </div>
-            <!--USER Sidebar
-            <div class="border-end bg-blueb" id="sidebar-wrapper">
+            </div>
+            <!-- USER Sidebar-->
+            <div id="userSidebar">
+            <div class="border-end bg-blueb position-fixed userSidebar" style="top: 0; bottom: 0; left: 0; z-index: 1030;" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-blue">Police System<span><img src="assets/police-badge.png" alt="" height="25px" width="25px"></span></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#cases">Cases</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#activitylog">Activity Log</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#incidentlog">Incident Log</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#indexuser">Officers </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#suspects">Suspects</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#casesofficer">Cases</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#activitylogofficer">Activity Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#incidentlogofficer">Incident Log</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#suspectsofficer">Suspects</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-blueb" style=" color: white; background-color: #3A5FCD;" href="#profileofficer">Profile</a>
                 </div>
             </div>
-            -->
+            </div>
+            
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
-                <nav class="navbar navbar-expand-lg navbar-light bg-blue border-bottom">
+                <nav class="navbar navbar-expand-lg navbar-light bg-blue border-bottom position-fixed" style="width: 100%; z-index: 1030;">
                     <div class="container-fluid">
                         <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li class="nav-item active"><a class="nav-link" href="#indexofficer" style=" color: white;">Home</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="#indexofficer" style=" color: white;">Log out</a></li>
+                                <li class="nav-item active"><a class="nav-link" id="logOutBtn" style=" color: white;">Log out</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
                 <!-- Page content-->
+            
                 <div class="container-fluid"></div>
-                <div class="container-fluid, text-center">
+                <div class="container-fluid, text-center" style="padding-top: 56px;" id="mainContent">
                     <main id="spapp" role="main">
                         <!--ADMIN-->
                         <section id="activitylogofficer"></section>
