@@ -6,11 +6,11 @@ $(document).ready( function () {
             dataSrc: ""
         },
         columns: [
-            {data: "Officer ID"},
-            {data: "Personal ID"},
+            {data: "OfficerID"},
+            {data: "PersonalID"},
             {data: "Name"},
             {data: "Surname"},
-            {data: "Date of Birth"},
+            {data: "DateofBirth"},
             {data: "Email"},
             {data: "Phone"},
             {data: "Department"},

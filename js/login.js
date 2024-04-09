@@ -43,6 +43,7 @@ $(document).ready(function() {
                         let isAdmin = user.isAdmin;
                         localStorage.setItem("user", JSON.stringify(user));
                         localStorage.setItem("isAdmin", isAdmin);
+                        localStorage.setItem("id", user.OfficerID);
                         console.log(localStorage);
                         break;
                     }
