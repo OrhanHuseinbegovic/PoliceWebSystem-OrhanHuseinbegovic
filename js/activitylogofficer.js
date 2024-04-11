@@ -24,32 +24,21 @@ $("#activityForm").validate({
     submitHandler: function(form, event) {
         event.preventDefault();
         blockUi("#activityForm"); 
+
+        var officerID = localStorage.getItem("OfficerID");
+        var currentDate = new Date().toISOString().slice(0, 10);
+        $('#officerID').val(officerID);
+        $('#currentDate').val(currentDate);
+        $('#logID').val("L"+Math.floor(Math.random() * 1000) + 1);
+
         let data = serializeForm(form);
         console.log(JSON.stringify(data));
+
         $("#activityForm")[0].reset();
         unblockUi("#activityForm");
-        let nesto = getUsers();
-        console.log(nesto);
     }
 });
 
-blockUi = (element) => {
-    $(element).block({
-      message: '<div class="spinner-border text-primary" role="status"></div>',
-      css: {
-        backgroundColor: "transparent",
-        border: "0",
-      },
-      overlayCSS: {
-        backgroundColor: "#000",
-        opacity: 0.25,
-      },
-    });
-};
-
-unblockUi = (element) => {
-    $(element).unblock({});
-};  
 
 serializeForm = (form) => {
     let jsonResul = {};

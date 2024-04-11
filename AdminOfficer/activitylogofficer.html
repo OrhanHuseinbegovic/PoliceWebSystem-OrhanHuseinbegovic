@@ -4,18 +4,8 @@
   <p>Please input all required field below for the activity log</p>
   <div class="container mt-5" id="blockme">
       <form id="activityForm" method="POST">
-          <!--START OF FORM FALI NAME NA SVAKOOOOOOOOOOOOOOM-->  
-          <!-- Shift Selection -->
-          <div class="form-group">
-              <label for="shift">Select Shift:</label>
-              <select class="form-control" id="shift" name="shift" form="activityForm">
-                  <option value="">Select Shift</option>
-                  <option value="morning">morning</option>
-                  <option value="afternoon">afternoon</option>
-                  <option value="night">night</option>
-              </select>
-          </div>
-          <br>
+          <input type="hidden" id="logID" name="logID">
+          <input type="hidden" id="officerID" name="officerID">
           <!-- Weapons Selection -->
           <div class="form-group">
               <label for="weapons">Select Weapon:</label>
@@ -39,6 +29,18 @@
                   <option value="helicopter">Helicopter</option>
               </select>
           </div>
+          <!-- Shift Selection -->
+          <div class="form-group">
+            <label for="shift">Select Shift:</label>
+            <select class="form-control" id="shift" name="shift" form="activityForm">
+                <option value="">Select Shift</option>
+                <option value="morning">morning</option>
+                <option value="afternoon">afternoon</option>
+                <option value="night">night</option>
+            </select>
+           </div>
+           <br>
+           <input type="hidden" id="currentDate" name="currentDate">
            <!-- 
           <fieldset disabled>
               <div class="form-group">

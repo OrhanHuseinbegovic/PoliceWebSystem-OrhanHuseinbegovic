@@ -12,7 +12,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="addModalLabel">Add Data</h5>
+              <h5 class="modal-title" id="addModalLabel">Add suspect</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
                 <span aria-hidden="true" id="closeModal" class="close">&times;</span>
               </button>
@@ -20,10 +20,7 @@
             <div class="modal-body">
               <!-- Form for adding data -->
               <form id="addForm"> 
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Suspect ID:</label>
-                  <input type="text" class="form-control" id="suspectid" name="suspectid">
-                </div>
+                <input type="hidden" id="suspectID" name="suspectID">
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Personal ID:</label>
                   <input type="text" class="form-control" id="personalid" name="personalid">
@@ -59,30 +56,21 @@
               </button>
             </div>
             <div class="modal-body">
-              <!-- Form for adding data -->
-              <form id="addForm"> 
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Suspect ID:</label>
-                  <input type="text" class="form-control" id="suspectid" name="suspectid">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Personal ID:</label>
-                  <input type="text" class="form-control" id="personalid" name="personalid">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Name</label>
-                  <input type="text" class="form-control" id="name" name="name">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Surname</label>
-                  <input type="text" class="form-control" id="surname" name="surname">
-                </div>
-              <div class="form-group">
-                <label for="caseDate">Date of birth:</label>
-                <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date" required>
-                <br>
-            </div>
-                <button type="submit" class="btn btn-primary closed">Add</button>
+              <!-- Form for editing data -->
+              <form id="editForm"> 
+                    <input type="hidden" id="suspectID" name="suspectID">
+                    <input type="hidden" id="personalID" name="personalID">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Name</label>
+                      <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Surname</label>
+                      <input type="text" class="form-control" id="surname" name="surname">
+                    </div>
+                    <input type="hidden" id="date" name="date">
+                    <br>
+                    <button type="submit" class="btn btn-primary closed">Save changes</button>
               </form>
             </div>
           </div>

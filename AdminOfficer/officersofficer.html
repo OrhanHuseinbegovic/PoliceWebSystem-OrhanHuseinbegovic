@@ -6,100 +6,113 @@
           <div class="mb-3">
               <button class="btn btn-primary addBtn" id="addOfficer" data-toggle="modal">Add</button>
           </div>
-        
-          <!--MODAL FOR ADD-->
-        <div class="modal fade" id="addOfficerModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Add Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
-                    <span aria-hidden="true" id="closeModal">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                <!-- Form for adding data -->
-                <form id="addForm">
-                    <div class="form-group">
-                    <label for="inputData">Log ID:</label>
-                    <select class="form-control" id="logID" name="logID" form="addForm">
-                        <!--POPUNI OVO-->
-                        <option value="">Select log ID</option>
-                    </select>
-                    </div>
-                    <div class="form-group">
-                    <label for="inputData">Officer ID:</label>
-                    <select class="form-control" id="officerID" name="officerID" form="addForm">
-                        <!--POPUNI OVO-->
-                        <option value="">Select officer ID</option>
-                    </select>
-                    </div>
-                    <div class="form-group">
-                    <label for="inputData">Weapon ID:</label>
-                    <select class="form-control" id="weaponID" name="weaponID" form="addForm">
-                        <!--POPUNI OVO-->
-                        <option value="">Select weapon ID</option>
-                    </select>
-                    </div>
-                    <div class="form-group">
-                    <label for="inputData">Vehicle ID:</label>
-                    <select class="form-control" id="vehicleID" name="vehicleID" form="addForm">
-                        <!--POPUNI OVO-->
-                        <option value="">Select vehicle ID</option>
-                    </select>
-                    </div>
-                    <div class="form-group">
-                    <label for="shift">Select Shift:</label>
-                    <select class="form-control" id="shift" name="shift" form="addForm">
-                        <!--POPUNI OVO-->  
-                        <option value="">Select shift</option>
-                        <option value="morning">morning</option>
-                        <option value="afternoon">afternoon</option>
-                        <option value="night">night</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="caseDate">Date:</label>
-                    <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date" required>
-                    <br>
-                </div>
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </form>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!--Test modal-->
-        <div class="modal fade" id="addOfficerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           
+          <!-- Modal for ADD-->
+          <div class="modal fade" id="addOfficerModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                  <h5 class="modal-title" id="addModalLabel">Add Data</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+                    <span aria-hidden="true" id="closeModal">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <!-- Form for adding data -->
+                  <form id="addForm">
+                    <input type="hidden" id="officerID" name="officerID">
                     <div class="form-group">
-                      <label for="recipient-name" class="col-form-label">Recipient:</label>
-                      <input type="text" class="form-control" id="recipient-name">
+                      <label for="inputData">Personal ID:</label>
+                      <input type="text" class="form-control" id="personalID" placeholder="Enter personal ID" name="personalID">
                     </div>
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">Message:</label>
-                      <textarea class="form-control" id="message-text"></textarea>
+                      <label for="inputData">Name:</label>
+                      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
                     </div>
+                    <div class="form-group">
+                      <label for="inputData">Surname:</label>
+                      <input type="text" class="form-control" id="surname" placeholder="Enter surname" name="surname">
+                    </div>
+                      <div class="form-group">
+                      <label for="caseDate">Date:</label>
+                      <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date">
+                    </div>
+                    <input type="hidden" id="email" name="email">
+                    <div class="form-group">
+                      <label for="inputData">Phone:</label>
+                      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                      <label for="select">Department:</label>
+                      <select class="form-control" name="department" id="department" form="addForm" placeholder="Select department">
+                        <option value="Drugs">Drugs</option>
+                        <option value="Fraud">Fraud</option>
+                        <option value="Homicide">Homicide</option>
+                        <option value="Patrol">Patrol</option>
+                        <option value="Traffic">Traffic</option>
+                        <option value="Violent Crime">Violent Crime</option>
+                        <option value="Property Crime">Violent Crime</option>
+                        <option value="Organized Crime">Organized Crime</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
                   </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Send message</button>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Modal for EDIT-->
+          <div class="modal fade" id="editOfficerModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+                    <span aria-hidden="true" id="closeEditModal">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Form for adding data -->
+                  <form id="editForm">
+                    <input type="hidden" id="officerID" name="officerID">
+                    <input type="hidden" id="personalID" name="personalID">
+                    <div class="form-group">
+                      <label for="inputData">Name:</label>
+                      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputData">Surname:</label>
+                      <input type="text" class="form-control" id="surname" placeholder="Enter surname" name="surname">
+                    </div>
+                      <div class="form-group">
+                      <label for="caseDate">Date:</label>
+                      <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date">
+                    </div>
+                    <input type="hidden" id="email" name="email">
+                    <div class="form-group">
+                      <label for="inputData">Phone:</label>
+                      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                      <label for="select">Department:</label>
+                      <select class="form-control" name="department" id="department" form="editForm" placeholder="Select department">
+                        <option value="Drugs">Drugs</option>
+                        <option value="Fraud">Fraud</option>
+                        <option value="Homicide">Homicide</option>
+                        <option value="Patrol">Patrol</option>
+                        <option value="Traffic">Traffic</option>
+                        <option value="Violent Crime">Violent Crime</option>
+                        <option value="Property Crime">Violent Crime</option>
+                        <option value="Organized Crime">Organized Crime</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- Datatable -->
           <div class="table-responsive">
@@ -123,7 +136,7 @@
           </table>
           </div>
         </div>
-  </div>
+    </div>
 </div>
 
 <script src="../../PoliceWebSystem-OrhanHuseinbegovic/js/officers.js"></script>

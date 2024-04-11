@@ -79,7 +79,7 @@
         </div>
         <div class="modal-body">
           <!-- Form for editing row fields -->
-          <form id="addForm">
+          <form id="editForm">
             <div class="form-group">
               <label for="inputData">Log ID:</label>
               <select class="form-control" id="logID" name="logID" form="addForm">
@@ -118,16 +118,17 @@
                 <option value="night">night</option>
               </select>
           </div>
-          </form>
           <div class="form-group">
             <label for="caseDate">Date:</label>
             <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date" required>
             <br>
         </div>
-        </div>
+          <button type="submit" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+          
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+        </div>
+          </form>
         </div>
       </div>
     </div>

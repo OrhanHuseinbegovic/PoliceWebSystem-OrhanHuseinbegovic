@@ -24,6 +24,18 @@ $("#incidentForm").validate({
     submitHandler: function(form, event) {
         event.preventDefault();
         blockUi("#incidentForm"); 
+
+        if(localStorage.getItem("isAdmin")=="true"){
+            var officerID = localStorage.getItem("officerID");
+            $('#officerID').val(officerID);
+        }
+        else{
+            var id = localStorage.getItem("id");
+            $('#officerID').val(id);
+        }
+
+        $('#incidentID').val("L"+Math.floor(Math.random() * 1000) + 1);
+
         let data = serializeForm(form);
         console.log(JSON.stringify(data));
         $("#incidentForm")[0].reset();
@@ -31,23 +43,6 @@ $("#incidentForm").validate({
     }
 });
 
-blockUi = (element) => {
-    $(element).block({
-      message: '<div class="spinner-border text-primary" role="status"></div>',
-      css: {
-        backgroundColor: "transparent",
-        border: "0",
-      },
-      overlayCSS: {
-        backgroundColor: "#000",
-        opacity: 0.25,
-      },
-    });
-};
-
-unblockUi = (element) => {
-    $(element).unblock({});
-};  
 
 serializeForm = (form) => {
     let jsonResul = {};

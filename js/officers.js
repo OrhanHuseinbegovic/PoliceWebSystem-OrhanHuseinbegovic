@@ -17,7 +17,7 @@ $(document).ready( function () {
             {
                 data: null,
                 render: function(data, type, row) {
-                    return '<button class="btn btn-info btn-sm btn-edit" id="editRowBtn" data-toggle="modal" data-target="#editModal" data-row="' + row.officerID + '">Edit</button>' +
+                    return '<button class="btn btn-info btn-sm btn-edit" id="editRowBtn" data-toggle="modal" data-target="#editOfficerModal" data-row="' + row.officerID + '">Edit</button>' +
                            '<button class="btn btn-danger btn-sm btn-delete" id="deleteRowBtn" data-row="' + row.officerID + '">Delete</button>';
                 }
             }
@@ -29,53 +29,21 @@ $(document).ready( function () {
 
 console.log("Officers loaded");
 
-/*
-$(document).ready(function() {
-    // Function to fetch JSON data and populate select elements
-    function populateSelectElement(elementId, jsonData, key) {
-      var selectElement = $('#' + elementId);
-      selectElement.empty(); // Clear existing options
-      
-      // Add default option
-      selectElement.append($('<option>', {
-        value: '',
-        text: 'Select ' + key
-      }));
-      
-      // Add options from JSON data
-      jsonData.forEach(function(item) {
-        selectElement.append($('<option>', {
-          value: item[key],
-          text: item[key]
-        }));
-      });
-    }
-  
-    // Function to fetch JSON data
-    function fetchDataAndPopulate() {
-      $.getJSON('../../PoliceWebSystem-OrhanHuseinbegovic/json/officers.json', function(data) {
-        populateSelectElement('officerID', data, 'officerid');
-        populateSelectElement('personalID', data, 'personalid');
-        populateSelectElement('name', data, 'name');
-        populateSelectElement('surname', data, 'surname');
-        populateSelectElement('dateofbirth',data,'dateofbirth');
-        populateSelectElement('email',data,'email');
-        populateSelectElement('phone',data,'phone');
-        populateSelectElement('department', data, 'department');
-        populateSelectElement('station',data,'station');
-      });
-    }
-  
-    // Call the function to populate select elements when the modal is shown
-    $('#addOfficerModal').on('shown.bs.modal', function() {
-      fetchDataAndPopulate();
+$(document).on('click', '#deleteRowBtn', function() {
+    $(this).parents('tr').remove();
+});
+
+//When document is ready, and when clicked on id addOfficer, show modal addOfficerMOdal
+$(document).ready(function(){
+    $('#addOfficer').click(function(){
+        $('#addOfficerModal').modal('show');
     });
-    
+    $('#closeModal').click(function(){
+        $('#addOfficerModal').modal('hide');
+    });
+
     $("#addForm").validate({
         rules: {
-            officerID:{
-                required: true
-            },
             personalID:{
                 required: true
             },
@@ -85,66 +53,59 @@ $(document).ready(function() {
             surname:{
                 required: true
             },
-            dateofbirth:{
+            dateofBirth:{
                 required: true
             },
             email:{
                 required: true
             },
-            phone: {
+            phone:{
                 required: true
             },
-            department: {
-                required: true
-            },
-            station: {
+            department:{
                 required: true
             }
         },
         messages: {
-            officerID:{
-                required: "Please select Officer ID"
-            },
             personalID:{
-                required: "Please select personal ID"
+                required: "Please enter personal ID"
             },
             name:{
-                required: "Please input name"
+                required: "Please enter name"
             },
             surname:{
-                required: "Please input Surname"
+                required: "Please enter surname"
             },
-            dateofbirth:{
-                required: "Please select date of birth"
+            dateofBirth:{
+                required: "Please enter date of birth"
             },
             email:{
-                required: "Please input email"
+                required: "Please enter email"
             },
-            phone: {
-                required: "Please input phone"
+            phone:{
+                required: "Please enter phone"
             },
-            department: {
+            department:{
                 required: "Please select department"
-            },
-            station: {
-                required: "Please select station"
             }
         },
         submitHandler: function(form) {
             event.preventDefault();
             blockUi("#addForm"); 
-            var officerid=$("input[name='officerID']").val();
-            var personalid=$("input[name='personalID']").val();
-            var name=$("input[name='vehicleID']").val();
-            var surname=$("input[name='shift']").val();
-            var dateofbirth=$("input[name='date']").val();
-            var email=$("input[name='date']").val();
-            var phone=$("input[name='date']").val();
-            var department=$("input[name='date']").val();
-            var station=$("input[name='date']").val();
-            $("#tableOutput").append(" <tr data-logid='"+officerid+"' data-officerid='"+personalid+"' data-weaponid='"+name+"' data-vehicleid='"+surname+"' data-shift='"+dateofbirth+"' data-date='"+email+"'><td>"+phone+"</td><td>"+officerid+"</td><td>"+weaponid+"</td><td>"+vehicleid+"</td><td>"+shift+"</td><td>"+date+"</td><td><button class='btn btn-info btn-sm btn-edit' id='editRowBtn' data-toggle='modal' data-target='#editModal' type='button'>Edit</button><button class='btn btn-danger btn-sm btn-delete' id='deleteRowBtn' type='button'>Delete</button></td></tr>");
+            
+
+            var name = $('#name').val();
+            var surname = $('#surname').val();
+            var email = (name+surname).replace(/\s/g, '').toLowerCase() + "@police.com";
+
+            $('#email').val(email);
+            $('#officerID').val("O"+Math.floor(Math.random() * 1000) + 1);
+
+
             let data = serializeForm(form);
             console.log("THIS IS DATA: "+JSON.stringify(data));
+
+
             $("#addForm")[0].reset();
             unblockUi("#addForm");
             console.log("Form submitted");
@@ -152,7 +113,97 @@ $(document).ready(function() {
         }
     });
 });
-*/
+
+
+$("#editRowBtn").click(function() { 
+    console.log("Edit button clicked");
+    $('#editOfficerModal').modal('show'); 
+    console.log("Edit button clicked");
+});
+
+//Edit modal form
+$(document).ready(function(){
+    $('#editRowBtn').click(function(){
+        console.log("Edit button clicked");
+        $('#editOfficerModal').modal('show'); 
+        console.log("Edit button clicked");
+    });
+    $('#closeModal').click(function(){
+        $('#editRowBtn').modal('hide');
+    });
+
+    $("#editForm").validate({
+        rules: {
+            personalID:{
+                required: true
+            },
+            name:{
+                required: true
+            },
+            surname:{
+                required: true
+            },
+            dateofBirth:{
+                required: true
+            },
+            email:{
+                required: true
+            },
+            phone:{
+                required: true
+            },
+            department:{
+                required: true
+            }
+        },
+        messages: {
+            personalID:{
+                required: "Please enter personal ID"
+            },
+            name:{
+                required: "Please enter name"
+            },
+            surname:{
+                required: "Please enter surname"
+            },
+            dateofBirth:{
+                required: "Please enter date of birth"
+            },
+            email:{
+                required: "Please enter email"
+            },
+            phone:{
+                required: "Please enter phone"
+            },
+            department:{
+                required: "Please select department"
+            }
+        },
+        submitHandler: function(form) {
+            event.preventDefault();
+            blockUi("#editForm"); 
+            
+
+            var name = $('#name').val();
+            var surname = $('#surname').val();
+            var email = (name+surname).replace(/\s/g, '').toLowerCase() + "@police.com";
+
+            $('#email').val(email);
+            $('#officerID').val("O"+Math.floor(Math.random() * 1000) + 1);
+
+
+            let data = serializeForm(form);
+            console.log("THIS IS DATA: "+JSON.stringify(data));
+
+
+            $("#editForm")[0].reset();
+            unblockUi("#editForm");
+            console.log("Form submitted");
+            $('#editOfficerModal').modal('hide');
+        }
+    });
+});
+
 
 serializeForm = (form) => {
     let jsonResul = {};
@@ -161,13 +212,3 @@ serializeForm = (form) => {
     });
     return jsonResul;
 }
-
-$(document).on('click', '#deleteRowBtn', function() {
-    $(this).parents('tr').remove();
-});
-
-$(document).on('click','#addOfficer', function(){
-    $('addOfficerModal').modal('show');
-    console.log("ADD MODAL KLIKNUT");
-})
-
