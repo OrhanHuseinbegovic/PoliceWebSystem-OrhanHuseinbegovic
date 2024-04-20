@@ -24,5 +24,21 @@ class SuspectService{
             'data' => $rows
         ];
     }
+    //MOZDA I OVJDE TREBA delete_suspect_by_id odmah ispod
+    public function delete_suspect_by_id($suspect_id){
+        $this -> suspect_dao ->delete_suspect_by_id($suspect_id);
+    }
+
+    public function get_suspect_by_id($suspect_id){
+        //mozda ne treba return ovde
+        return $this -> suspect_dao -> get_suspect_by_id($suspect_id);
+    }
+
+    public function edit_suspect($suspect){
+        $suspectID = $suspect['suspectID'];
+        unset($suspect['suspectID']);
+        
+        $this->suspect_dao->edit_suspect($suspectID, $suspect);
+    }
 }
 

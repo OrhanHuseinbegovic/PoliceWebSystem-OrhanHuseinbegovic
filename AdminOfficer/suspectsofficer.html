@@ -20,6 +20,7 @@
             <div class="modal-body">
               <!-- Form for adding data -->
               <form id="addForm"> 
+                <input type="hidden" name="suspectID" id="suspectID">
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Personal ID:</label>
                   <input type="text" class="form-control" id="personalid" name="personalID" required>
@@ -81,12 +82,13 @@
       <div class="table-responsive">
         <table id="suspectsTable" class="table-responsive table-striped table-bordered">
           <thead>
+            
             <th data-name="suspectID">Suspect ID</th>
             <th data-name="personalID">Personal ID</th>
             <th data-name="name">Name</th>
             <th data-name="surname">Surname</th>
             <th data-name="dateOfBirth">Date of birth</th>
-            <th id="actions">Actions</th>
+            <th data-name="action">Actions</th>
           </thead>
           <!--
           <tbody id="tableOutput">

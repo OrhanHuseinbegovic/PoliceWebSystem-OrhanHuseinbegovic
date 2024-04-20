@@ -13,7 +13,14 @@ if($payload["name"] == NULL || $payload["name"] == ""){
 
 
 $suspect_service = new SuspectService();
-$suspect = $suspect_service->add_suspect($payload);
+
+
+if($payload['suspectID'] != NULL && $payload['suspectID'] != ''){
+    $suspect = $suspect_service->edit_suspect($payload);
+} else {
+    unset($payload['suspectID']);
+    $suspect = $suspect_service->add_suspect($payload);
+}
 
 
 echo json_encode(['message' => "Suspect added successfully", 'data' => $suspect]);

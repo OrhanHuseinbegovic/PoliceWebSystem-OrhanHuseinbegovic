@@ -45,4 +45,32 @@ class SuspectDao extends BaseDao{
         ]);
     }
 
+    public function delete_suspect_by_id($suspectID) {
+        $query = "DELETE FROM suspects WHERE suspectID = :suspectID";
+        $this->execute($query, [
+            'suspectID' => $suspectID
+        ]);
+    }
+
+    public function get_suspect_by_id($suspectID) {
+        return $this->query_unique("SELECT * FROM suspects WHERE suspectID = :suspectID", [
+            'suspectID' => $suspectID
+        ]);
+    }
+
+    public function edit_suspect($suspectID, $suspect) {
+        //Ako zelimo da se može i personal ID mijenjati (sto je u stvarnom ssvijetu nemoguce), potrebno je samo poslije
+        //set dodati opet personalID=:personalID
+        $query = "UPDATE suspects SET name=:name, surname=:surname, dateOfBirth=:dateOfBirth 
+                  WHERE suspectID = :suspectID";
+
+        $this->execute($query, [
+            'name' => $suspect['name'],
+            'surname' => $suspect['surname'],
+            'dateOfBirth' => $suspect['dateOfBirth'],
+            'suspectID' => $suspectID
+        ]);
+    }
+    
+
 }

@@ -31,12 +31,14 @@ var SuspectService = {
             "suspectsTable",
             Constants.API_BASE_URL + "get_suspects.php",
             [
+                
                 {data: "suspectID"},
                 {data: "personalID"},
                 {data: "name"},
                 {data: "surname"},
                 {data: "dateOfBirth"},
-                
+                {data: "action"}
+                /*
                 {
                     data: null,
                     render: function(data, type, row) {
@@ -44,9 +46,34 @@ var SuspectService = {
                                '<button class="btn btn-danger btn-sm btn-delete" id="deleteRowBtn" data-row="' + row.suspectID + '">Delete</button>';
                     }
                 }
-                
+                */
             ]
         );
+    },
+    open_edit_suspect_modal: function(suspectID) {
+        RestClient.get(
+            'get_suspect.php?suspectID=' + suspectID,
+            function(data){
+                $('#addSuspect').modal('toggle');
+                $("#addForm input[name='suspectID']").val(data.suspectID);
+                $("#addForm input[name='personalID']").val(data.personalID);
+                $("#addForm input[name='name']").val(data.name);
+                $("#addForm input[name='surname']").val(data.surname);
+                $("#addForm input[name='dateOfBirth']").val(data.dateOfBirth);
+            }
+        )
+    },
+    delete_suspect: function(suspectID) {
+        if(confirm("Do you want to delete suspect with ID: " + suspectID + "?") == true) {
+            RestClient.delete(
+                "delete_suspect.php?suspectID=" + suspectID,
+                {},
+                function(data){
+                    toastr.success("You have successfully deleted the suspect.");
+                    SuspectService.reload_suspects_datatable();
+                }
+            );
+        } 
     }
 };
 
