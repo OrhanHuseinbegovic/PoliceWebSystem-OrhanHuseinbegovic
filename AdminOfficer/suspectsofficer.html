@@ -20,22 +20,21 @@
             <div class="modal-body">
               <!-- Form for adding data -->
               <form id="addForm"> 
-                <input type="hidden" id="suspectID" name="suspectID">
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Personal ID:</label>
-                  <input type="text" class="form-control" id="personalid" name="personalid">
+                  <input type="text" class="form-control" id="personalid" name="personalID" required>
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Name</label>
-                  <input type="text" class="form-control" id="name" name="name">
+                  <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Surname</label>
-                  <input type="text" class="form-control" id="surname" name="surname">
+                  <input type="text" class="form-control" id="surname" name="surname" required>
                 </div>
               <div class="form-group">
                 <label for="caseDate">Date of birth:</label>
-                <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date" required>
+                <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="dateOfBirth" required>
                 <br>
             </div>
                 <button type="submit" class="btn btn-primary closed">Add</button>
@@ -82,16 +81,17 @@
       <div class="table-responsive">
         <table id="suspectsTable" class="table-responsive table-striped table-bordered">
           <thead>
-            <th>Suspect ID</th>
-            <th>Personal ID</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Date of birth</th>
+            <th data-name="suspectID">Suspect ID</th>
+            <th data-name="personalID">Personal ID</th>
+            <th data-name="name">Name</th>
+            <th data-name="surname">Surname</th>
+            <th data-name="dateOfBirth">Date of birth</th>
             <th id="actions">Actions</th>
           </thead>
+          <!--
           <tbody id="tableOutput">
-      
           </tbody>
+          -->
         </table>
       </div>
   </div>

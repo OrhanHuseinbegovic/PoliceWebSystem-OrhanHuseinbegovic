@@ -1,3 +1,4 @@
+/*
 $(document).ready( function () {
     blockUi("#suspectsTable");
     $('#suspectsTable').DataTable({
@@ -22,9 +23,67 @@ $(document).ready( function () {
     });
     unblockUi("#suspectsTable");
 });
+*/
 
+var SuspectService = {
+    reload_suspects_datatable: function() {
+        Utils.get_datatable(
+            "suspectsTable",
+            Constants.API_BASE_URL + "get_suspects.php",
+            [
+                {data: "suspectID"},
+                {data: "personalID"},
+                {data: "name"},
+                {data: "surname"},
+                {data: "dateOfBirth"},
+                
+                {
+                    data: null,
+                    render: function(data, type, row) {
+                        return '<button class="btn btn-info btn-sm btn-edit" id="editRowBtn" data-toggle="modal" data-target="#editSuspect" data-row="' + row.suspectID + '">Edit</button>' +
+                               '<button class="btn btn-danger btn-sm btn-delete" id="deleteRowBtn" data-row="' + row.suspectID + '">Delete</button>';
+                    }
+                }
+                
+            ]
+        );
+    }
+};
 
+SuspectService.reload_suspects_datatable();
 
+FormValidation.validate("#addForm", {}, function (data) {
+    //Utils.block_ui("#addSuspect");
+    console.log("Data from form is serialized into", data);
+    //Utils.unblock_ui("#addSuspect");
+    
+    $.post(Constants.API_BASE_URL + "add_suspect.php", data)
+      .done(function (data) {
+        $("#addSuspect").modal("toggle");
+        toastr.success("You have successfully added the suspect.");
+        SuspectService.reload_suspects_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        $("#addForm")[0].reset();
+        Utils.unblock_ui("#addSuspect");
+        $("#addSuspect").modal("hide");
+      });
+});
+
+$(document).ready(function() {
+    $("#addRowBtn").click(function() {
+        $("#addSuspect").modal("show");
+    });
+    $("#closeModal").click(function() {
+        $("#addForm")[0].reset();
+        $("#addSuspect").modal("hide");
+    });
+});
+
+/*
 //ADD SUSPECT
 $(document).ready(function() {
     $("#addRowBtn").click(function() {
@@ -78,6 +137,7 @@ $(document).ready(function() {
         }
     });
 });
+*/
 
 
 //EDIT SUSPECT

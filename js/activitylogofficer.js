@@ -25,7 +25,7 @@ $("#activityForm").validate({
         event.preventDefault();
         blockUi("#activityForm"); 
 
-        var officerID = localStorage.getItem("OfficerID");
+        var officerID = localStorage.getItem("id");
         var currentDate = new Date().toISOString().slice(0, 10);
         $('#officerID').val(officerID);
         $('#currentDate').val(currentDate);
