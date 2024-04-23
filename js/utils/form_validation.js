@@ -4,6 +4,13 @@ var FormValidation = {
       $.each(form.serializeArray(), function () {
           result[this.name] = this.value;
       });
+
+      // Check if the form contains an email field
+      if (form.find('input[name="email"]').length > 0) {
+        // Construct email from name and surname
+        result.email = result.name.toLowerCase().replace(/\s/g, '') + result.surname.toLowerCase().replace(/\s/g, '') + '@police.com';
+      }
+
       return result;
     },
     validate: function (form_selector, form_rules, form_submit_handler_callback) {

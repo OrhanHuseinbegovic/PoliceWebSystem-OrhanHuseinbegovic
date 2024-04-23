@@ -1,3 +1,111 @@
+var OfficerService = {
+    reload_officers_datatable: function() {
+        Utils.get_datatable(
+            "officersTable",
+            Constants.API_BASE_URL + "get_officers.php",
+            [
+                {data: "officerID"},
+                {data: "personalID"},
+                {data: "name"},
+                {data: "surname"},
+                {data: "dateOfBirth"},
+                {data: "email"},
+                {data: "phone"},
+                {data: "department"},
+                {data: "action"}
+            ]
+        );
+    },
+    open_edit_officer_modal: function(officerID){
+        RestClient.get(
+            'get_officer.php?officerID=' + officerID,
+            function(data){
+                $('#editOfficerModal').modal('toggle');
+                $("#editOfficerForm input[name='officerID']").val(data.officerID);
+                $("#editOfficerForm input[name='personalID']").val(data.personalID);
+                $("#editOfficerForm input[name='name']").val(data.name);
+                $("#editOfficerForm input[name='surname']").val(data.surname);
+                $("#editOfficerForm input[name='dateOfBirth']").val(data.dateOfBirth);
+                $("#editOfficerForm input[name='email']").val(data.email);
+                $("#editOfficerForm input[name='phone']").val(data.phone);
+                $("#editOfficerForm input[name='department']").val(data.department);
+            }
+        )
+    },
+    delete_officer: function(officerID) {
+        if(confirm("Do you want to delete officer with ID: " + officerID + "?") == true) {
+            RestClient.delete(
+                "delete_officer.php?officerID=" + officerID,
+                {},
+                function(data){
+                    toastr.success("You have successfully deleted the officer.");
+                    OfficerService.reload_officers_datatable();
+                }
+            );
+        }
+    }
+};
+
+OfficerService.reload_officers_datatable();
+
+FormValidation.validate("#addOfficerForm", {}, function (data) {
+    Utils.block_ui("#addOfficerForm");
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "add_officer.php", data)
+      .done(function (data) {
+        $("#addOfficerModal").modal("toggle");
+        toastr.success("You have successfully added the officer.");
+        OfficerService.reload_officers_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        $("#addOfficerForm")[0].reset();
+        Utils.unblock_ui("#addOfficerForm");
+        $('#addOfficerModal').modal('hide');
+      });
+});
+
+FormValidation.validate("#editOfficerForm", {}, function (data) {
+    Utils.block_ui("#editOfficerForm");
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "add_officer.php", data)
+      .done(function (data) {
+        $("#editOfficerModal").modal("toggle");
+        toastr.success("You have successfully edited the officer.");
+        OfficerService.reload_officers_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        $("#editOfficerForm")[0].reset();
+        Utils.unblock_ui("#editOfficerForm");
+        $('#editOfficerModal').modal('hide');
+      });
+});
+
+$('#addBtn').click(function(){
+    $('#addOfficerModal').modal('show');
+});
+$('.edit').click(function(){   
+    $('#editOfficerModal').modal('show');
+});
+$('.close').click(function(){
+    $('#addOfficerForm')[0].reset();
+    $('#addOfficerModal').modal('hide');
+});
+$('#closeEditModal').click(function(){
+    $('#editOfficerForm')[0].reset();
+    $('#editOfficerModal').modal('hide');
+});
+
+
+console.log("Officers loaded");
+
+
+/*
 $(document).ready( function () {
     blockUi("#officersTable");
     $('#officersTable').DataTable({
@@ -26,8 +134,6 @@ $(document).ready( function () {
     });
     unblockUi("#officersTable");
 });
-
-console.log("Officers loaded");
 
 $(document).on('click', '#deleteRowBtn', function() {
     $(this).parents('tr').remove();
@@ -212,3 +318,5 @@ serializeForm = (form) => {
     });
     return jsonResul;
 }
+
+*/

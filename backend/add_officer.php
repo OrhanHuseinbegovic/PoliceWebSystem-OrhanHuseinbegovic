@@ -1,13 +1,23 @@
 <?php
 
-require_once __DIR__ . "/services/OfficerService.class.php";
+require_once __DIR__ . "/rest/services/OfficerService.class.php";
 
 $payload = $_REQUEST;
 
-if($payload['name']==null){
+//TODO implemenet error handling
+
+if($payload["name"] == NULL || $payload["name"] == ""){
     header('HTTP/1.1 500 Bad Request');
-    die(json_encode(['error' => 'First name field is missing']));
+    die(json_encode(['error' => 'Name is missing']));
 }
 
-$OfficerService = new OfficerService();
-$OfficerService->addOfficer([]);
+$officer_service = new OfficerService();
+
+if($payload['officerID'] != NULL && $payload['officerID'] != ''){
+    $officer = $officer_service->edit_officer($payload);
+} else {
+    unset($payload['officerID']);
+    $officer = $officer_service->add_officer($payload);
+}
+
+echo json_encode(['message' => "Officer added successfully", 'data' => $officer]);

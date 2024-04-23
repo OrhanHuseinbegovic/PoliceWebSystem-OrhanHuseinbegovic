@@ -1,3 +1,101 @@
+var EquipmentService = {
+    reload_equipment_datatable: function() {
+        Utils.get_datatable(
+            "equipmentTable",
+            Constants.API_BASE_URL + "get_equipment.php",
+            [
+                {data: "logID"},
+                {data: "officerID"},
+                {data: "weapon"},
+                {data: "vehicle"},
+                {data: "shift"},
+                {data: "date"},
+                {data: "action"}
+            ]
+        );
+    },
+    open_edit_equipment_modal: function(logID) {
+        RestClient.get(
+            'get_equipment.php?logID=' + logID,
+            function(data){
+                $('#editEquipmentModal').modal('toggle');
+                $("#editEquipmentForm input[name='logID']").val(data.logID);
+                $("#editEquipmentForm input[name='officerID']").val(data.officerID);
+                $("#editEquipmentForm input[name='weapon']").val(data.weapon);
+                $("#editEquipmentForm input[name='vehicle']").val(data.vehicle);
+                $("#editEquipmentForm input[name='shift']").val(data.shift);
+                $("#editEquipmentForm input[name='date']").val(data.date);
+            }
+        )
+    },
+    delete_equipment: function(logID) {
+        if(confirm("Do you want to delete equipment with ID: " + logID + "?") == true) {
+            RestClient.delete(
+                "delete_equipment.php?logID=" + logID,
+                {},
+                function(data){
+                    toastr.success("You have successfully deleted the equipment.");
+                    EquipmentService.reload_equipment_datatable();
+                }
+            );
+        } 
+    }  
+};
+
+EquipmentService.reload_equipment_datatable();
+
+FormValidation.validate("#addEquipmentForm", {}, function (data) {
+    Utils.block_ui("#addEquipmentForm");
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "add_equipment.php", data)
+      .done(function (data) {
+        $("#addEquipmentModal").modal("toggle");
+        toastr.success("You have successfully added the equipment.");
+        EquipmentService.reload_equipment_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        Utils.unblock_ui("#addEquipmentForm");
+      });
+});
+
+FormValidation.validate("#editEquipmentForm", {}, function (data) {
+    Utils.block_ui("#editEquipmentForm");
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "edit_equipment.php", data)
+      .done(function (data) {
+        $("#editEquipmentModal").modal("toggle");
+        toastr.success("You have successfully edited the equipment.");
+        EquipmentService.reload_equipment_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        Utils.unblock_ui("#editEquipmentForm");
+      });
+});
+
+$(document).ready(function(){
+    $("#addRowBtn").click(function() {
+        $('#addEquipmentModal').modal('show');
+    });
+    $(".edit").click(function(){
+        $('#editEquipmentModal').modal('show');
+    });
+    $(".close").click(function() {
+        $('#addEquipmentModal').modal('hide');
+        $('#editEquipmentModal').modal('hide');
+        $("#addEquipmentForm")[0].reset();
+        $("#editEquipmentForm")[0].reset();
+    });
+});   
+
+console.log("Equipment.js loaded");
+/*
+
 $(document).ready( function () {
     blockUi("#equipmentTable");
     $('#equipmentTable').DataTable({
@@ -247,20 +345,4 @@ $('#saveChangesBtn').click(function() {
     $('#editModal').modal('hide');
 });
 
-$(document).ready(function() {
-    $('#addRowBtn').click(function() {
-      $('#addModal').modal('show');
-    });
-    $('#closeModal').click(function() {
-        $('#addModal').modal('hide');
-    });
-
-    $('#editRowBtn').click(function() {
-        $('#editModal').modal('show');
-    });
-    $('#closeModal').click(function() {
-        $('#editModal').modal('hide');
-    });
-});
-
-console.log("Equipment.js loaded");
+*/

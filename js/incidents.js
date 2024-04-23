@@ -1,30 +1,110 @@
-$(document).ready( function () {
-    blockUi("#incidentsTable");
-    $('#incidentsTable').DataTable({
-        ajax: {
-            url: "../PoliceWebSystem-OrhanHuseinbegovic/json/incidents.json",
-            dataSrc: ""
-        },
-        columns: [
-            {data: "Incident ID"},
-            {data: "Officer ID"},
-            {data: "Type"},
-            {data: "Location"},
-            {data: "Date"},
-            {data: "Description"},
-            {
-                data: null,
-                render: function(data, type, row) {
-                    return '<button class="btn btn-info btn-sm btn-edit" id="editRowBtn" data-toggle="modal" data-target="#editModal" data-row="' + row.officerID + '">Edit</button>' +
-                           '<button class="btn btn-danger btn-sm btn-delete" id="deleteRowBtn" data-row="' + row.officerID + '">Delete</button>';
-                }
+var IncidentService = {
+    reload_incidents_datatable: function() {
+        Utils.get_datatable(
+            "incidentsTable",
+            Constants.API_BASE_URL + "get_incidents.php",
+            [
+                {data: "incidentID"},
+                {data: "officerID"},
+                {data: "type"},
+                {data: "location"},
+                {data: "date"},
+                {data: "description"},
+                {data: "action"}
+            ]
+        );
+    },
+    open_edit_incident_modal: function(incidentID) {
+        RestClient.get(
+            'get_incident.php?incidentID=' + incidentID,
+            function(data){
+                $('#editIncidentModal').modal('toggle');
+                $("#editIncidentForm input[name='incidentID']").val(data.incidentID);
+                $("#editIncidentForm input[name='officerID']").val(data.officerID);
+                $("#editIncidentForm input[name='type']").val(data.type);
+                $("#editIncidentForm input[name='location']").val(data.location);
+                $("#editIncidentForm input[name='date']").val(data.date);
+                $("#editIncidentForm input[name='description']").val(data.description);
             }
-        ]
-    });
-    unblockUi("#incidentsTable");
+        )
+    },
+    delete_incident: function(incidentID) {
+        if(confirm("Do you want to delete incident with ID: " + incidentID + "?") == true) {
+            RestClient.delete(
+                "delete_incident.php?incidentID=" + incidentID,
+                {},
+                function(data){
+                    toastr.success("You have successfully deleted the incident.");
+                    IncidentService.reload_incidents_datatable();
+                }
+            );
+        } 
+    }
+}
+
+IncidentService.reload_incidents_datatable();
+
+FormValidation.validate("#addIncidentForm", {}, function (data) {
+    Utils.block_ui("#addIncidentForm");
+    console.log("Data from form is serialized into", data);
+    //Utils.unblock_ui("#addIncident");
+    
+    $.post(Constants.API_BASE_URL + "add_incident.php", data)
+      .done(function (data) {
+        $("#addIncidentModal").modal("toggle");
+        toastr.success("You have successfully added the incident.");
+        IncidentService.reload_incidents_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        console.log("Request completed.");
+        $("#addIncidentForm")[0].reset();
+        Utils.unblock_ui("#addIncidentForm");
+      });
+});
+
+FormValidation.validate("#editIncidentForm", {}, function (data) {
+    Utils.block_ui("#editIncidentForm");
+    console.log("Data from form is serialized into", data);
+    //Utils.unblock_ui("#addIncident");
+    
+    $.post(Constants.API_BASE_URL + "add_incident.php", data)
+      .done(function (data) {
+        $("#editIncidentModal").modal("toggle");
+        toastr.success("You have successfully added the incident.");
+        IncidentService.reload_incidents_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        console.log("Request completed.");
+        $("#editIncidentForm")[0].reset();
+        Utils.unblock_ui("#editIncidentForm");
+      });
 });
 
 
+$(document).ready(function() {
+    $("#addRowBtn").click(function() {
+        $("#addIncidentModal").modal("show");
+    });
+    $("#closeModal").click(function() {
+        $("#addIncidentForm")[0].reset();
+        $("#addIncidentModal").modal("hide");
+    });
+    $("#closeEditModal").click(function() {
+        $("#editIncidentForm")[0].reset();
+        $("#editIncidentModal").modal("hide");
+    }
+    );
+});
+
+
+
+/*
 //When on clikck addRowBtn, show addModal 
 $(document).ready(function() {
     $("#addRowBtn").click(function() {
@@ -146,6 +226,6 @@ serializeForm = (form) => {
 }
 
 
-
+*/
 
 console.log("INCIDENTS lOADED");

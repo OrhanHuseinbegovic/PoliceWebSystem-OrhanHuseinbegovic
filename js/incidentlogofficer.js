@@ -1,3 +1,24 @@
+FormValidation.validate("#incidentForm", {}, function (data) {
+    Utils.block_ui("#incidentForm");
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "add_incident.php", data)
+      .done(function (data) {
+        toastr.success("You have successfully added the incident.");
+        IncidentService.reload_incidents_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        $("#incidentForm")[0].reset();
+        Utils.unblock_ui("#incidentForm");
+      });
+});
+
+
+
+
+/*
 $("#incidentForm").validate({
     rules: {
         Type:{
@@ -58,4 +79,5 @@ getUsers = () => {
         console.log(users);
     });
 };
+*/
 
