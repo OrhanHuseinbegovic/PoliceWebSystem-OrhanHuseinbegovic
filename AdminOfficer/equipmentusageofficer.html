@@ -5,7 +5,7 @@
     <button class="btn btn-primary" id="addRowBtn">Add</button>
   </div>
   <!-- Modal for ADD-->
-  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addEquipmentModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -16,38 +16,36 @@
         </div>
         <div class="modal-body">
           <!-- Form for adding data -->
-          <form id="addForm">
+          <form id="addEquipmentForm">
+            <input type="hidden" id="logID" name="logID">
             <div class="form-group">
-              <label for="inputData">Log ID:</label>
-              <select class="form-control" id="logID" name="logID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select log ID</option>
-            </select>
+              <label for="officerID">Officer ID</label>
+              <input type="text" class="form-control" id="officerID" name="officerID" required>
             </div>
             <div class="form-group">
-              <label for="inputData">Officer ID:</label>
-              <select class="form-control" id="officerID" name="officerID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select officer ID</option>
+              <label for="weapons">Select Weapon:</label>
+              <select class="form-control" id="weapon" name="weapon" form="addEquipmentForm" required>
+                  <option value="">Select Weapon</option>
+                  <!--Ovdje treba fetchati sve ID od veapons da user moze izabrati-->
+                  <option value="assault rifle">Assault Rifle</option>
+                  <option value="shotgun">Shotgun</option>
+                  <option value="sniper rifle">Sniper Rifle</option>
+                  <option value="pisol">Pistol</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="vehicle">Select Vehicle:</label>
+            <select class="form-control" id="vehicle" name="vehicle" form="addEquipmentForm" required>
+                <option value="">Select Vehicle</option>
+                <!--Ovdje treba fetchati sve ID od vehicles da user moze izabrati-->
+                <option value="golf7">Golf 7</option>
+                <option value="octavia">Skoda Octavia</option>
+                <option value="toyotarav4">Toyota Rav 4</option>
             </select>
-            </div>
-            <div class="form-group">
-              <label for="inputData">Weapon ID:</label>
-              <select class="form-control" id="weaponID" name="weaponID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select weapon ID</option>
-            </select>
-            </div>
-            <div class="form-group">
-              <label for="inputData">Vehicle ID:</label>
-              <select class="form-control" id="vehicleID" name="vehicleID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select vehicle ID</option>
-            </select>
-            </div>
+           </div>
             <div class="form-group">
               <label for="shift">Select Shift:</label>
-              <select class="form-control" id="shift" name="shift" form="addForm">
+              <select class="form-control" id="shift" name="shift" form="addEquipmentForm" required>
                 <!--POPUNI OVO-->  
                 <option value="">Select shift</option>
                 <option value="morning">morning</option>
@@ -68,7 +66,7 @@
   </div>
   
   <!--Modal for EDIT-->
-  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal fade" id="editEquipmentModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -79,38 +77,35 @@
         </div>
         <div class="modal-body">
           <!-- Form for editing row fields -->
-          <form id="addForm">
+          <form id="editEquipmentForm">
+            <input type="hidden" id="logID" name="logID">
             <div class="form-group">
-              <label for="inputData">Log ID:</label>
-              <select class="form-control" id="logID" name="logID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select log ID</option>
-            </select>
+              <label for="officerID">Officer ID</label>
+              <input type="text" class="form-control" id="officerID" name="officerID" required>
             </div>
             <div class="form-group">
-              <label for="inputData">Officer ID:</label>
-              <select class="form-control" id="officerID" name="officerID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select officer ID</option>
-            </select>
-            </div>
-            <div class="form-group">
-              <label for="inputData">Weapon ID:</label>
-              <select class="form-control" id="weaponID" name="weaponID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select weapon ID</option>
-            </select>
-            </div>
-            <div class="form-group">
-              <label for="inputData">Vehicle ID:</label>
-              <select class="form-control" id="vehicleID" name="vehicleID" form="addForm">
-                <!--POPUNI OVO-->
-                <option value="">Select vehicle ID</option>
-            </select>
+              <label for="vehicle">Select Vehicle:</label>
+              <select class="form-control" id="vehicle" name="vehicle" form="editEquipmentForm">
+                  <option value="">Select Vehicle</option>
+                  <!--Ovdje treba fetchati sve ID od vehicles da user moze izabrati-->
+                  <option value="golf7">Golf 7</option>
+                  <option value="octavia">Skoda Octavia</option>
+                  <option value="toyotarav4">Toyota Rav 4</option>
+              </select>
+             </div>
+              <div class="form-group">
+                <label for="shift">Select Shift:</label>
+                <select class="form-control" id="shift" name="shift" form="addEquipmentForm" required>
+                  <!--POPUNI OVO-->  
+                  <option value="">Select shift</option>
+                  <option value="morning">morning</option>
+                  <option value="afternoon">afternoon</option>
+                  <option value="night">night</option>
+                </select>
             </div>
             <div class="form-group">
               <label for="shift">Select Shift:</label>
-              <select class="form-control" id="shift" name="shift" form="addForm">
+              <select class="form-control" id="shift" name="shift" form="editEquipmentForm">
                 <!--POPUNI OVO-->  
                 <option value="">Select shift</option>
                 <option value="morning">morning</option>
@@ -118,16 +113,17 @@
                 <option value="night">night</option>
               </select>
           </div>
-          </form>
           <div class="form-group">
             <label for="caseDate">Date:</label>
             <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="date" required>
             <br>
         </div>
-        </div>
+          <button type="submit" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+          
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+        </div>
+          </form>
         </div>
       </div>
     </div>
@@ -137,17 +133,19 @@
   <div class="table-responsive">
   <table id="equipmentTable" class="table-responsive table-striped table-bordered">
     <thead>
-      <th>Log ID</th>
-      <th>Officer ID</th>
-      <th>Weapon ID</th>
-      <th>Vehicle ID</th>
-      <th>Shift</th>
-      <th>Date</th>
-      <th>Actions</th>
+      <th data-name="logID">Log ID</th>
+      <th data-name="officerID">Officer ID</th>
+      <th data-name="weapon">Weapon</th>
+      <th data-name="vehicle">Vehicle</th>
+      <th data-name="shift">Shift</th>
+      <th data-name="date">Date</th>
+      <th data-name="actions">Actions</th>
     </thead>
+    <!--
     <tbody id="tableOutput">
 
     </tbody>
+    -->
   </table>
 </div>
 </div>

@@ -1,3 +1,24 @@
+FormValidation.validate("#incidentForm", {}, function (data) {
+    Utils.block_ui("#incidentForm");
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "add_incident.php", data)
+      .done(function (data) {
+        toastr.success("You have successfully added the incident.");
+        IncidentService.reload_incidents_datatable();
+      })
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        $("#incidentForm")[0].reset();
+        Utils.unblock_ui("#incidentForm");
+      });
+});
+
+
+
+
+/*
 $("#incidentForm").validate({
     rules: {
         Type:{
@@ -24,6 +45,18 @@ $("#incidentForm").validate({
     submitHandler: function(form, event) {
         event.preventDefault();
         blockUi("#incidentForm"); 
+
+        if(localStorage.getItem("isAdmin")=="true"){
+            var officerID = localStorage.getItem("officerID");
+            $('#officerID').val(officerID);
+        }
+        else{
+            var id = localStorage.getItem("id");
+            $('#officerID').val(id);
+        }
+
+        $('#incidentID').val("L"+Math.floor(Math.random() * 1000) + 1);
+
         let data = serializeForm(form);
         console.log(JSON.stringify(data));
         $("#incidentForm")[0].reset();
@@ -31,23 +64,6 @@ $("#incidentForm").validate({
     }
 });
 
-blockUi = (element) => {
-    $(element).block({
-      message: '<div class="spinner-border text-primary" role="status"></div>',
-      css: {
-        backgroundColor: "transparent",
-        border: "0",
-      },
-      overlayCSS: {
-        backgroundColor: "#000",
-        opacity: 0.25,
-      },
-    });
-};
-
-unblockUi = (element) => {
-    $(element).unblock({});
-};  
 
 serializeForm = (form) => {
     let jsonResul = {};
@@ -63,4 +79,5 @@ getUsers = () => {
         console.log(users);
     });
 };
+*/
 

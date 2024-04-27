@@ -23,32 +23,37 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3><img src="assets/police-badge.png" width="128px"  alt=""></div>
                                     <div class="card-body">
                                         <form id="registerForm" method="post">
+                                            <input type="hidden" id="officerID" name="officerID">
+                                            <div class=" mb-3">
+                                                <input class="form-control" id="personalID" type="text" placeholder="Personal ID"  name="personalID"/>
+                                                <!--<label for="inputPersonalD">Personal ID</label>-->
+                                            </div>
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="Name" />
+                                                        <input class="form-control" id="name" type="text" placeholder="Enter your first name" name="name"/>
                                                         <!--<label for="Name">First name</label>-->
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="">
-                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="Surname" />
+                                                        <input class="form-control" id="surname" type="text" placeholder="Enter your last name" name="surname" />
                                                         <!--<label for="inputLastName">Last name</label>-->
                                                     </div>
                                                 </div>
                                                 
                                             </div>
-                                            <div class=" mb-3">
-                                                <input class="form-control" id="inputPersonalID" type="text" placeholder="Personal ID"  name="Personal ID" required/>
-                                                <!--<label for="inputPersonalD">Personal ID</label>-->
-                                            </div>
                                             
                                             <div class="form-group">
                                                 <!--<label for="caseDate">Date of birth:</label>-->
-                                                <input type="date" class="form-control" id="caseDate" placeholder="Date of birth" name="DateofBirth" required>
+                                                <input type="date" class="form-control" id="dateOfBirth" placeholder="Date of birth" name="dateOfBirth" >
                                                 <br>
                                             </div>
-
+                                            <input type="hidden" id="email" name="email">
+                                            <div class=" mb-3">
+                                                <input class="form-control" id="phone" type="number" placeholder="+387 xxx xxx"  name="phone" required/>
+                                                <!--<label for="inputPersonalD">Personal ID</label>-->
+                                            </div>
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class=" mb-3 mb-md-0">
@@ -62,6 +67,10 @@
                                                         <!--<label for="inputPasswordConfirm">Confirm Password</label>-->
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="checkbox">Apply for admin:</label>
+                                                <input type="checkbox" id="checkbox" name="checkbox">
                                             </div>
                                             <div class="mt-4 mb-0">
                                                 <!--<div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>-->

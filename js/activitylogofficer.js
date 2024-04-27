@@ -1,68 +1,15 @@
-$("#activityForm").validate({
-    rules: {
-        shift: {
-            required: true
-        },
-        weapon: {
-            required: true
-        },
-        vehicle: {
-            required: true
-        }
-    },
-    messages: {
-        shift:{
-            required: "Please select your shift"
-        },
-        weapon:{
-            required: "Please select your weapon"
-        },
-        vehicle:{
-            required: "Please select your vehicle"
-        }
-    },
-    submitHandler: function(form, event) {
-        event.preventDefault();
-        blockUi("#activityForm"); 
-        let data = serializeForm(form);
-        console.log(JSON.stringify(data));
+FormValidation.validate("#activityForm", {}, function (data) {
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "add_activity.php", data)
+      //.done(function (data) {
+        //toastr.success("You have successfully added the activity.");
+        //ActivityService.reload_activities_datatable();
+      //})
+      .fail(function (error) {
+        toastr.error(JSON.parse(error.responseText).error);
+      })
+      .always(function () {
+        Utils.unblock_ui("#addActivity");
         $("#activityForm")[0].reset();
-        unblockUi("#activityForm");
-        let nesto = getUsers();
-        console.log(nesto);
-    }
+      });
 });
-
-blockUi = (element) => {
-    $(element).block({
-      message: '<div class="spinner-border text-primary" role="status"></div>',
-      css: {
-        backgroundColor: "transparent",
-        border: "0",
-      },
-      overlayCSS: {
-        backgroundColor: "#000",
-        opacity: 0.25,
-      },
-    });
-};
-
-unblockUi = (element) => {
-    $(element).unblock({});
-};  
-
-serializeForm = (form) => {
-    let jsonResul = {};
-    $.each($(form).serializeArray(), function () {
-        jsonResul[this.name] = this.value;    
-    });
-    return jsonResul;
-}
-
-
-getUsers = () => {
-    $.get("../PoliceWebSystem-OrhanHuseinbegovic/json/users.json", function(users) {
-        console.log(users);
-    });
-};
-

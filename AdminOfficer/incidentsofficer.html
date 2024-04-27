@@ -10,21 +10,115 @@
                   <div class="mb-3">
                       <button class="btn btn-primary" id="addRowBtn">Add</button>
                   </div>
+
+                  <!--ADD MODAL-->
+                  <div class="modal fade" id="addIncidentModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="addModalLabel">Add Incident</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                              </div>
+                              <div class="modal-body">
+                                  <form id="addIncidentForm">
+                                      <input type="hidden" id="incidentID" name="incidentID">
+                                      <div class="form-group">
+                                          <label for="officerID">Officer ID</label>
+                                          <input type="text" class="form-control" id="officerID" name="officerID" required>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="type">Type</label>
+                                          <select class="form-control" id="type" name="type" form="addIncidentForm" required>
+                                            <option value="">Select incident</option>
+                                            <option value="Traffic Incident">Traffic Incident</option>
+                                            <option value="Burglary">Burglary</option>
+                                            <option value="Assault">Assault</option>
+                                            <option value="Theft">Theft</option>
+                                            <option value="Vandalism">Vandalism</option>
+                                          </select>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="location">Location</label>
+                                          <input type="text" class="form-control" id="location" name="location" required>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="caseDate">Select Date:</label>
+                                        <input type="date" class="form-control" id="caseDate" name="Date" required>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="description">Description</label>
+                                          <input type="text" class="form-control" id="description" name="description" required>
+                                      </div>
+                                      <button type="submit" class="btn btn-primary">Add</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--EDIT MODAL-->
+                  <div class="modal fade" id="editIncidentModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="editModalLabel">Edit Incident</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeEditModal">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                              </div>
+                              <div class="modal-body ">
+                                  <form id="editIncidentForm">
+                                      <input type="hidden" id="incidentID" name="incidentID">
+                                      <input type="hidden" id="officerID" name="officerID">
+                                      <div class="form-group">
+                                        <label for="type">Type</label>
+                                        <select class="form-control" id="type" name="type" form="editIncidentForm" required>
+                                          <option value="">Select incident</option>
+                                          <option value="Traffic Incident">Traffic Incident</option>
+                                          <option value="Burglary">Burglary</option>
+                                          <option value="Assault">Assault</option>
+                                          <option value="Theft">Theft</option>
+                                          <option value="Vandalism">Vandalism</option>
+                                        </select>
+                                    </div>
+                                      <div class="form-group ">
+                                          <label for="editLocation">Location</label>
+                                          <input type="text" class="form-control" id="location" name="location" required>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="caseDate">Select Date:</label>
+                                        <input type="date" class="form-control" id="date" name="date" required>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="editDescription">Description</label>
+                                          <input type="text" class="form-control" id="description" name="description" required>
+                                      </div>
+                                      <button type="submit" class="btn btn-primary">Save changes</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
                   <!-- Datatable -->
                   <div class="table-responsive">
                     <table id="incidentsTable" class="table-responsive table-striped table-bordered">
                       <thead>
-                        <th>Incident ID</th>
-                        <th>Officer ID</th>
-                        <th>Type</th>
-                        <th>Location</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Actions</th>
+                        <th data-name="incidentID">Incident ID</th>
+                        <th data-name="officerID">Officer ID</th>
+                        <th data-name="type">Type</th>
+                        <th data-name="location">Location</th>
+                        <th data-name="date">Date</th>
+                        <th data-name="description">Description</th>
+                        <th data-name="actions">Actions</th>
                       </thead>
+                      <!--
                       <tbody id="officerOutput">
                   
                       </tbody>
+                      -->
                     </table>
                   </div>
               </div>

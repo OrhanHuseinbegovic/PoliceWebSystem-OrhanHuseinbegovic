@@ -2,9 +2,11 @@
 <div class="container-fluid text-center">
   <h1 class="mt-4">Incident Log</h1>
   <form id="incidentForm" method="post">
+        <input type="hidden" id="incidentID" name="incidentID">
+        <input type="hidden" id="officerID" name="officerID">
       <div class="form-group">
           <label for="exampleFormControlSelect1">Select crime type: </label>
-          <select class="form-control" id="Type" name="Type">
+          <select class="form-control" id="Type" name="Type" required>
               <option>Assault</option>
               <option>Burglary</option>
               <option>Fraud</option>
@@ -16,20 +18,19 @@
       </div>
       <br>
       <div class="form-group">
-          <label for="caseDescription">Description:</label>
-          <textarea class="form-control" id="Description" rows="3" name="Description" placeholder="Enter case description" required></textarea>
+        <label for="caseName">Incident Location:</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="Enter location " required>
       </div>
       <br>
       <div class="form-group">
           <label for="caseDate">Select Date:</label>
-          <input type="date" class="form-control" id="caseDate" name="Date" required>
+          <input type="date" class="form-control" id="date" name="date" required>
       </div>
       <br>
       <div class="form-group">
-          <label for="caseName">Incident Location:</label>
-          <input type="text" class="form-control" id="caseName" placeholder="Enter location " required>
+          <label for="caseDescription">Description:</label>
+          <textarea class="form-control" id="Description" rows="3" name="description" placeholder="Enter case description" required></textarea>
       </div>
-      <br>
       <!---
       <fieldset disabled>   
           <div class="form-group">

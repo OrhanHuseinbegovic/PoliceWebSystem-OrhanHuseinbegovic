@@ -1,16 +1,21 @@
 $("#registerForm").validate({
     rules: {
-        Name:{
+        personalID:{
+            required: true,
+            number: true
+        },
+        name:{
             required: true
         },
-        Surname:{
+        surname:{
             required: true
         },
-        PersonalID:{
+        dateOfBirth:{
             required: true
         },
-        DateofBirth:{
-            required: true
+        phone:{
+            required: true,
+            number: true
         },
         Password:{
             required: true,
@@ -22,17 +27,22 @@ $("#registerForm").validate({
         }
     },
     messages: {
-        Name:{
-            required: "Please enter your first name"
+        personalID:{
+            required: "Please enter your personal ID",
+            number: "Please enter a valid personal ID"
         },
-        Surname:{
-            required: "Please enter your last name"
+        name:{
+            required: "Please enter your name"
         },
-        PersonalID:{
-            required: "Please enter your personal ID"
+        surname:{
+            required: "Please enter your surname"
         },
-        DateofBirth:{
+        dateOfBirth:{
             required: "Please enter your date of birth"
+        },
+        phone:{
+            required: "Please enter your phone number",
+            number: "Please enter a valid phone number"
         },
         Password:{
             required: "Please enter your password",

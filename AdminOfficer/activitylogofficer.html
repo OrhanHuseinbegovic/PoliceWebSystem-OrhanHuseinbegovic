@@ -4,41 +4,43 @@
   <p>Please input all required field below for the activity log</p>
   <div class="container mt-5" id="blockme">
       <form id="activityForm" method="POST">
-          <!--START OF FORM FALI NAME NA SVAKOOOOOOOOOOOOOOM-->  
-          <!-- Shift Selection -->
-          <div class="form-group">
-              <label for="shift">Select Shift:</label>
-              <select class="form-control" id="shift" name="shift" form="activityForm">
-                  <option value="">Select Shift</option>
-                  <option value="morning">morning</option>
-                  <option value="afternoon">afternoon</option>
-                  <option value="night">night</option>
-              </select>
-          </div>
-          <br>
+          <input type="hidden" id="logID" name="logID">
+          <input type="hidden" id="officerID" name="officerID">
           <!-- Weapons Selection -->
           <div class="form-group">
               <label for="weapons">Select Weapon:</label>
-              <select class="form-control" id="weapon" name="weapon" form="activityForm">
-                  <option value="">Select Weapon ID</option>
+              <select class="form-control" id="weapon" name="weapon" form="activityForm" required>
+                  <option value="">Select Weapon</option>
                   <!--Ovdje treba fetchati sve ID od veapons da user moze izabrati-->
                   <option value="assault rifle">Assault Rifle</option>
                   <option value="shotgun">Shotgun</option>
                   <option value="sniper rifle">Sniper Rifle</option>
+                  <option value="pisol">Pistol</option>
               </select>
           </div>
-          <br>
           <!-- Vehicle Selection -->
           <div class="form-group">
               <label for="vehicle">Select Vehicle:</label>
-              <select class="form-control" id="vehicle" name="vehicle" form="activityForm">
+              <select class="form-control" id="vehicle" name="vehicle" form="activityForm" required>
                   <option value="">Select Vehicle</option>
                   <!--Ovdje treba fetchati sve ID od vehicles da user moze izabrati-->
-                  <option value="jeep">Jeep</option>
-                  <option value="tank">Tank</option>
-                  <option value="helicopter">Helicopter</option>
+                  <option value="golf7">Golf 7</option>
+                  <option value="octavia">Skoda Octavia</option>
+                  <option value="toyotarav4">Toyota Rav 4</option>
               </select>
           </div>
+          <!-- Shift Selection -->
+          <div class="form-group">
+            <label for="shift">Select Shift:</label>
+            <select class="form-control" id="shift" name="shift" form="activityForm" required>
+                <option value="">Select Shift</option>
+                <option value="morning">morning</option>
+                <option value="afternoon">afternoon</option>
+                <option value="night">night</option>
+            </select>
+           </div>
+           <br>
+           <input type="hidden" id="currentDate" name="currentDate">
            <!-- 
           <fieldset disabled>
               <div class="form-group">
