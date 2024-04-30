@@ -2,7 +2,7 @@ var EquipmentService = {
     reload_equipment_datatable: function() {
         Utils.get_datatable(
             "equipmentTable",
-            Constants.API_BASE_URL + "get_equipment.php",
+            Constants.API_BASE_URL + "get_equipments.php",
             [
                 {data: "logID"},
                 {data: "officerID"},
