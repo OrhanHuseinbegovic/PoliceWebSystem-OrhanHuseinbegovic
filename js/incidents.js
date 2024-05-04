@@ -2,7 +2,7 @@ var IncidentService = {
     reload_incidents_datatable: function() {
         Utils.get_datatable(
             "incidentsTable",
-            Constants.API_BASE_URL + "get_incidents.php",
+            Constants.API_BASE_URL + "incidents",
             [
                 {data: "incidentID"},
                 {data: "officerID"},
@@ -16,7 +16,7 @@ var IncidentService = {
     },
     open_edit_incident_modal: function(incidentID) {
         RestClient.get(
-            'get_incident.php?incidentID=' + incidentID,
+            'incidents/' + incidentID,
             function(data){
                 $('#editIncidentModal').modal('toggle');
                 $("#editIncidentForm input[name='incidentID']").val(data.incidentID);
@@ -31,7 +31,7 @@ var IncidentService = {
     delete_incident: function(incidentID) {
         if(confirm("Do you want to delete incident with ID: " + incidentID + "?") == true) {
             RestClient.delete(
-                "delete_incident.php?incidentID=" + incidentID,
+                "incidents/delete/" + incidentID,
                 {},
                 function(data){
                     toastr.success("You have successfully deleted the incident.");
@@ -49,7 +49,7 @@ FormValidation.validate("#addIncidentForm", {}, function (data) {
     console.log("Data from form is serialized into", data);
     //Utils.unblock_ui("#addIncident");
     
-    $.post(Constants.API_BASE_URL + "add_incident.php", data)
+    $.post(Constants.API_BASE_URL + "incidents/add", data)
       .done(function (data) {
         $("#addIncidentModal").modal("toggle");
         toastr.success("You have successfully added the incident.");
@@ -70,7 +70,7 @@ FormValidation.validate("#editIncidentForm", {}, function (data) {
     console.log("Data from form is serialized into", data);
     //Utils.unblock_ui("#addIncident");
     
-    $.post(Constants.API_BASE_URL + "add_incident.php", data)
+    $.post(Constants.API_BASE_URL + "incidents/add", data)
       .done(function (data) {
         $("#editIncidentModal").modal("toggle");
         toastr.success("You have successfully added the incident.");

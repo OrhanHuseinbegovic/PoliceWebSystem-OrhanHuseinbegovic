@@ -2,7 +2,7 @@ var OfficerService = {
     reload_officers_datatable: function() {
         Utils.get_datatable(
             "officersTable",
-            Constants.API_BASE_URL + "get_officers.php",
+            Constants.API_BASE_URL + "officers", //get_officers.php
             [
                 {data: "officerID"},
                 {data: "personalID"},
@@ -18,7 +18,7 @@ var OfficerService = {
     },
     open_edit_officer_modal: function(officerID){
         RestClient.get(
-            'get_officer.php?officerID=' + officerID,
+            'officers/' + officerID,
             function(data){
                 $('#editOfficerModal').modal('toggle');
                 $("#editOfficerForm input[name='officerID']").val(data.officerID);
@@ -35,7 +35,7 @@ var OfficerService = {
     delete_officer: function(officerID) {
         if(confirm("Do you want to delete officer with ID: " + officerID + "?") == true) {
             RestClient.delete(
-                "delete_officer.php?officerID=" + officerID,
+                "officers/delete/" + officerID,
                 {},
                 function(data){
                     toastr.success("You have successfully deleted the officer.");
@@ -51,7 +51,7 @@ OfficerService.reload_officers_datatable();
 FormValidation.validate("#addOfficerForm", {}, function (data) {
     Utils.block_ui("#addOfficerForm");
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "add_officer.php", data)
+    $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
       .done(function (data) {
         $("#addOfficerModal").modal("toggle");
         toastr.success("You have successfully added the officer.");
@@ -70,7 +70,7 @@ FormValidation.validate("#addOfficerForm", {}, function (data) {
 FormValidation.validate("#editOfficerForm", {}, function (data) {
     Utils.block_ui("#editOfficerForm");
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "add_officer.php", data)
+    $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
       .done(function (data) {
         $("#editOfficerModal").modal("toggle");
         toastr.success("You have successfully edited the officer.");

@@ -2,7 +2,7 @@ var EquipmentService = {
     reload_equipment_datatable: function() {
         Utils.get_datatable(
             "equipmentTable",
-            Constants.API_BASE_URL + "get_equipments.php",
+            Constants.API_BASE_URL + "equipments",
             [
                 {data: "logID"},
                 {data: "officerID"},
@@ -16,7 +16,7 @@ var EquipmentService = {
     },
     open_edit_equipment_modal: function(logID) {
         RestClient.get(
-            'get_equipment.php?logID=' + logID,
+            'equipments/' + logID,
             function(data){
                 $('#editEquipmentModal').modal('toggle');
                 $("#editEquipmentForm input[name='logID']").val(data.logID);
@@ -31,7 +31,7 @@ var EquipmentService = {
     delete_equipment: function(logID) {
         if(confirm("Do you want to delete equipment with ID: " + logID + "?") == true) {
             RestClient.delete(
-                "delete_equipment.php?logID=" + logID,
+                "equipments/delete/" + logID,
                 {},
                 function(data){
                     toastr.success("You have successfully deleted the equipment.");
@@ -47,7 +47,7 @@ EquipmentService.reload_equipment_datatable();
 FormValidation.validate("#addEquipmentForm", {}, function (data) {
     Utils.block_ui("#addEquipmentForm");
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "add_equipment.php", data)
+    $.post(Constants.API_BASE_URL + "equipments/add", data)
       .done(function (data) {
         $("#addEquipmentModal").modal("toggle");
         toastr.success("You have successfully added the equipment.");
@@ -64,7 +64,7 @@ FormValidation.validate("#addEquipmentForm", {}, function (data) {
 FormValidation.validate("#editEquipmentForm", {}, function (data) {
     Utils.block_ui("#editEquipmentForm");
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "edit_equipment.php", data)
+    $.post(Constants.API_BASE_URL + "equipments/add", data)
       .done(function (data) {
         $("#editEquipmentModal").modal("toggle");
         toastr.success("You have successfully edited the equipment.");

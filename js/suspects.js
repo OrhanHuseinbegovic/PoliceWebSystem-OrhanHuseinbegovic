@@ -2,7 +2,7 @@ var SuspectService = {
     reload_suspects_datatable: function() {
         Utils.get_datatable(
             "suspectsTable",
-            Constants.API_BASE_URL + "get_suspects.php",
+            Constants.API_BASE_URL + "suspects", //get_suspects.php
             [
                 
                 {data: "suspectID"},
@@ -16,7 +16,7 @@ var SuspectService = {
     },
     open_edit_suspect_modal: function(suspectID) {
         RestClient.get(
-            'get_suspect.php?suspectID=' + suspectID,
+            'suspects/' + suspectID,
             function(data){
                 $('#addSuspect').modal('toggle');
                 $("#addForm input[name='suspectID']").val(data.suspectID);
@@ -30,7 +30,7 @@ var SuspectService = {
     delete_suspect: function(suspectID) {
         if(confirm("Do you want to delete suspect with ID: " + suspectID + "?") == true) {
             RestClient.delete(
-                "delete_suspect.php?suspectID=" + suspectID,
+                "suspects/delete/" + suspectID,
                 {},
                 function(data){
                     toastr.success("You have successfully deleted the suspect.");
@@ -48,7 +48,7 @@ FormValidation.validate("#addForm", {}, function (data) {
     console.log("Data from form is serialized into", data);
     //Utils.unblock_ui("#addSuspect");
     
-    $.post(Constants.API_BASE_URL + "add_suspect.php", data)
+    $.post(Constants.API_BASE_URL + "suspects/add", data)
       .done(function (data) {
         $("#addSuspect").modal("toggle");
         toastr.success("You have successfully added the suspect.");
