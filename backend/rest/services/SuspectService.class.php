@@ -40,5 +40,9 @@ class SuspectService{
         
         $this->suspect_dao->edit_suspect($suspectID, $suspect);
     }
+
+    public function get_all_suspects(){
+        return $this->suspect_dao->get_all_suspects();
+    }
 }
 

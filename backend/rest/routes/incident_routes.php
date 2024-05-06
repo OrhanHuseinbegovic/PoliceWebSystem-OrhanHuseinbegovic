@@ -5,6 +5,46 @@ require_once __DIR__ . '/../services/IncidentService.class.php';
 Flight::set('incident_service', new IncidentService());
 
 Flight::group('/incidents', function(){
+
+    /**
+     * @OA\Get(
+     *      path="/incidents/all",
+     *      tags={"Incidents"},
+     *      summary="Get all incidents",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Array of all incidents in the databases"
+     *      )
+     * )
+     */
+
+    Flight::route('GET /all', function(){
+        $data = Flight::get('incident_service')->get_all_incidents();
+        Flight::json($data,200);
+    });
+
+    /**
+     * @OA\Get(
+     *      path="/incidents/incident",
+     *      tags={"Incidents"},
+     *      summary="Get incident by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Information of the incident by ID"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="query", name="incidentID", example="1", description="Incident ID")
+     * )
+     */
+    
+    Flight::route('GET /incident', function(){
+        $params = Flight::request()->query;
+
+        $incident = Flight::get('incident_service')->get_incident_by_id($params['incidentID']);
+
+        Flight::json($incident);
+    });
+
+
     Flight::route('GET /', function(){
         $payload = Flight::request()->query;
 
@@ -36,6 +76,30 @@ Flight::group('/incidents', function(){
         ]);
     });
 
+    /**
+     * @OA\Post(
+     *      path="/incidents/add",
+     *      tags={"Incidents"},
+     *      summary="Add incident to the database",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Incident data, or exception if incident is not added properly"
+     *      ),
+     *      @OA\RequestBody(
+     *           description="Officer data",
+     *           @OA\JsonContent(
+     *             required={"incidentID", "officerID", "type", "location", "date", "description"},
+     *             @OA\Property(property="incidentID", type="number", example="", description="Incident ID (leave empty if adding new officer)"),
+     *             @OA\Property(property="officerID", type="number", example="1", description="Officer ID"),
+     *             @OA\Property(property="type", type="string", example="Theft", description="Type"),
+     *             @OA\Property(property="location", type="string", example="Sarajevo", description="Location"),  
+     *             @OA\Property(property="date", type="string", example="1990-01-01", description="Date"),
+     *             @OA\Property(property="description", type="string", example="Something happened in here.", description="Description")
+     *          )
+     *      )
+     * )
+     */
+
     Flight::route('POST /add', function(){
         $payload = Flight::request()->data->getData();
 
@@ -58,6 +122,19 @@ Flight::group('/incidents', function(){
         
     });
 
+    /**
+     * @OA\Delete(
+     *      path="/incidents/delete/{incidentID}",
+     *      tags={"Incidents"},
+     *      summary="Delete incidents by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Deleteded incident by ID data or 500 status code exception"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="incidentID", example="1", description="Incident ID")
+     * )
+     */
+
     Flight::route('DELETE /delete/@incident_id', function($incident_id){
         if ($incident_id == NULL || $incident_id=='') {
             //header('HTTP/1.1 400 Bad Request');
@@ -75,4 +152,7 @@ Flight::group('/incidents', function(){
         
         Flight::json($incident);
     });
+
+
+
 });

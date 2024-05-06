@@ -5,6 +5,48 @@ require_once __DIR__ .'/../services/SuspectService.class.php';
 Flight::set('suspect_service', new SuspectService());
 
 Flight::group('/suspects', function(){
+
+    /**
+     * @OA\Get(
+     *      path="/suspects/all",
+     *      tags={"Suspects"},
+     *      summary="Get all suspects",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Array of all suspects in the databases"
+     *      )
+     * )
+     */
+
+    Flight::route('GET /all', function(){
+        $data = Flight::get('suspect_service')->get_all_suspects();
+        Flight::json($data,200);
+    });
+
+
+     /**
+     * @OA\Get(
+     *      path="/suspects/suspect",
+     *      tags={"Suspects"},
+     *      summary="Get suspect by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Information of the suspect by ID"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="query", name="suspectID", example="1", description="Suspect ID")
+     * )
+     */
+
+     Flight::route('GET /suspect', function(){
+        $params = Flight::request()->query;
+
+        $suspect = Flight::get('suspect_service')->get_suspect_by_id($params['suspectID']);
+
+        Flight::json($suspect);
+    });
+
+
+
     Flight::route('GET /', function(){
         //$payload = $_REQUEST;
         $payload = Flight::request()->query;
@@ -55,6 +97,29 @@ Flight::group('/suspects', function(){
         ]);
     });
 
+    /**
+     * @OA\Post(
+     *      path="/suspects/add",
+     *      tags={"Suspects"},
+     *      summary="Add suspect to the database",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Suspect data, or exception if suspect is not added properly"
+     *      ),
+     *      @OA\RequestBody(
+     *           description="Suspect data",
+     *           @OA\JsonContent(
+     *             required={"personalID", "name", "surname", "dateOfBirth"},
+     *             @OA\Property(property="suspectID", type="number", example="1", description="Suspect ID (leave empty if adding new officer)"),
+     *             @OA\Property(property="personalID", type="number", example="1", description="Personal ID"),
+     *             @OA\Property(property="name", type="string", example="John ", description="Suspect name"),
+     *             @OA\Property(property="surname", type="string", example="Doe", description="Suspect surname"),  
+     *             @OA\Property(property="dateOfBirth", type="string", example="1990-01-01", description="suspect date of birth")
+     *          )
+     *      )
+     * )
+     */
+
     Flight::route('POST /add', function(){
         //$payload = $_REQUEST;
         $payload = Flight::request()->data->getData();
@@ -81,6 +146,19 @@ Flight::group('/suspects', function(){
         //echo json_encode(['message' => "Suspect added successfully", 'data' => $suspect]);
         Flight::json(['message' => "Suspect added successfully", 'data' => $suspect]);
     });
+
+    /**
+     * @OA\Delete(
+     *      path="/suspects/delete/{suspectID}",
+     *      tags={"Suspects"},
+     *      summary="Delete suspects by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Deleteded suspect by ID data or 500 status code exception"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="suspectID", example="1", description="Suspect ID")
+     * )
+     */
 
     Flight::route('DELETE /delete/@suspect_id', function($suspect_id){
         // Check if the 'suspectID' parameter is provided in the request
@@ -109,4 +187,5 @@ Flight::group('/suspects', function(){
         //echo json_encode($suspect);
         Flight::json($suspect);
     });
+
 });

@@ -5,6 +5,45 @@ require_once __DIR__ . "/../services/EquipmentService.class.php";
 Flight::set('equipment_service', new EquipmentService());
 
 Flight::group('/equipments', function(){
+
+    /**
+     * @OA\Get(
+     *      path="/equipments/all",
+     *      tags={"Equipment"},
+     *      summary="Get all equipment",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Array of all equipment in the databases"
+     *      )
+     * )
+     */
+
+     Flight::route('GET /all', function(){
+        $data = Flight::get('equipment_service')->get_all_equipment();
+        Flight::json($data,200);
+    });
+
+     /**
+     * @OA\Get(
+     *      path="/equipments/equipment",
+     *      tags={"Equipment"},
+     *      summary="Get equipment by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Information of the equipment by ID"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="query", name="equipmentID", example="1", description="Equipment ID")
+     * )
+     */
+
+     Flight::route('GET /equipment', function(){
+        $params = Flight::request()->query;
+
+        $equipment = Flight::get('equipment_service')->get_equipment_by_id($params['equipmentID']);
+
+        Flight::json($equipment);
+    });
+
     Flight::route('GET /', function(){
         $payload = Flight::request()->query;
 
@@ -35,6 +74,30 @@ Flight::group('/equipments', function(){
         ]);
     });
 
+    /**
+     * @OA\Post(
+     *      path="/equipments/add",
+     *      tags={"Equipment"},
+     *      summary="Add equipment to the database",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Equipment data, or exception if equipment is not added properly"
+     *      ),
+     *      @OA\RequestBody(
+     *           description="Case data",
+     *           @OA\JsonContent(
+     *             required={"officerID", "weapon", "vehicle", "shift", "date"},
+     *             @OA\Property(property="logID", type="number", example="", description="Log ID (leave empty if adding new equipment log)"),
+     *             @OA\Property(property="officerID", type="number", example="1", description="Officer ID"),
+     *             @OA\Property(property="weapon", type="string", example="Pistol", description="Weapon"),
+     *             @OA\Property(property="vehicle", type="string", example="Golf 7", description="Vehicle"),
+     *             @OA\Property(property="shift", type="string", example="night", description="Shift"),
+     *             @OA\Property(property="date", type="string", example="2000-01-01", description="Equipment log date made"),
+     *          )
+     *      )
+     * )
+     */
+
     Flight::route('POST /add', function(){
         $payload = Flight::request()->data->getData();
 
@@ -58,6 +121,19 @@ Flight::group('/equipments', function(){
 
         Flight::json(['message' => "Equipment added successfully", 'data' => $equipment]); //ovaj Flight::get('equipment_service') treba zamijeniti  sa $equipment_service
     });
+
+    /**
+     * @OA\Delete(
+     *      path="/equipments/delete/{logID}",
+     *      tags={"Equipment"},
+     *      summary="Delete equipment by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Deleteded equipment by ID data or 500 status code exception"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="logID", example="1", description="Equipment ID")
+     * )
+     */
 
     Flight::route('DELETE /delete/@log_id', function($log_id){
         // Check if the 'logID' parameter is provided in the request

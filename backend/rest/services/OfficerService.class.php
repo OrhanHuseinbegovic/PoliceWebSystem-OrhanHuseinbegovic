@@ -38,4 +38,8 @@ class OfficerService{
         
         $this->officer_dao->edit_officer($officerID, $officer);
     }
+
+    public function get_all_officers(){
+        return $this->officer_dao->get_all_officers();
+    }
 }

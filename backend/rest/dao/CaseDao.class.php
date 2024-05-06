@@ -61,6 +61,12 @@ class CaseDao extends BaseDao{
         ]);
     }
 
+    public function get_all_cases(){
+        $query = "SELECT *
+                  FROM cases;";
+        return $this->query($query,[]);
+    }
+
 }
 
     

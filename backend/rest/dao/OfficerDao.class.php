@@ -57,4 +57,10 @@ class OfficerDao extends BaseDao{
             'officerID' => $officerID
         ]);
     }
+
+    public function get_all_officers(){
+        $query = "SELECT *
+                  FROM officers;";
+        return $this->query($query, []);
+    }
 }

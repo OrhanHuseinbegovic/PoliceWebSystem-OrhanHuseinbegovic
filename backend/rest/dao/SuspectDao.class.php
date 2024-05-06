@@ -72,5 +72,10 @@ class SuspectDao extends BaseDao{
         ]);
     }
     
+    public function get_all_suspects(){
+        $query = "SELECT *
+                  FROM suspects;";
+        return $this->query($query, []);
+    }
 
 }

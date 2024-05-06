@@ -59,4 +59,10 @@ class EquipmentDao extends BaseDao{
             'logID' => $logID
         ]);
     }
+
+    public function get_all_equipment(){
+        $query = "SELECT *
+                  FROM equipment;";
+        return $this->query($query, []);
+    }
 }

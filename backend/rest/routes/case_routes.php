@@ -5,6 +5,45 @@ require_once __DIR__ . '/../services/CaseService.class.php';
 Flight::set('case_service', new CaseService());
 
 Flight::group('/cases', function(){
+
+    /**
+     * @OA\Get(
+     *      path="/cases/all",
+     *      tags={"Cases"},
+     *      summary="Get all cases",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Array of all cases in the databases"
+     *      )
+     * )
+     */
+
+    Flight::route('GET /all', function(){
+        $data = Flight::get('case_service')->get_all_cases();
+        Flight::json($data,200);
+    });
+
+    /**
+     * @OA\Get(
+     *      path="/cases/case",
+     *      tags={"Cases"},
+     *      summary="Get case by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Information of the case by ID"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="query", name="caseID", example="1", description="Case ID")
+     * )
+     */
+
+     Flight::route('GET /case', function(){
+        $params = Flight::request()->query;
+
+        $case = Flight::get('case_service')->get_case_by_id($params['caseID']);
+
+        Flight::json($case);
+    });
+
     Flight::route('GET /', function(){
         //$payload = $_REQUEST;
         $payload = Flight::request()->query;
@@ -37,6 +76,29 @@ Flight::group('/cases', function(){
         ]);        
     });
 
+    /**
+     * @OA\Post(
+     *      path="/cases/add",
+     *      tags={"Cases"},
+     *      summary="Add case to the database",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Case data, or exception if case is not added properly"
+     *      ),
+     *      @OA\RequestBody(
+     *           description="Case data",
+     *           @OA\JsonContent(
+     *             required={"date", "name", "description"},
+     *             @OA\Property(property="caseID", type="number", example="1", description="Case ID (leave empty if adding new officer)"),
+     *             @OA\Property(property="name", type="string", example="Case Example", description="Case name"),
+     *             @OA\Property(property="date", type="string", example="2000-01-01", description="Case date made"),
+     *             @OA\Property(property="description", type="string", example="Some dummy description", description="Case description")
+     *          )
+     *      )
+     * )
+     */
+
+
     Flight::route('POST /add', function(){
         $payload = Flight::request()->data->getData();
 
@@ -58,6 +120,20 @@ Flight::group('/cases', function(){
 
         Flight::json(['message' => "Case added successfully", 'data' => $case]);
     });
+
+    /**
+     * @OA\Delete(
+     *      path="/cases/delete/{caseID}",
+     *      tags={"Cases"},
+     *      summary="Delete case by ID",
+     *      @OA\Response(
+     *           response=200,
+     *           description="Deleteded case by ID data or 500 status code exception"
+     *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="caseID", example="1", description="Case ID")
+     * )
+     */
+
 
     Flight::route('DELETE /delete/@case_id', function($case_id){
         if($case_id == NULL || $case_id==''){
