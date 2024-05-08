@@ -22,6 +22,9 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5 text-center">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3><img src="assets/police-badge.png" width="128px"  alt=""></div>
                                     <div class="card-body">
+
+
+
                                         <form id="registerForm" method="post">
                                             <input type="hidden" id="officerID" name="officerID">
                                             <div class=" mb-3">
@@ -54,29 +57,50 @@
                                                 <input class="form-control" id="phone" type="number" placeholder="+387 xxx xxx"  name="phone" required/>
                                                 <!--<label for="inputPersonalD">Personal ID</label>-->
                                             </div>
+                                            <div class="form-group">
+                                                
+                                                <select class="form-control" name="department" id="department" form="registerForm" placeholder="Select department" required>
+                                                  <option value="">Department</option>
+                                                  <option value="Drugs">Drugs</option>
+                                                  <option value="Fraud">Fraud</option>
+                                                  <option value="Homicide">Homicide</option>
+                                                  <option value="Patrol">Patrol</option>
+                                                  <option value="Traffic">Traffic</option>
+                                                  <option value="Violent Crime">Violent Crime</option>
+                                                  <option value="Property Crime">Violent Crime</option>
+                                                  <option value="Organized Crime">Organized Crime</option>
+                                                </select>
+                                              </div>
+                                              <br>
+
+                                              <input type="hidden" id="status" name="status" value="onhold">
+
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class=" mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" name="Password" />
+                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" name="password" />
                                                         <!--<label for="inputPassword">Password</label>-->
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class=" mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" name="ConfirmedPassword" />
+                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" name="repeat" />
                                                         <!--<label for="inputPasswordConfirm">Confirm Password</label>-->
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="checkbox">Apply for admin:</label>
-                                                <input type="checkbox" id="checkbox" name="checkbox">
+                                                <label for="isAdmin">Apply for admin:</label>
+                                                <input type="checkbox" id="isAdmin" name="isAdmin">
                                             </div>
                                             <div class="mt-4 mb-0">
                                                 <!--<div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>-->
                                                 <button type="submit" class="btn btn-primary">Create account</button>
                                             </div>
                                         </form>
+
+
+
                                     </div>
                                     <div class="card-footer text-center py-3">
                                         <div class="small"><a href="login.html">Log in</a></div>
@@ -92,6 +116,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/block-ui@2.70.0/dist/block-ui.min.js"></script>
+        <script src="js/utils/form_validation.js"></script>
+        <script src="js/utils/utils.js"></script>
+        <script src="js/utils/constants.js"></script>
+        <script src="js/utils/rest_client.js"></script>
+        <script src="js/toastr.min.js"></script>
         <script src="js/block-ui.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/register.js"></script>

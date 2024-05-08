@@ -1,3 +1,4 @@
+/*
 $("#registerForm").validate({
     rules: {
         personalID:{
@@ -17,11 +18,11 @@ $("#registerForm").validate({
             required: true,
             number: true
         },
-        Password:{
+        password:{
             required: true,
             minlength: 8
         },
-        ConfirmedPassword:{
+        repeat:{
             required: true,
             equalTo: "#inputPassword"
         }
@@ -44,11 +45,11 @@ $("#registerForm").validate({
             required: "Please enter your phone number",
             number: "Please enter a valid phone number"
         },
-        Password:{
+        password:{
             required: "Please enter your password",
             minlength: "Minimum 8 characters"
         },
-        ConfirmedPassword:{
+        repeat:{
             required: "Please confirm your password",
             equalTo: "Passwords do not match"
         }
@@ -97,3 +98,32 @@ getUsers = () => {
 };
 
 getUsers();
+*/
+
+
+FormValidation.validate("#registerForm",{}, function(data){
+    Utils.block_ui("#registerForm");
+
+    // Get the value of the checkbox
+    var checkboxValue = $("#isAdmin").is(":checked") ? 1 : 0;
+    
+    
+    // Add the checkbox value to the data object
+    data['isAdmin'] = checkboxValue;
+
+    console.log("Data from form is serialized into", data);
+    $.post(Constants.API_BASE_URL + "officers/add", data)
+        .done(function(data){
+            $("#registerForm")[0].reset();
+            toastr.success("User successfully registered");
+        })
+        .fail(function(error){
+            toastr.error("Error while registering user");
+        })
+        .always(function(){
+            Utils.unblock_ui("#registerForm");
+        }
+    );
+})
+
+

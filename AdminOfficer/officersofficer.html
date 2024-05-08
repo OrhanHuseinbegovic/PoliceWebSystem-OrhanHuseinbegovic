@@ -55,6 +55,29 @@
                         <option value="Organized Crime">Organized Crime</option>
                       </select>
                     </div>
+
+                    <div class="form-group">
+                      <label for="select">Status:</label>
+                      <select class="form-control"  name="status" id="status" form="addOfficerForm" placeholder="Select status" >
+                        <option value="onhold">On hold</option>
+                        <option value="accepted">Accepted</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="select">Admin:</label>
+                      <select class="form-control" name="isAdmin" id="isAdmin" form="addOfficerForm" placeholder="Select if user is Admin" >
+                        <option value="0">Standard user</option>
+                        <option value="1">Admin</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="inputData">Password:</label>
+                      <input type="text" class="form-control" id="password" placeholder="Enter password" name="password">
+                    </div>
+
+
                     <button type="submit" class="btn btn-primary">Add</button>
                   </form>
                 </div>
@@ -111,6 +134,24 @@
                         <option value="Organized Crime">Organized Crime</option>
                       </select>
                     </div>
+
+                    <div class="form-group">
+                      <label for="select">Status:</label>
+                      <select class="form-control"  name="status" id="status" form="editOfficerForm" placeholder="Select status" >
+                        <option value="">Status</option>
+                        <option value="onhold">On hold</option>
+                        <option value="accepted">Accepted</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="select">Admin:</label>
+                      <select class="form-control" name="isAdmin" id="isAdmin" form="editOfficerForm" placeholder="Select if user is Admin" >
+                        <option value="0">Standard user</option>
+                        <option value="1">Admin</option>
+                      </select>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Edit</button>
                   </form>
                 </div>
@@ -132,6 +173,8 @@
                       <th data-name="email">Email</th>
                       <th data-name="phone">Phone</th>
                       <th data-name="department">Department</th>
+                      <th data-name="status">Status</th>
+                      <th data-name="isAdmin">Is Admin</th>
                       <th data-name="actions">Actions</th>
                   </tr>
               </thead>

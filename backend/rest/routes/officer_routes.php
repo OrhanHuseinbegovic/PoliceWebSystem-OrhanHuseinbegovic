@@ -128,7 +128,10 @@ Flight::group('/officers', function(){
      *             @OA\Property(property="dateOfBirth", type="string", example="1990-01-01", description="Officer date of birth"),
      *             @OA\Property(property="email", type="string", example="johndoe@police.com", description="Officer email"),
      *             @OA\Property(property="phone", type="number", example="061123456", description="Officer phone number"),
-     *             @OA\Property(property="department", type="string", example="Violent crime", description="Officer department")
+     *             @OA\Property(property="department", type="string", example="Violent crime", description="Officer department"),
+     *             @OA\Property(property="status", type="string", example="onhold", description="Officer status"),
+     *             @OA\Property(property="isAdmin", type="number", example="1", description="Is Officer Admin"),
+     *             @OA\Property(property="password", type="string", example="123456789", description="Officer password")
      *          )
      *      )
      * )

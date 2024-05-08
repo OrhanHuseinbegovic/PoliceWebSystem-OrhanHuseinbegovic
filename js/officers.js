@@ -12,6 +12,18 @@ var OfficerService = {
                 {data: "email"},
                 {data: "phone"},
                 {data: "department"},
+                {
+                    data: "status",
+                    render: function(data) {
+                        return data === "onhold" ? "On hold" : "Accepted";
+                    }
+                },
+                {
+                    data: "isAdmin",
+                    render: function(data) {
+                        return data === 1 ? "YES" : "NO";
+                    }
+                },
                 {data: "action"}
             ]
         );
@@ -28,7 +40,9 @@ var OfficerService = {
                 $("#editOfficerForm input[name='dateOfBirth']").val(data.dateOfBirth);
                 $("#editOfficerForm input[name='email']").val(data.email);
                 $("#editOfficerForm input[name='phone']").val(data.phone);
-                $("#editOfficerForm input[name='department']").val(data.department);
+                $("#editOfficerForm select[name='department']").val(data.department);
+                $("#editOfficerForm select[name='isAdmin']").val(data.isAdmin);
+                $("#editOfficerForm select[name='status']").val(data.status);
             }
         )
     },
@@ -50,6 +64,13 @@ OfficerService.reload_officers_datatable();
 
 FormValidation.validate("#addOfficerForm", {}, function (data) {
     Utils.block_ui("#addOfficerForm");
+
+    var isAdmin = parseInt(data.isAdmin);
+    
+    
+    // Add the checkbox value to the data object
+    data['isAdmin'] = isAdmin;
+
     console.log("Data from form is serialized into", data);
     $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
       .done(function (data) {
@@ -69,6 +90,10 @@ FormValidation.validate("#addOfficerForm", {}, function (data) {
 
 FormValidation.validate("#editOfficerForm", {}, function (data) {
     Utils.block_ui("#editOfficerForm");
+
+    // Convert isAdmin value to integer
+    data.isAdmin = parseInt(data.isAdmin);
+
     console.log("Data from form is serialized into", data);
     $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
       .done(function (data) {
