@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/../services/OfficerService.class.php';
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 Flight::set('officer_service', new OfficerService());
 
 Flight::group('/officers', function(){
@@ -68,6 +71,16 @@ Flight::group('/officers', function(){
 
     Flight::route('GET /', function(){
         //payload = $_REQUEST;
+        try{
+            $token = Flight::request()->getHeader('Authentication');
+            if(!$token)
+                Flight::halt(401, "Missing authentication header");
+
+            $decoded_token = JWT::decode($token, new Key(JWT_SECRET, 'HS256'));
+        }catch(Exception $e){
+            Flight::halt(401, $e->getMessage());
+        }
+
         $payload = Flight::request()->query;
     
         $params = [

@@ -6,6 +6,6 @@ require 'rest/routes/equipment_routes.php';
 require 'rest/routes/incident_routes.php';
 require 'rest/routes/officer_routes.php';
 require 'rest/routes/suspect_routes.php';
-require 'rest/routes/registration_routes.php';
+require 'rest/routes/auth_routes.php';
 
 Flight::start();

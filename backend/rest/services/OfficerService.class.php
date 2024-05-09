@@ -11,6 +11,7 @@ class OfficerService{
     }
 
     public function add_officer($officer){
+        $officer['password']=password_hash($officer['password'], PASSWORD_BCRYPT);
         return $this->officer_dao->add_officer($officer);
     }
 

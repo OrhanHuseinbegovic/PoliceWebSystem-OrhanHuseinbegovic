@@ -3,7 +3,7 @@
   <h1 class="mt-4">Activity log</h1>
   <p>Please input all required field below for the activity log</p>
   <div class="container mt-5" id="blockme">
-      <form id="activityForm" method="POST">
+      <form id="activityForm">
           <input type="hidden" id="logID" name="logID">
           <input type="hidden" id="officerID" name="officerID">
           <!-- Weapons Selection -->
@@ -24,9 +24,9 @@
               <select class="form-control" id="vehicle" name="vehicle" form="activityForm" required>
                   <option value="">Select Vehicle</option>
                   <!--Ovdje treba fetchati sve ID od vehicles da user moze izabrati-->
-                  <option value="golf7">Golf 7</option>
-                  <option value="octavia">Skoda Octavia</option>
-                  <option value="toyotarav4">Toyota Rav 4</option>
+                  <option value="Golf 7">Golf 7</option>
+                  <option value="Octavia">Skoda Octavia</option>
+                  <option value="Toyota Rav 4">Toyota Rav 4</option>
               </select>
           </div>
           <!-- Shift Selection -->
@@ -34,13 +34,13 @@
             <label for="shift">Select Shift:</label>
             <select class="form-control" id="shift" name="shift" form="activityForm" required>
                 <option value="">Select Shift</option>
-                <option value="morning">morning</option>
-                <option value="afternoon">afternoon</option>
-                <option value="night">night</option>
+                <option value="Morning">morning</option>
+                <option value="Afternoon">afternoon</option>
+                <option value="Night">night</option>
             </select>
            </div>
            <br>
-           <input type="hidden" id="currentDate" name="currentDate">
+           <input type="hidden" id="date" name="date">
            <!-- 
           <fieldset disabled>
               <div class="form-group">
