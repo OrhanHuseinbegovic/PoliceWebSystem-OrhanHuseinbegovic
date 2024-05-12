@@ -13,7 +13,6 @@ FormValidation.validate("#incidentForm", {}, function (data) {
     $.post(Constants.API_BASE_URL + "incidents/add", data)
       .done(function (data) {
         toastr.success("You have successfully added the incident.");
-        IncidentService.reload_incidents_datatable();
       })
       .fail(function (error) {
         toastr.error(JSON.parse(error.responseText).error);

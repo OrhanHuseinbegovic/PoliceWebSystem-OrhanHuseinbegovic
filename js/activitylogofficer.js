@@ -13,6 +13,8 @@ data.officerID = officerID;
 
 
 FormValidation.validate("#activityForm", {}, function (data) {
+    Utils.block_ui("#activityForm");
+
     const date = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
 
       // Fetch the officer ID from localStorage
@@ -33,7 +35,7 @@ FormValidation.validate("#activityForm", {}, function (data) {
         toastr.error(JSON.parse(error.responseText).error);
       })
       .always(function () {
-        Utils.unblock_ui("#addActivity");
+        Utils.unblock_ui("#activityForm");
         $("#activityForm")[0].reset();
       });
 });

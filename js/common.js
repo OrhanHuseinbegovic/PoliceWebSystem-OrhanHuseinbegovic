@@ -1,13 +1,15 @@
 //check if local storage is empty, if yes, redirect to login page
 
-/*
+
 function checkLocalStorage() {
     if (localStorage.length === 0) {
         // Redirect to the login page if Local Storage is empty
         window.location.href = "login.html";
     }
 }
-*/
+
+
+setInterval(checkLocalStorage, 50);
 
 
 // Retrieve user data from localStorage

@@ -17,6 +17,28 @@
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
+
+                        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Registration Successful!</h5>
+                                  <button id="closeBtnn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Your registration details:</p>
+                                  <p id="userrEmail"><strong>Email:</strong> <span id="userEmail"></span></p>
+                                  <p id="userrPassowrd"><strong>Password:</strong> <span id="userPassword"></span></p>
+
+                                  <h2>You will be able to log in once you are accepted by admin</h2>
+                                </div>
+                            
+                              </div>
+                            </div>
+                          </div>
+
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5 text-center">
@@ -28,19 +50,19 @@
                                         <form id="registerForm" method="post">
                                             <input type="hidden" id="officerID" name="officerID">
                                             <div class=" mb-3">
-                                                <input class="form-control" id="personalID" type="text" placeholder="Personal ID"  name="personalID"/>
+                                                <input class="form-control" id="personalID" type="text" placeholder="Personal ID"  name="personalID" required/>
                                                 <!--<label for="inputPersonalD">Personal ID</label>-->
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="mb-3 mb-md-0">
-                                                        <input class="form-control" id="name" type="text" placeholder="Enter your first name" name="name"/>
+                                                        <input class="form-control" id="name" type="text" placeholder="Enter your first name" name="name" required/>
                                                         <!--<label for="Name">First name</label>-->
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="">
-                                                        <input class="form-control" id="surname" type="text" placeholder="Enter your last name" name="surname" />
+                                                        <input class="form-control" id="surname" type="text" placeholder="Enter your last name" name="surname" required />
                                                         <!--<label for="inputLastName">Last name</label>-->
                                                     </div>
                                                 </div>
@@ -49,14 +71,33 @@
                                             
                                             <div class="form-group">
                                                 <!--<label for="caseDate">Date of birth:</label>-->
-                                                <input type="date" class="form-control" id="dateOfBirth" placeholder="Date of birth" name="dateOfBirth" >
+                                                <input type="date" class="form-control" id="dateOfBirth" placeholder="Date of birth" name="dateOfBirth" required>
                                                 <br>
                                             </div>
                                             <input type="hidden" id="email" name="email">
+
+                                            <!--
                                             <div class=" mb-3">
                                                 <input class="form-control" id="phone" type="number" placeholder="+387 xxx xxx"  name="phone" required/>
-                                                <!--<label for="inputPersonalD">Personal ID</label>-->
+                                                <label for="inputPersonalD">Personal ID</label>
                                             </div>
+                                            -->
+
+                                            <div class="form-group input-group">
+                                                <!--<div class="input-group-prepend">
+                                                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                                                </div>
+                                            -->
+                                                <select class="custom-select" style="max-width: 120px;">
+                                                    <option selected="">+387</option>
+                                                    <option value="1">+386</option>
+                                                </select>
+                                                <input id="phone" name="phone" class="form-control" placeholder="Phone number" type="text">
+                                            </div> <!-- form-group// -->
+
+                                            <br>
+
+
                                             <div class="form-group">
                                                 
                                                 <select class="form-control" name="department" id="department" form="registerForm" placeholder="Select department" required>
@@ -67,7 +108,7 @@
                                                   <option value="Patrol">Patrol</option>
                                                   <option value="Traffic">Traffic</option>
                                                   <option value="Violent Crime">Violent Crime</option>
-                                                  <option value="Property Crime">Violent Crime</option>
+                                                  <option value="Property Crime">Property Crime</option>
                                                   <option value="Organized Crime">Organized Crime</option>
                                                 </select>
                                               </div>
@@ -78,13 +119,13 @@
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class=" mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" name="password" />
+                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" name="password"  required/>
                                                         <!--<label for="inputPassword">Password</label>-->
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class=" mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" name="repeat" />
+                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" name="repeat" required />
                                                         <!--<label for="inputPasswordConfirm">Confirm Password</label>-->
                                                     </div>
                                                 </div>

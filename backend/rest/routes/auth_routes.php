@@ -30,8 +30,23 @@ Flight::group('/auth', function(){
     Flight::route('POST /login', function(){
         $payload = Flight::request()->data->getData();
 
-        $officer = Flight::get('auth_service')->get_user_by_email($payload['email']);
+        /*
+        if(empty($payload['password']) || empty($payload['email'])){
+            Flight::halt(500, "Password or email not sent!");
+        }
+        */
+        
 
+        if($payload['password'] === "" || $payload['email'] === ""){
+            Flight::halt(500, "Password or email not sent!");
+        }
+
+        $officer = Flight::get('auth_service')->get_user_by_email($payload['email']);
+        
+        if($officer === false) {
+            Flight::halt(404, "User not found");
+        }
+        
         if($officer['status']=="onhold"){
             Flight::halt(500, "User is not accepted"); 
         }

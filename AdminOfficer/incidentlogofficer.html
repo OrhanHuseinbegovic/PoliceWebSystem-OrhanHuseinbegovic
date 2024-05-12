@@ -1,52 +1,48 @@
-<!-- Page content-->
 <div class="container-fluid text-center">
-  <h1 class="mt-4">Incident Log</h1>
-  <form id="incidentForm" method="post">
+    <h1 class="mt-4">Incident Log</h1>
+    <form id="incidentForm">
         <input type="hidden" id="incidentID" name="incidentID">
         <input type="hidden" id="officerID" name="officerID">
-      <div class="form-group">
-          <label for="exampleFormControlSelect1">Select crime type: </label>
-          <select class="form-control" id="type" name="type" required>
-              <option>Assault</option>
-              <option>Burglary</option>
-              <option>Fraud</option>
-              <option>Theft</option>
-              <option>Vandalism</option>
-              <option>Traffic ticket</option>
-              <option>Traffic Incident</option>
-          </select>
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="caseName">Incident Location:</label>
-        <input type="text" class="form-control" id="location" name="location" placeholder="Enter location " required>
-      </div>
-      <br>
-      <input type="hidden" id="date" name="date">
-      <br>
-      <div class="form-group">
-          <label for="caseDescription">Description:</label>
-          <textarea class="form-control" id="description" rows="3" name="description" placeholder="Enter case description" required></textarea>
-      </div>
-      <!---
-      <fieldset disabled>   
-          <div class="form-group">
-              <label for="disabledSelect">Incident ID: </label>
-              <select id="disabledSelect" class="form-control">
-                  <option>01_121</option>
-              </select>
-          </div>
-          <br>
-          <div class="form-group">
-              <label for="disabledSelect">Recorded by officer ID: </label>
-              <select id="disabledSelect" class="form-control">
-                  <option>01_12121</option>
-              </select>
-          </div>
-      </fieldset>
-      -->
-      <button id="incidentSubButton" type="submit" class="btn btn-primary">Submit</button>
-  </form>
+
+        <div class="form-group row">
+            <label for="type" class="col-sm-4 col-form-label">Crime Type:</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="type" name="type" required>
+                    <option value="">Select crime type</option>
+                    <option>Assault</option>
+                    <option>Burglary</option>
+                    <option>Fraud</option>
+                    <option>Theft</option>
+                    <option>Vandalism</option>
+                    <option>Traffic ticket</option>
+                    <option>Traffic Incident</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="location" class="col-sm-4 col-form-label">Incident Location:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="description" class="col-sm-4 col-form-label">Description:</label>
+            <div class="col-sm-8">
+                <textarea class="form-control" id="description" rows="3" name="description" placeholder="Enter case description" required></textarea>
+            </div>
+        </div>
+
+        <input type="hidden" id="date" name="date">
+
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <button id="incidentSubButton" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
+
 
 <script src="../../PoliceWebSystem-OrhanHuseinbegovic/js/incidentlogofficer.js"></script>
