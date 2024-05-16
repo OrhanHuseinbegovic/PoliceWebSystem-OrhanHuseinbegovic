@@ -41,4 +41,8 @@ class CaseService{
         
         $this->case_dao->edit_case($caseID, $case);
     }
+
+    public function get_all_cases(){
+        return $this->case_dao->get_all_cases();
+    }
 }

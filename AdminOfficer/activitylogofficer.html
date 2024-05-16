@@ -1,69 +1,45 @@
 <!-- Page content-->
 <div class="container-fluid text-center container mt5">
-  <h1 class="mt-4">Activity log</h1>
-  <p>Please input all required field below for the activity log</p>
-  <div class="container mt-5" id="blockme">
-      <form id="activityForm" method="POST">
-          <input type="hidden" id="logID" name="logID">
-          <input type="hidden" id="officerID" name="officerID">
-          <!-- Weapons Selection -->
-          <div class="form-group">
-              <label for="weapons">Select Weapon:</label>
-              <select class="form-control" id="weapon" name="weapon" form="activityForm" required>
-                  <option value="">Select Weapon</option>
-                  <!--Ovdje treba fetchati sve ID od veapons da user moze izabrati-->
-                  <option value="assault rifle">Assault Rifle</option>
-                  <option value="shotgun">Shotgun</option>
-                  <option value="sniper rifle">Sniper Rifle</option>
-                  <option value="pisol">Pistol</option>
-              </select>
-          </div>
-          <!-- Vehicle Selection -->
-          <div class="form-group">
-              <label for="vehicle">Select Vehicle:</label>
-              <select class="form-control" id="vehicle" name="vehicle" form="activityForm" required>
-                  <option value="">Select Vehicle</option>
-                  <!--Ovdje treba fetchati sve ID od vehicles da user moze izabrati-->
-                  <option value="golf7">Golf 7</option>
-                  <option value="octavia">Skoda Octavia</option>
-                  <option value="toyotarav4">Toyota Rav 4</option>
-              </select>
-          </div>
-          <!-- Shift Selection -->
-          <div class="form-group">
-            <label for="shift">Select Shift:</label>
-            <select class="form-control" id="shift" name="shift" form="activityForm" required>
-                <option value="">Select Shift</option>
-                <option value="morning">morning</option>
-                <option value="afternoon">afternoon</option>
-                <option value="night">night</option>
-            </select>
-           </div>
-           <br>
-           <input type="hidden" id="currentDate" name="currentDate">
-           <!-- 
-          <fieldset disabled>
-              <div class="form-group">
-                  <label for="disabledSelect">User</label>
-                  <select id="disabledSelect" class="form-control">
-                    
-                      <option>Sergeant Optimus Prime</option>
-                  </select>
-              </div>  
-              <br>
-              <div class="form-group">
-                  <label for="disabledSelect">Date</label>
-                  <select id="disabledSelect" class="form-control">
-                    
-                      <option>12.3.2024.</option>
-                  </select>
-              </div>
-          </fieldset>
-            -->
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <!--END OF FORM-->
-      </form>
-  </div>
+    <h1 class="mt-4">Activity log</h1>
+    <p>Please input all required field below for the activity log</p>
+    <div class="container mt-5" id="blockme">
+        <form id="activityForm">
+            <input type="hidden" id="logID" name="logID">
+            <input type="hidden" id="officerID" name="officerID">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="weapon">Select Weapon:</label>
+                    <select class="form-control" id="weapon" name="weapon" form="activityForm" required>
+                        <option value="">Select Weapon</option>
+                        <option value="assault rifle">Assault Rifle</option>
+                        <option value="shotgun">Shotgun</option>
+                        <option value="sniper rifle">Sniper Rifle</option>
+                        <option value="pistol">Pistol</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="vehicle">Select Vehicle:</label>
+                    <select class="form-control" id="vehicle" name="vehicle" form="activityForm" required>
+                        <option value="">Select Vehicle</option>
+                        <option value="Golf 7">Golf 7</option>
+                        <option value="Octavia">Skoda Octavia</option>
+                        <option value="Toyota Rav 4">Toyota Rav 4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="shift">Select Shift:</label>
+                <select class="form-control" id="shift" name="shift" form="activityForm" required>
+                    <option value="">Select Shift</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Night">Night</option>
+                </select>
+            </div>
+            <input type="hidden" id="date" name="date">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </div>
 
 <script src="../../PoliceWebSystem-OrhanHuseinbegovic/js/activitylogofficer.js"></script>

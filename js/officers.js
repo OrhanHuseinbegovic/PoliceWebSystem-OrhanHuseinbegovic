@@ -2,7 +2,7 @@ var OfficerService = {
     reload_officers_datatable: function() {
         Utils.get_datatable(
             "officersTable",
-            Constants.API_BASE_URL + "get_officers.php",
+            Constants.API_BASE_URL + "officers", //get_officers.php
             [
                 {data: "officerID"},
                 {data: "personalID"},
@@ -12,13 +12,25 @@ var OfficerService = {
                 {data: "email"},
                 {data: "phone"},
                 {data: "department"},
+                {
+                    data: "status",
+                    render: function(data) {
+                        return data === "onhold" ? "On hold" : "Accepted";
+                    }
+                },
+                {
+                    data: "isAdmin",
+                    render: function(data) {
+                        return data === 1 ? "YES" : "NO";
+                    }
+                },
                 {data: "action"}
             ]
         );
     },
     open_edit_officer_modal: function(officerID){
         RestClient.get(
-            'get_officer.php?officerID=' + officerID,
+            'officers/' + officerID,
             function(data){
                 $('#editOfficerModal').modal('toggle');
                 $("#editOfficerForm input[name='officerID']").val(data.officerID);
@@ -28,14 +40,16 @@ var OfficerService = {
                 $("#editOfficerForm input[name='dateOfBirth']").val(data.dateOfBirth);
                 $("#editOfficerForm input[name='email']").val(data.email);
                 $("#editOfficerForm input[name='phone']").val(data.phone);
-                $("#editOfficerForm input[name='department']").val(data.department);
+                $("#editOfficerForm select[name='department']").val(data.department);
+                $("#editOfficerForm select[name='isAdmin']").val(data.isAdmin);
+                $("#editOfficerForm select[name='status']").val(data.status);
             }
         )
     },
     delete_officer: function(officerID) {
         if(confirm("Do you want to delete officer with ID: " + officerID + "?") == true) {
             RestClient.delete(
-                "delete_officer.php?officerID=" + officerID,
+                "officers/delete/" + officerID,
                 {},
                 function(data){
                     toastr.success("You have successfully deleted the officer.");
@@ -50,8 +64,15 @@ OfficerService.reload_officers_datatable();
 
 FormValidation.validate("#addOfficerForm", {}, function (data) {
     Utils.block_ui("#addOfficerForm");
+
+    var isAdmin = parseInt(data.isAdmin);
+    
+    
+    // Add the checkbox value to the data object
+    data['isAdmin'] = isAdmin;
+
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "add_officer.php", data)
+    $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
       .done(function (data) {
         $("#addOfficerModal").modal("toggle");
         toastr.success("You have successfully added the officer.");
@@ -69,8 +90,12 @@ FormValidation.validate("#addOfficerForm", {}, function (data) {
 
 FormValidation.validate("#editOfficerForm", {}, function (data) {
     Utils.block_ui("#editOfficerForm");
+
+    // Convert isAdmin value to integer
+    data.isAdmin = parseInt(data.isAdmin);
+
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "add_officer.php", data)
+    $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
       .done(function (data) {
         $("#editOfficerModal").modal("toggle");
         toastr.success("You have successfully edited the officer.");

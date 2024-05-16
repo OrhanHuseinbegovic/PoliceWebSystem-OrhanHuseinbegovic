@@ -1,3 +1,8 @@
+if(Utils.get_from_local_storage("user")){
+    window.location = "index.html";
+}
+
+
 $(document).ready(function() {
     $("#loginForm").validate({
         rules: {
@@ -23,11 +28,29 @@ $(document).ready(function() {
             }
         },
         submitHandler: function(form, event) {
-            event.preventDefault();
-            blockUi("#loginForm"); 
+            event.preventDefault(); 
             let data = serializeForm(form);
-            console.log("THIS IS DATA: "+JSON.stringify(data));
+            //console.log("THIS IS DATA: "+JSON.stringify(data));
 
+            Utils.block_ui("#loginFormContainer");
+
+
+            RestClient.post(
+                'auth/login',
+                data,
+                function(response){
+                    Utils.unblock_ui("#loginFormContainer");
+                    Utils.set_to_local_storage("user", response);
+                    console.log("RESPONSE IS: ", response);
+                    window.location = "index.html"
+                },
+                function(error){
+                    Utils.unblock_ui("#loginFormContainer");
+                    toastr.error(error.responseText);
+                }
+            )
+
+            /*
             //Fetching data from json file and checking if the user exists
             $.get("../PoliceWebSystem-OrhanHuseinbegovic/json/users.json", function(users) {
                 let userExists = false;
@@ -63,10 +86,12 @@ $(document).ready(function() {
             $("#loginForm")[0].reset();
             unblockUi("#loginForm");
             console.log("Form submitted");
+            */
         }
     });
 });
 
+/*
 blockUi = (element) => {
     $(element).block({
       message: '<div class="spinner-border text-primary" role="status"></div>',
@@ -85,13 +110,7 @@ unblockUi = (element) => {
     $(element).unblock({});
 };  
 
-serializeForm = (form) => {
-    let jsonResul = {};
-    $.each($(form).serializeArray(), function () {
-        jsonResul[this.name] = this.value;    
-    });
-    return jsonResul;
-}
+
 
 
 getUsers = () => {
@@ -102,3 +121,12 @@ getUsers = () => {
 };
 
 getUsers();
+*/
+
+serializeForm = (form) => {
+    let jsonResul = {};
+    $.each($(form).serializeArray(), function () {
+        jsonResul[this.name] = this.value;    
+    });
+    return jsonResul;
+}

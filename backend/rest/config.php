@@ -13,3 +13,7 @@ define('DB_PASSWORD', 'Orhanorhan22');
 define('DB_HOST', 'localhost');
 
 
+//JWT SECRET    
+define('JWT_SECRET', '7b:Y:56QiiHBv7gZ8tWK(P2XGYw1;1');
+
+

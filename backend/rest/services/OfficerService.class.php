@@ -11,6 +11,7 @@ class OfficerService{
     }
 
     public function add_officer($officer){
+        $officer['password']=password_hash($officer['password'], PASSWORD_BCRYPT);
         return $this->officer_dao->add_officer($officer);
     }
 
@@ -37,5 +38,9 @@ class OfficerService{
         unset($officer['officerID']);
         
         $this->officer_dao->edit_officer($officerID, $officer);
+    }
+
+    public function get_all_officers(){
+        return $this->officer_dao->get_all_officers();
     }
 }

@@ -39,4 +39,8 @@ class EquipmentService{
         
         $this->equipment_dao->edit_equipment($logID, $equipment);
     }
+
+    public function get_all_equipment(){
+        return $this->equipment_dao->get_all_equipment();
+    }
 }

@@ -38,4 +38,8 @@ class IncidentService{
         
         $this->incident_dao->edit_incident($incidentID, $incident);
     }
+
+    public function get_all_incidents(){
+        return $this->incident_dao->get_all_incidents();
+    }
 }

@@ -62,6 +62,12 @@ class IncidentDao extends BaseDao{
         ]);
         
     }
+
+    public function get_all_incidents(){
+        $query = "SELECT *
+                  FROM incidents;";
+        return $this->query($query, []);
+    }
 }
 
 

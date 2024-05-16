@@ -5,7 +5,7 @@
 // Get the id from local storage
 let id = localStorage.getItem("id");
 
-// Fetch the users JSON
+/*
 $.getJSON('../PoliceWebSystem-OrhanHuseinbegovic/json/officers.json', function(users) {
     // Find the user with the matching OfficerID
     let user = users.find(user => user.OfficerID === id);
@@ -31,4 +31,19 @@ $.getJSON('../PoliceWebSystem-OrhanHuseinbegovic/json/officers.json', function(u
         );
     }
 });
+*/
+
+// Assuming user object contains all necessary details
+const user = JSON.parse(localStorage.getItem('user'));
+
+// Display the user details on the profile page
+$("#namesurname").html(user.name + " " + user.surname);
+$("#email").text(user.email);
+$("#phone").text(user.phone);
+$("#department").text(user.department);
+$("#contact").html(
+    '<a href="mailto:' + user.email + '">' + user.email + '</a>' + '<br/>' + 
+    '<a href="tel:' + user.phone + '">' + user.phone + '</a>' + '<br/>' +
+    '<a href="">' + ("@"+user.name.toLowerCase() + user.surname.toLowerCase()) + '</a>'
+);
 

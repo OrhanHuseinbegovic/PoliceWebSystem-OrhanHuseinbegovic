@@ -7,6 +7,12 @@ const Utils = {
       app.run();
     },
     */
+    set_to_local_storage: function (key, value) {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    },
+    get_from_local_storage: function (key) {
+      return JSON.parse(window.localStorage.getItem(key));
+    },
     block_ui: function (element) {
       $(element).block({
         message: '<div class="spinner-border text-primary" role="status"></div>',
@@ -64,6 +70,9 @@ const Utils = {
         ajax: {
           url: url,
           type: "GET",
+          headers: {
+            "Authentication": Utils.get_from_local_storage("user").token
+          }
         },
         lengthMenu: [
           [5, 10, 15, 50, 100, 200, 500, 5000],
@@ -78,4 +87,4 @@ const Utils = {
         },
       });
     },
-  };
+};

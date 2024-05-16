@@ -8,6 +8,7 @@ class OfficerDao extends BaseDao{
     }
 
     public function add_officer($officer){
+        unset($officer['repeat']);
         return $this->insert("officers", $officer);
     }
 
@@ -46,15 +47,25 @@ class OfficerDao extends BaseDao{
         ]);
     }
 
+
+    //TREBA OVU EDIT FUNCKIJU URADITI DA ADMIN MOŽE DA EDITUJE STATUS OFFICERA
     public function edit_officer($officerID, $officer) {
-        $query = "UPDATE officers SET name=:name, surname=:surname, dateOfBirth=:dateOfBirth 
+        $query = "UPDATE officers SET name=:name, surname=:surname, dateOfBirth=:dateOfBirth, isAdmin=:isAdmin, status=:status
                   WHERE officerID = :officerID";
 
         $this->execute($query, [
             'name' => $officer['name'],
             'surname' => $officer['surname'],
             'dateOfBirth' => $officer['dateOfBirth'],
+            'isAdmin' => $officer['isAdmin'],
+            'status' => $officer['status'],
             'officerID' => $officerID
         ]);
+    }
+
+    public function get_all_officers(){
+        $query = "SELECT *
+                  FROM officers;";
+        return $this->query($query, []);
     }
 }
