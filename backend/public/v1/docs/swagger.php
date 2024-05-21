@@ -7,7 +7,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0
 }
 else{
     //define('BASE_URL', $_SERVER['SERVER_NAME'] . '/backend/');
-    define('BASE_URL', 'https://walrus-app-x43wn.ondigitalocean.app/policewebsystem-orhanhuseinbego2/backend/');
+    define('BASE_URL', 'https://walrus-app-x43wn.ondigitalocean.app/policewebsystem-orhanhuseinbego2/');
 }
 
 //define('BASE_URL', 'http://localhost/PoliceWebSystem-OrhanHuseinbegovic/backend/');
