@@ -2,7 +2,8 @@ var SuspectService = {
     reload_suspects_datatable: function() {
         Utils.get_datatable(
             "suspectsTable",
-            Constants.API_BASE_URL + "suspects", //get_suspects.php
+            //Constants.API_BASE_URL + "suspects", //get_suspects.php
+            Constants.get_api_base_url() + "suspects",
             [
                 
                 {data: "suspectID"},
@@ -48,7 +49,7 @@ FormValidation.validate("#addForm", {}, function (data) {
     console.log("Data from form is serialized into", data);
     //Utils.unblock_ui("#addSuspect");
     
-    $.post(Constants.API_BASE_URL + "suspects/add", data)
+    $.post(Constants.get_api_base_url() + "suspects/add", data)
       .done(function (data) {
         $("#addSuspect").modal("toggle");
         toastr.success("You have successfully added the suspect.");

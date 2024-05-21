@@ -15,7 +15,7 @@ var CaseService = {
     reload_cases_datatable: function() {
         Utils.get_datatable(
             "casesTable",
-            Constants.API_BASE_URL + "cases", //get_cases.php
+            Constants.get_api_base_url() + "cases", //get_cases.php
             [
                 { data: "caseID" },
                 { data: "date" },
@@ -55,7 +55,7 @@ CaseService.reload_cases_datatable();
 
 FormValidation.validate("#addCaseForm", {}, function (data) {
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "cases/add", data)
+    $.post(Constants.get_api_base_url() + "cases/add", data)
       .done(function (data) {
         $("#addCaseModal").modal("toggle");
         toastr.success("You have successfully added the case.");
@@ -72,7 +72,7 @@ FormValidation.validate("#addCaseForm", {}, function (data) {
 
 FormValidation.validate("#editCaseForm", {}, function (data) {
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "cases/add", data)
+    $.post(Constants.get_api_base_url() + "cases/add", data)
       .done(function (data) {
         $("#editCaseModal").modal("toggle");
         toastr.success("You have successfully edited the case.");
