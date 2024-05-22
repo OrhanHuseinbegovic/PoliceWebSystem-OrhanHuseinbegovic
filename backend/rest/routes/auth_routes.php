@@ -96,9 +96,9 @@ Flight::group('/auth', function(){
 
     Flight::route('POST /logout', function(){
         try{
-            $token = Flight::request()->getHeader('Authentication');
+            $token = Flight::request()->getHeader('Authorization');
             if(!$token)
-                Flight::halt(401, "Missing authentication header");
+                Flight::halt(401, "Missing Authorization header");
 
             $decoded_token = JWT::decode($token, new Key(Config::JWT_SECRET(), 'HS256'));
 
