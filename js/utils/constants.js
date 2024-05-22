@@ -6,7 +6,7 @@ var Constants = {
             return 'http://localhost/PoliceWebSystem-OrhanHuseinbegovic/backend/';
         }
         else{
-            return 'https://walrus-app-x43wn.ondigitalocean.app/';
+            return 'https://walrus-app-x43wn.ondigitalocean.app/policewebsystem-orhanhuseinbego2/';
         }
     }
 };
