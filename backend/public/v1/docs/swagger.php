@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../../../vendor/autoload.php';
 
-define('BASE_URL', 'https://walrus-app-x43wn.ondigitalocean.app/backend/');
+define('BASE_URL', 'https://walrus-app-x43wn.ondigitalocean.app/policewebsystem-orhanhuseinbego2/backend/');
 
 //define('BASE_URL', 'http://localhost/PoliceWebSystem-OrhanHuseinbegovic/backend/');
 
