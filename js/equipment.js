@@ -2,7 +2,7 @@ var EquipmentService = {
     reload_equipment_datatable: function() {
         Utils.get_datatable(
             "equipmentTable",
-            Constants.get_api_base_url + "equipments",
+            Constants.get_api_base_url() + "equipments",
             [
                 {data: "logID"},
                 {data: "officerID"},
@@ -47,7 +47,7 @@ EquipmentService.reload_equipment_datatable();
 FormValidation.validate("#addEquipmentForm", {}, function (data) {
     Utils.block_ui("#addEquipmentForm");
     console.log("Data from form is serialized into", data);
-    $.post(Constants.get_api_base_url + "equipments/add", data)
+    $.post(Constants.get_api_base_url() + "equipments/add", data)
       .done(function (data) {
         $("#addEquipmentModal").modal("toggle");
         toastr.success("You have successfully added the equipment.");
