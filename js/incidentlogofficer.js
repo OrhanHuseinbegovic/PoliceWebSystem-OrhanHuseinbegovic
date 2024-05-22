@@ -10,7 +10,7 @@ FormValidation.validate("#incidentForm", {}, function (data) {
     data.officerID = officerID;
     data.date = date;
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "incidents/add", data)
+    $.post(Constants.get_api_base_url() + "incidents/add", data)
       .done(function (data) {
         toastr.success("You have successfully added the incident.");
       })
