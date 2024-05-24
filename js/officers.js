@@ -2,7 +2,7 @@ var OfficerService = {
     reload_officers_datatable: function() {
         Utils.get_datatable(
             "officersTable",
-            Constants.API_BASE_URL + "officers", //get_officers.php
+            Constants.get_api_base_url() + "officers", //get_officers.php
             [
                 {data: "officerID"},
                 {data: "personalID"},
@@ -72,7 +72,7 @@ FormValidation.validate("#addOfficerForm", {}, function (data) {
     data['isAdmin'] = isAdmin;
 
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
+    $.post(Constants.get_api_base_url() + "officers/add", data) //add_officer.php
       .done(function (data) {
         $("#addOfficerModal").modal("toggle");
         toastr.success("You have successfully added the officer.");
@@ -95,7 +95,7 @@ FormValidation.validate("#editOfficerForm", {}, function (data) {
     data.isAdmin = parseInt(data.isAdmin);
 
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "officers/add", data) //add_officer.php
+    $.post(Constants.get_api_base_url() + "officers/add", data) //add_officer.php
       .done(function (data) {
         $("#editOfficerModal").modal("toggle");
         toastr.success("You have successfully edited the officer.");

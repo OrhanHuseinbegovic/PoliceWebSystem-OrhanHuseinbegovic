@@ -103,7 +103,7 @@ $("#registerForm").validate({
             var email = data['email'];
         
             console.log("Data from form is serialized into", data);
-            $.post(Constants.API_BASE_URL + "officers/add", data)
+            $.post(Constants.get_api_base_url() + "officers/add", data)
                 .done(function(data){
                     $("#registerForm")[0].reset();
                     document.getElementById("confirmationModal");
@@ -214,7 +214,7 @@ FormValidation.validate("#registerForm",{}, function(data){
     var email = data['email'];
 
     console.log("Data from form is serialized into", data);
-    $.post(Constants.API_BASE_URL + "officers/add", data)
+    $.post(Constants.get_api_base_url() + "officers/add", data)
         .done(function(data){
             $("#registerForm")[0].reset();
             document.getElementById("confirmationModal");

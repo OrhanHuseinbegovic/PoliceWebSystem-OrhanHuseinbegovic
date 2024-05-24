@@ -71,6 +71,7 @@ Flight::group('/officers', function(){
 
     Flight::route('GET /', function(){
         //payload = $_REQUEST;
+        /*
         try{
             $token = Flight::request()->getHeader('Authentication');
             if(!$token)
@@ -80,6 +81,7 @@ Flight::group('/officers', function(){
         }catch(Exception $e){
             Flight::halt(401, $e->getMessage());
         }
+        */
 
         $payload = Flight::request()->query;
     
